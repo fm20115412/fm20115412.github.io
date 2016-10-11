@@ -1,0 +1,670 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="web前端必备技能,Git," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="本文是参考廖雪峰Git教程和Git使用简易指南整理的笔记。
+Git简介？Git是分布式版本控制系统，Git 最初由Linus Torvalds设计和开发为Linux内核开发管理代码。
+集中时版本控制系统与分布式版本控制系统的区别1、集中式版本控制系统，版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git&GitHub笔记">
+<meta property="og:url" content="http://fm-babybear.com/2016/10/11/Git-GitHub笔记/index.html">
+<meta property="og:site_name" content="BabyBear's Blog">
+<meta property="og:description" content="本文是参考廖雪峰Git教程和Git使用简易指南整理的笔记。
+Git简介？Git是分布式版本控制系统，Git 最初由Linus Torvalds设计和开发为Linux内核开发管理代码。
+集中时版本控制系统与分布式版本控制系统的区别1、集中式版本控制系统，版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央">
+<meta property="og:image" content="http://fm-babybear.com/image/集中式版本控制系统.png">
+<meta property="og:image" content="http://fm-babybear.com/image/分布式版本控制系统.png">
+<meta property="og:image" content="http://fm-babybear.com/image/安装1.png">
+<meta property="og:image" content="http://fm-babybear.com/image/安装2.png">
+<meta property="og:image" content="http://fm-babybear.com/image/安装3.png">
+<meta property="og:image" content="http://fm-babybear.com/image/git1.png">
+<meta property="og:image" content="http://fm-babybear.com/image/git2.png">
+<meta property="og:image" content="http://fm-babybear.com/image/git3.png">
+<meta property="og:image" content="http://fm-babybear.com/image/git4.png">
+<meta property="og:image" content="http://fm-babybear.com/image/git5.png">
+<meta property="og:image" content="http://fm-babybear.com/image/git6.png">
+<meta property="og:image" content="http://fm-babybear.com/image/image/git9.png">
+<meta property="og:image" content="http://fm-babybear.com/image/git7.png">
+<meta property="og:image" content="http://fm-babybear.com/image/git8.png">
+<meta property="og:image" content="http://fm-babybear.com/image/git10.png">
+<meta property="og:image" content="http://fm-babybear.com/image/git11.png">
+<meta property="og:image" content="http://fm-babybear.com/image/git12.png">
+<meta property="og:image" content="http://fm-babybear.com/./git13.png">
+<meta property="og:image" content="http://fm-babybear.com/image/git14.png">
+<meta property="og:updated_time" content="2016-10-11T10:14:30.370Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git&GitHub笔记">
+<meta name="twitter:description" content="本文是参考廖雪峰Git教程和Git使用简易指南整理的笔记。
+Git简介？Git是分布式版本控制系统，Git 最初由Linus Torvalds设计和开发为Linux内核开发管理代码。
+集中时版本控制系统与分布式版本控制系统的区别1、集中式版本控制系统，版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央">
+<meta name="twitter:image" content="http://fm-babybear.com/image/集中式版本控制系统.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://fm-babybear.com/2016/10/11/Git-GitHub笔记/"/>
+
+  <title> Git&GitHub笔记 | BabyBear's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">BabyBear's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">walk step by step</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Git&GitHub笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-11T18:10:34+08:00" content="2016-10-11">
+              2016-10-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/web前端必备技能/" itemprop="url" rel="index">
+                    <span itemprop="name">web前端必备技能</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/11/Git-GitHub笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/11/Git-GitHub笔记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文是参考<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰Git教程</a>和<a href="http://www.bootcss.com/p/git-guide/" target="_blank" rel="external">Git使用简易指南</a>整理的笔记。</p>
+<h2 id="Git简介？"><a href="#Git简介？" class="headerlink" title="Git简介？"></a>Git简介？</h2><p>Git是分布式版本控制系统，Git 最初由Linus Torvalds设计和开发为Linux内核开发管理代码。</p>
+<h3 id="集中时版本控制系统与分布式版本控制系统的区别"><a href="#集中时版本控制系统与分布式版本控制系统的区别" class="headerlink" title="集中时版本控制系统与分布式版本控制系统的区别"></a>集中时版本控制系统与分布式版本控制系统的区别</h3><p>1、集中式版本控制系统，版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器。中央服务器就好比是一个图书馆，你要改一本书，必须先从图书馆借出来，然后回到家自己改，改完了，再放回图书馆。例如SVN<br><img src="/image/集中式版本控制系统.png" alt="Alt text"><br>2、分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。在实际使用分布式版本控制系统的时候，其实很少在两人之间的电脑上推送版本库的修改，因为可能你们俩不在一个局域网内，两台电脑互相访问不了，也可能今天你的同事病了，他的电脑压根没有开机。因此，分布式版本控制系统通常也有一台充当“中央服务器”的电脑，但这个服务器的作用仅仅是用来方便“交换”大家的修改，没有它大家也一样干活，只是交换修改不方便而已。例如Git<br><img src="/image/分布式版本控制系统.png" alt="Alt text"></p>
+<h2 id="Git安装"><a href="#Git安装" class="headerlink" title="Git安装"></a>Git安装</h2><h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p><a href="https://git-for-windows.github.io/" target="_blank" rel="external">Git for windows 下载地址</a></p>
+<h3 id="安装说明"><a href="#安装说明" class="headerlink" title="安装说明"></a>安装说明</h3><p><img src="/image/安装1.png" alt="Alt text"><br>1、选择第三个表明可以在Windows命令行使用Git命令<br><img src="/image/安装2.png" alt="Alt text"><br>2、以Unix风格提交换行符。<br>换行符：<br>Windows:  \r\n 回车换行<br>Linux：\n<br>Mac:：\r<br><img src="/image/安装3.png" alt="Alt text"><br>3、使用MinTTY风格命令行窗口<br>4、配置<br><code>$ git config --global user.name &quot;Your Name&quot;
+$ git config --global user.email &quot;email@example.com&quot;</code></p>
+<h3 id="创建仓库（Repository）"><a href="#创建仓库（Repository）" class="headerlink" title="创建仓库（Repository）"></a>创建仓库（Repository）</h3><h4 id="将本地仓库部署到GitHub上"><a href="#将本地仓库部署到GitHub上" class="headerlink" title="将本地仓库部署到GitHub上"></a>将本地仓库部署到GitHub上</h4><p>1、选择一个合适的地方，新建一个空目录，<strong>确保目录不含中文</strong>。<br><img src="/image/git1.png" alt="Alt text"><br>2、通过git init命令把这个目录变成Git可以管理的仓库，此时目录下会多出一个.git目录，<br><img src="/image/git2.png" alt="Alt text"><br>3、向版本库添加文件<br><img src="/image/git3.png" alt="Alt text"><br>4、将改动添加到缓存区<br><img src="/image/git4.png" alt="Alt text"><br>5、将改动添加到版本库<br><img src="/image/git5.png" alt="Alt text"><br>6、 要随时掌握工作区的状态，使用<code>git status</code>命令。如果<code>git status</code>告诉你有文件被修改过，用<code>git diff</code>可以查看修改内容。<br><img src="/image/git6.png" alt="Alt text"><br>7、在GitHub上新建一个远程仓库，并关联这个远程仓库<br><img src="/image/image/git9.png" alt="Alt text"><br><img src="/image/git7.png" alt="Alt text"><br>8、关联后，使用命令<code>git push -u origin master</code>第一次推送master分支的所有内容。由于远程库是空的，我们第一次推送master分支时，加上了<code>-u</code>参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。<br><img src="/image/git8.png" alt="Alt text"><br>此后，每次本地提交后，只要有必要，就可以使用命令<code>git push origin master</code>推送最新修改。</p>
+<h4 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h4><p>上个步骤是先有本地库，后有远程库的时候，如何关联远程库。现在，假设我们从零开发，那么最好的方式是先创建远程库，然后，从远程库克隆。<br>1、新建远程仓库<br><img src="/image/git10.png" alt="Alt text"><br>2、将远程库克隆到本地<br><img src="/image/git11.png" alt="Alt text"><br>这里GitHub给出的地址有两个，实际上，Git支持多种协议，默认的git://使用ssh，但也可以使用https等其他协议。使用https除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令支持多种协议。<br><img src="/image/git12.png" alt="Alt text">  <img src="./git13.png" alt="Alt text"></p>
+<h4 id="工作区和缓存区"><a href="#工作区和缓存区" class="headerlink" title="工作区和缓存区"></a>工作区和缓存区</h4><p>Git和其他版本控制系统如SVN的一个不同之处就是有暂存区的概念。<br><strong>工作区（Working Directory）</strong>：就是你在电脑里能看到的目录，比如我的learngit文件夹就是一个工作区。<br><strong>版本库（Repository）</strong>：工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。<br><img src="/image/git14.png" alt="Alt text"><br>前面讲了我们把文件往Git版本库里添加的时候，是分两步执行的：<br>1、第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；<br>2、第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。<br>因为我们创建Git版本库时，Git自动为我们创建了唯一一个master分支，所以，现在，git commit就是往master分支上提交更改。你可以简单理解为，需要提交的文件修改通通放到暂存区，然后，一次性提交暂存区的所有修改。</p>
+<p><strong>未完待续！！！</strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/web前端必备技能/" rel="tag">#web前端必备技能</a>
+          
+            <a href="/tags/Git/" rel="tag">#Git</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/04/导航菜单的制作/" rel="next" title="导航菜单的制作">
+                <i class="fa fa-chevron-left"></i> 导航菜单的制作
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/11/Git-GitHub笔记/"
+           data-title="Git&GitHub笔记" data-url="http://fm-babybear.com/2016/10/11/Git-GitHub笔记/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="BabyBear" />
+          <p class="site-author-name" itemprop="name">BabyBear</p>
+          <p class="site-description motion-element" itemprop="description">学习总结 生活分享</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git简介？"><span class="nav-number">1.</span> <span class="nav-text">Git简介？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集中时版本控制系统与分布式版本控制系统的区别"><span class="nav-number">1.1.</span> <span class="nav-text">集中时版本控制系统与分布式版本控制系统的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git安装"><span class="nav-number">2.</span> <span class="nav-text">Git安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载地址"><span class="nav-number">2.1.</span> <span class="nav-text">下载地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装说明"><span class="nav-number">2.2.</span> <span class="nav-text">安装说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建仓库（Repository）"><span class="nav-number">2.3.</span> <span class="nav-text">创建仓库（Repository）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#将本地仓库部署到GitHub上"><span class="nav-number">2.3.1.</span> <span class="nav-text">将本地仓库部署到GitHub上</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从远程库克隆"><span class="nav-number">2.3.2.</span> <span class="nav-text">从远程库克隆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工作区和缓存区"><span class="nav-number">2.3.3.</span> <span class="nav-text">工作区和缓存区</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BabyBear</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"fm-babybear"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
