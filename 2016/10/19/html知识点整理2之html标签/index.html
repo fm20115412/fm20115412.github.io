@@ -1,0 +1,751 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="web前端,html,css," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="HTML&amp;amp;css知识点整理2
+html常见标签换行1&amp;lt;br /&amp;gt;    //不要写成&amp;lt;br&amp;gt;
+分隔横线1&amp;lt;hr /&amp;gt;   //不要写成&amp;lt;hr&amp;gt;
+标题123456&amp;lt;h1&amp;gt;标题1&amp;lt;/h1&amp;gt;       //最大&amp;lt;h2&amp;gt;标题2&amp;lt;/h2&amp;gt;&amp;lt;h3&amp;gt;标题3&amp;lt;/h3&amp;gt;&amp;lt;h4&amp;gt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html&css知识点整理2---html标签">
+<meta property="og:url" content="http://fm-babybear.com/2016/10/19/html知识点整理2之html标签/index.html">
+<meta property="og:site_name" content="BabyBear's Blog">
+<meta property="og:description" content="HTML&amp;amp;css知识点整理2
+html常见标签换行1&amp;lt;br /&amp;gt;    //不要写成&amp;lt;br&amp;gt;
+分隔横线1&amp;lt;hr /&amp;gt;   //不要写成&amp;lt;hr&amp;gt;
+标题123456&amp;lt;h1&amp;gt;标题1&amp;lt;/h1&amp;gt;       //最大&amp;lt;h2&amp;gt;标题2&amp;lt;/h2&amp;gt;&amp;lt;h3&amp;gt;标题3&amp;lt;/h3&amp;gt;&amp;lt;h4&amp;gt">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理2/ul.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理2/ol.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理2/dl.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理2/嵌套.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理2/table.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理2/form1.png">
+<meta property="og:updated_time" content="2016-10-19T05:30:34.246Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html&css知识点整理2---html标签">
+<meta name="twitter:description" content="HTML&amp;amp;css知识点整理2
+html常见标签换行1&amp;lt;br /&amp;gt;    //不要写成&amp;lt;br&amp;gt;
+分隔横线1&amp;lt;hr /&amp;gt;   //不要写成&amp;lt;hr&amp;gt;
+标题123456&amp;lt;h1&amp;gt;标题1&amp;lt;/h1&amp;gt;       //最大&amp;lt;h2&amp;gt;标题2&amp;lt;/h2&amp;gt;&amp;lt;h3&amp;gt;标题3&amp;lt;/h3&amp;gt;&amp;lt;h4&amp;gt">
+<meta name="twitter:image" content="http://fm-babybear.com/image/html&css知识点整理2/ul.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://fm-babybear.com/2016/10/19/html知识点整理2之html标签/"/>
+
+  <title> html&css知识点整理2---html标签 | BabyBear's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">BabyBear's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">walk step by step</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                html&css知识点整理2---html标签
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-19T13:14:33+08:00" content="2016-10-19">
+              2016-10-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/html-css知识点整理/" itemprop="url" rel="index">
+                    <span itemprop="name">html&css知识点整理</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/19/html知识点整理2之html标签/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/19/html知识点整理2之html标签/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>HTML&amp;css知识点整理2</p>
+<h3 id="html常见标签"><a href="#html常见标签" class="headerlink" title="html常见标签"></a>html常见标签</h3><h4 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;br /&gt;    //不要写成&lt;br&gt;</div></pre></td></tr></table></figure>
+<h4 id="分隔横线"><a href="#分隔横线" class="headerlink" title="分隔横线"></a>分隔横线</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;hr /&gt;   //不要写成&lt;hr&gt;</div></pre></td></tr></table></figure>
+<h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;h1&gt;标题1&lt;/h1&gt;       //最大</div><div class="line">&lt;h2&gt;标题2&lt;/h2&gt;</div><div class="line">&lt;h3&gt;标题3&lt;/h3&gt;</div><div class="line">&lt;h4&gt;标题4&lt;/h4&gt;</div><div class="line">&lt;h5&gt;标题5&lt;/h5&gt;</div><div class="line">&lt;h6&gt;标题6&lt;/h6&gt;      //最小</div></pre></td></tr></table></figure>
+<h4 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;这是一个段落&lt;/p&gt;</div></pre></td></tr></table></figure>
+<h4 id="div块级元素"><a href="#div块级元素" class="headerlink" title="div块级元素"></a>div块级元素</h4><p>html里使用最多的标签，用于页面结构划分，页面分区,比如一个典型的网页分为头部，内容，尾部；内容可分为侧边栏和主体内容，html写法是先把页面分大区块，每一大块再分成小块，再细化…<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">    &lt;div id=&quot;header&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;div id=&quot;content&quot;&gt;</div><div class="line">        &lt;div class=&quot;sidebar&quot;&gt;&lt;/div&gt;</div><div class="line">        &lt;div class=&quot;main&quot;&gt;&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div id=&quot;footer&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="span行内元素"><a href="#span行内元素" class="headerlink" title="span行内元素"></a>span行内元素</h4><p>使用span来组合行内元素，以便设置样式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;span&gt;这是行内元素&lt;/span&gt;</div></pre></td></tr></table></figure></p>
+<h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img src=&quot;a.png&quot; alt=&quot;替换文本&quot; width=&quot;200px&quot;&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>src：图片地址</li>
+<li>alt：图片不能成功加载时显示的文本</li>
+<li><p>width/height：可以是像素值或是相对于父容器的百分比，两个属性仅设置一个，另一个值会相应等比缩放</p>
+<h4 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;http://www.baidu.com&quot;&gt;百度&lt;/a&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>href：指定链接地址</p>
+</li>
+<li>title：当鼠标放到链接时会显示title</li>
+<li>target：指定在何处打开连接文档</li>
+</ul>
+<ol>
+<li>_self： 默认，在当前选项卡打开，替换当前..</li>
+<li>_blank：新的选项卡打开</li>
+<li>_parent：在.框架中打开</li>
+<li>_top: 在最顶层打开</li>
+<li>framename</li>
+</ol>
+<p>（1）、一个未访问过的链接显示为蓝色字体并带有下划线,访问过的链接显示为紫色并带下划线,点击链接时，链接显示为红色并带下划线<br>（2）、去掉默认的下划线：<code>text-decoration: none;</code><br>（3）、跳转到锚点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;#tips&quot; target=&quot;_blank&quot;&gt;hunger&lt;/a&gt;</div><div class="line">...</div><div class="line">&lt;p id=&quot;tips&quot;&gt;点击链接跳转到这里&lt;/p&gt;</div></pre></td></tr></table></figure></p>
+<p>（4）、css伪类，顺序不要反<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a:link &#123;color:#FF0000;&#125; /* 未访问的链接 */</div><div class="line">a:visited &#123;color:#00FF00;&#125; /* 已访问的链接 */</div><div class="line">a:hover &#123;color:#FF00FF;&#125; /* 鼠标划过链接 */</div><div class="line">a:active &#123;color:#0000FF;&#125; /* 已选中的链接 */</div></pre></td></tr></table></figure></p>
+<p>（5）、直接在 a 链接父容器添加颜色，不能继承到当前a链接上，这是因为继承没有特殊性，所以会被浏览器设置的默认样式覆盖。</p>
+<h4 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h4><h5 id="语义区别"><a href="#语义区别" class="headerlink" title="语义区别"></a>语义区别</h5><p><strong>无序列表</strong>：ul用于列表项目没有逻辑顺序，即内容没有先后之分，此列项目使用粗体圆点（典型的小黑圆圈）进行标记。<br><strong>有序列表</strong>：ol用于列表项目有一定的先后顺序，默认使用数字进行标记。<br><strong>定义列表</strong>：dl用于需要对一些术语进行解释描述的情况下<br>清除列表默认样式：<code>list-style:none;</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">	&lt;li&gt;苹果&lt;/li&gt;</div><div class="line">	&lt;li&gt;香蕉&lt;/li&gt;</div><div class="line">	&lt;li&gt;梨&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">&lt;ol&gt;</div><div class="line">	&lt;li&gt;苹果&lt;/li&gt;</div><div class="line">	&lt;li&gt;香蕉&lt;/li&gt;</div><div class="line">	&lt;li&gt;梨&lt;/li&gt;</div><div class="line">&lt;/ol&gt;</div><div class="line">&lt;dl&gt;</div><div class="line">	&lt;dt&gt;水果&lt;/dt&gt;</div><div class="line">	&lt;dd&gt;苹果&lt;/dd&gt;</div><div class="line">	&lt;dd&gt;香蕉&lt;/dd&gt;</div><div class="line">	&lt;dd&gt;梨&lt;/dd&gt;</div><div class="line">&lt;/dl&gt;</div></pre></td></tr></table></figure></p>
+<h5 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h5><p><strong>无序列表</strong>：ul可用于导航条、商品列表、新闻列表、照片列表等，广泛用于天猫、京东等页面的商品列表。<br><img src="/image/html&amp;css知识点整理2/ul.png" alt="Alt text"><br><strong>有序列表</strong>：ol可用于博客评论、排行榜等，ol的应用场景不是很多，这是因为ol能做的基本上ul都可以做，只不过ol内容在语义上有先后之分。<br><img src="/image/html&amp;css知识点整理2/ol.png" alt="Alt text"><br><strong>定义列表</strong>：dl一般用于网站底部的信息，适合于一堆内容描述一个内容。<br><img src="/image/html&amp;css知识点整理2/dl.png" alt="Alt text"></p>
+<h5 id="嵌套使用"><a href="#嵌套使用" class="headerlink" title="嵌套使用"></a>嵌套使用</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">&lt;ol&gt;</div><div class="line">    &lt;li&gt;第一名</div><div class="line">       &lt;dl&gt;</div><div class="line">          &lt;dt&gt;姓名：张三&lt;/dt&gt;</div><div class="line">          &lt;dd&gt;班级：二班&lt;/dd&gt;</div><div class="line">          &lt;dd&gt;性别：男&lt;/dd&gt;</div><div class="line">          &lt;dd&gt;奖品：&lt;/dd&gt;</div><div class="line">          &lt;dd&gt;</div><div class="line">            &lt;ul&gt;</div><div class="line">                &lt;li&gt;奖励自行车一辆&lt;/li&gt;</div><div class="line">                &lt;li&gt;奖励Mac一台&lt;/li&gt;</div><div class="line">                &lt;li&gt;奖励人民币5000元&lt;/li&gt;</div><div class="line">            &lt;/ul&gt;</div><div class="line">          &lt;/dd&gt;</div><div class="line">       &lt;/dl&gt;</div><div class="line">    &lt;li&gt;第二名</div><div class="line">       &lt;dl&gt;</div><div class="line">          &lt;dt&gt;姓名：李四&lt;/dt&gt;</div><div class="line">          &lt;dd&gt;班级：一班&lt;/dd&gt;</div><div class="line">          &lt;dd&gt;性别：女&lt;/dd&gt;</div><div class="line">          &lt;dd&gt;奖品：&lt;/dd&gt;</div><div class="line">          &lt;dd&gt;</div><div class="line">            &lt;ul&gt;</div><div class="line">                &lt;li&gt;奖励自行车一辆&lt;/li&gt;</div><div class="line">                &lt;li&gt;水壶一个&lt;/li&gt;</div><div class="line">            &lt;/ul&gt;</div><div class="line">          &lt;/dd&gt;</div><div class="line">       &lt;/dl&gt;</div><div class="line">    &lt;li&gt;第三名</div><div class="line">       &lt;dl&gt;</div><div class="line">          &lt;dt&gt;姓名：王麻子&lt;/dt&gt;</div><div class="line">          &lt;dd&gt;班级：四班&lt;/dd&gt;</div><div class="line">          &lt;dd&gt;性别：男&lt;/dd&gt;</div><div class="line">          &lt;dd&gt;奖品：&lt;/dd&gt;</div><div class="line">          &lt;dd&gt;</div><div class="line">            &lt;ul&gt;</div><div class="line">                &lt;li&gt;奖励自行车一辆&lt;/li&gt;</div><div class="line">                &lt;li&gt;钢笔一支&lt;/li&gt;</div><div class="line">            &lt;/ul&gt;</div><div class="line">          &lt;/dd&gt;</div><div class="line">       &lt;/dl&gt;   </div><div class="line">  &lt;/ol&gt;</div></pre></td></tr></table></figure>
+<p><img src="/image/html&amp;css知识点整理2/嵌套.png" alt="Alt text"></p>
+<h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><ul>
+<li>border-collapse：collapse ，边框为单线</li>
+<li>text-align：center 文本水平对齐</li>
+<li>width：100% 横向满屏<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">		table&#123;</div><div class="line">			width:100%;</div><div class="line">			border-collapse: collapse;</div><div class="line">		&#125;</div><div class="line">		tr:hover&#123;</div><div class="line">			background-color: #ccc;</div><div class="line">		&#125;</div><div class="line">		th,td&#123;</div><div class="line">			border:1px solid black;</div><div class="line">			text-align: center;</div><div class="line">			height:35px;</div><div class="line">		&#125;</div><div class="line">		th&#123;</div><div class="line">			background-color: #2aa;;</div><div class="line">		&#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;table&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;th&gt;姓名&lt;/th&gt;</div><div class="line">        &lt;th&gt;性别&lt;/th&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;td&gt;小明&lt;/td&gt;</div><div class="line">        &lt;td&gt;男&lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;td&gt;小花&lt;/td&gt;</div><div class="line">        &lt;td&gt;女&lt;/td&gt;</div><div class="line">    &lt;/tr&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/image/html&amp;css知识点整理2/table.png" alt="Alt text"></p>
+<h4 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;form name=&quot;myForm&quot; action=&quot;/test/6.php&quot; method=&quot;get&quot;&gt;</div><div class="line">    &lt;input name=&quot;user&quot; type=&quot;text&quot; /&gt;</div><div class="line">    &lt;input type=&quot;submit&quot; value=&quot;提交&quot; /&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>作用:用于把用户输入的数据提交到后台</li>
+<li>name: 表单提交时的名称</li>
+<li>action: 提交到的地址</li>
+<li><p>method: 提交方式，get和post，二者区别如下:<br>（1）、get提交的数据在浏览器中的url可见，而post提交的信息不可见<br>（2）、get用于少量数据的提交，比如在查询框中输入关键词来查询；而post用于提交大量数据，比如在博客系统写了一篇博客提交到后台。<br>（3）、get最多只能提交1k数据，这是因为get提交的数据会拼接在浏览器的url中，而浏览器的url是有限制的，超过的字符会被截断；而post提交的数据理论上无限制，只会受服务器的限制，比如提交的数据很大，超过了服务器允许提交的上限。<br>（4）、get提交的数据会在浏览器历史记录中，安全性不好。</p>
+<h5 id="常用表单标签："><a href="#常用表单标签：" class="headerlink" title="常用表单标签："></a>常用表单标签：</h5><p>注意点：<br>（1）、所有的input可以通过添加disabled属性来禁止用户输入<br>（2）、input都要有name属性，否则无法把数据提交给服务器</p>
+</li>
+<li><p><code>type=&quot;text&quot;</code>用于输入文本。placeholder属性（可选）展示的是输入框里的提示，maxlength（可选）限制最大输入字符数，value提交的默认值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input name=&quot;username&quot; type=&quot;text&quot; placeholder=&quot;用户名&quot; value=&quot;babybear&quot; maxlength=10&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>type=password</code>用于输入密码，输入的内容为星号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input name=&quot;pwd&quot; type=&quot;password&quot; placeholder=&quot;密码&quot; maxlength=&quot;10&quot;&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>type=&quot;radio&quot;</code>: 单选圆圈按钮。注意：name要相同才能实现单选，value要有值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;male&quot;&gt; 男</div><div class="line">&lt;input type=&quot;radio&quot; name=&quot;sez&quot; value=&quot;female&quot;&gt; 女</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>type=&quot;checkbox&quot;</code>: 复选框。加checked属性会默认选上。提交时，如果选中（如bike），则bike=on，name的值不相同。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;checkbox&quot; name=&quot;bike&quot; checked&gt; 自行车</div><div class="line">&lt;input type=&quot;checkbox&quot; name=&quot;car&quot;&gt; 汽车</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>或者可以让name为一个数组，这样就可以避免设置不同的name,此时为了增强意义，写上value。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;checkbox&quot; name=&quot;color[]&quot; value=&quot;red&quot; checked&gt; 红色</div><div class="line">&lt;input type=&quot;checkbox&quot; name=&quot;color[]&quot; &gt; 蓝色</div><div class="line">&lt;input type=&quot;checkbox&quot; name=&quot;color[]&quot; value=&quot;green&quot;&gt; 绿色</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p><code>type=&quot;hidden&quot;</code>: 隐藏域，用户看不到，用于暂存数据。或者安全性校验</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input name=&quot;url_delete&quot; type=&quot;hidden&quot; value=&quot;/delete.php&quot; /&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>type=&quot;button</code>定义按钮</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;checkbox&quot; name=&quot;sport&quot; &gt;运动</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>textarea</code>: 文本域，用于输入多行文本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;textarea name=&quot;comment&quot; placeholder=&quot;comment&quot; maxlength=&quot;100&quot;&gt;&lt;/textare&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>select</code>选择列表，selected属性会默认选中该项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;select name=&quot;city&quot;&gt;</div><div class="line">	&lt;option value=&quot;chongqing&quot;&gt;重庆&lt;/option&gt;</div><div class="line">	&lt;option value=&quot;chengdu&quot;&gt;成都&lt;/option&gt;</div><div class="line">	&lt;option value=&quot;shanghai&quot; selected&gt;上海&lt;/option&gt;</div><div class="line">&lt;/select&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">&lt;form action=&quot;xxx.php&quot; method=&quot;post&quot; name=&quot;form1&quot;&gt;</div><div class="line">    &lt;h3&gt;输入框&lt;/h3&gt;</div><div class="line">    &lt;label for=&quot;input_username&quot;&gt;用户名：&lt;/label&gt; &lt;input id=&quot;input_username&quot; name=&quot;username&quot; type=&quot;text&quot; placeholder=&quot;输入用户名&quot; /&gt;</div><div class="line">    &lt;br/&gt;</div><div class="line">    &lt;label for=&quot;input_pass&quot;&gt;密码：&lt;/label&gt; &lt;input id=&quot;input_pass&quot; name=&quot;password&quot; type=&quot;password&quot; placeholder=&quot;输入密码&quot;/&gt;</div><div class="line">    &lt;br/&gt;</div><div class="line">    &lt;h3&gt;单选框&lt;/h3&gt;</div><div class="line">     性别：</div><div class="line">    &lt;label for=&quot;female&quot;&gt;女&lt;/label&gt;&lt;input type=&quot;radio&quot; id=&quot;female&quot; name=&quot;sex&quot; value=&quot;female&quot; /&gt;</div><div class="line">    &lt;label for=&quot;male&quot;&gt;男&lt;/label&gt;&lt;input type=&quot;radio&quot; id=&quot;male&quot; name=&quot;sex&quot; value=&quot;male&quot; /</div><div class="line">    &lt;br /&gt;</div><div class="line">    &lt;h3&gt;复选框&lt;/h3&gt;</div><div class="line">     爱好：</div><div class="line">    &lt;label for=&quot;sing&quot;&gt;唱歌&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;sing&quot; name=&quot;sing&quot; value=&quot;1&quot; /&gt;      </div><div class="line">    &lt;label for=&quot;dance&quot;&gt;跳舞&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;dance&quot; name=&quot;dance&quot; value=&quot;2&quot; checked /&gt;</div><div class="line">    &lt;label for=&quot;sport&quot;&gt;运动&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;sport&quot; name=&quot;sport&quot; value=&quot;3&quot; /&gt;</div><div class="line">    &lt;label for=&quot;film&quot;&gt;电影&lt;/label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;film&quot; name=&quot;film&quot; value=&quot;4&quot; /&gt;</div><div class="line">    &lt;br/&gt;</div><div class="line">    &lt;h3&gt;隐藏域&lt;/h3&gt;</div><div class="line">    &lt;input type=&quot;hidden&quot; value=&quot;xxx&quot; /&gt;</div><div class="line">    &lt;br/&gt;</div><div class="line">    &lt;h3&gt;下拉菜单&lt;/h3&gt;</div><div class="line">    &lt;select id=&quot;input_select&quot;&gt;</div><div class="line">          &lt;option value=&quot;1&quot;&gt;1&lt;/option&gt;</div><div class="line">          &lt;option value=&quot;2&quot; selected=&quot;selected&quot;&gt;2&lt;/option&gt;</div><div class="line">          &lt;option value=&quot;3&quot;&gt;3&lt;/option&gt;</div><div class="line">          &lt;option value=&quot;4&quot;&gt;4&lt;/option&gt;</div><div class="line">    &lt;/select&gt;</div><div class="line">    &lt;br/&gt;</div><div class="line">    &lt;h3&gt;多行文本&lt;/h3&gt;</div><div class="line">    &lt;textarea cols=&quot;60&quot; rows=&quot;5&quot;&gt;123&lt;/textarea&gt;</div><div class="line">    &lt;br/&gt;</div><div class="line">    &lt;input type=&quot;button&quot; value=&quot;Buttom&quot; /&gt; &amp;nbsp;&amp;nbsp;</div><div class="line">    &lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;  &amp;nbsp;&amp;nbsp;</div><div class="line">    &lt;input type=&quot;reset&quot; value=&quot;Reset&quot; /&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+<p><img src="/image/html&amp;css知识点整理2/form1.png" alt="Alt text"></p>
+<h4 id="框架-iframe"><a href="#框架-iframe" class="headerlink" title="框架 iframe"></a>框架 iframe</h4><p>iframe用于在网页内显示网页<br>（1）、设置高度和宽度<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;iframe src=&quot;http://www.baidu.com&quot; width=&quot;200px&quot; height=&quot;300px;&quot;&gt;&lt;/iframe&gt;</div></pre></td></tr></table></figure></p>
+<p>（2）、使用 iframe 作为链接的目标，iframe 可用作链接的目标（target），链接的 target 属性必须引用 iframe 的 name 属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;iframe name=&quot;iframe_a&quot;&gt;&lt;/iframe&gt;</div><div class="line">&lt;a href=&quot;http://jd.com&quot; target=&quot;iframe_a&quot;&gt;jd&lt;/a&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="块级元素和行内元素"><a href="#块级元素和行内元素" class="headerlink" title="块级元素和行内元素"></a>块级元素和行内元素</h3><p>块级元素占用空间是一整行，行内元素占用空间是它自身的内容宽度。行内元素可以一并排显示，块级元素不能。对于块级元素，可以设置width,height,padding,margin，他们都可以生效；而行内元素无法设置width,height,左右padding、margin是有效的，会占据空间，但是上下padding、margin不占据空间，可以用line-height把它撑开。</p>
+<ul>
+<li>块级元素：div、p、h1…h6、table、tr、ul、li、dl、dt、dd、form</li>
+<li>行内元素：a、span、img、input、button、em、textarea</li>
+</ul>
+<p><code>display:block;</code>  让一个行内元变成块级元素<br><code>display:inline;</code>  让一个块级元素变成行内元素<br><code>display:inline-block;</code>让一个元素具有块级元素的特性，但是又可以并排显示。ie8以上才支持。</p>
+<h3 id="外部资源导入"><a href="#外部资源导入" class="headerlink" title="外部资源导入"></a>外部资源导入</h3><p>除了HTML本身，有时候我们需要在页面上引入外部资源，加载外部资源涉及到常见的属性</p>
+<ul>
+<li>src: we use src for replaced elements </li>
+<li>href: while href for establishing a relationship between the referencing document and an external resource.<h4 id="src-用于替换标签内容"><a href="#src-用于替换标签内容" class="headerlink" title="src 用于替换标签内容"></a>src 用于替换标签内容</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;img src=&quot;xxx.jpg&quot;/&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;xxx.js&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;iframe src=&quot;http://www.baidu.com&quot; width=&quot;200px&quot; height=&quot;300px;&quot;&gt;&lt;/iframe&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>src</strong>是source的缩写，指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求src资源时会将其指向的资源下载并应用到文档内，例如js脚本，img图片和frame等元素。当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将js脚本放在底部而不是头部。</p>
+<h4 id="href-用于标示资源和文档关系"><a href="#href-用于标示资源和文档关系" class="headerlink" title="href 用于标示资源和文档关系"></a>href 用于标示资源和文档关系</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;layout.css&quot;&gt;</div><div class="line">&lt;a href=&quot;http://www.baidu.com&quot;&gt;百度&lt;/a&gt;</div></pre></td></tr></table></figure>
+<p><strong>href</strong>是Hypertext Reference的缩写，指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，如果我们在文档中添加<code>&lt;link href=&quot;common.css&quot; rel=&quot;stylesheet&quot;/&gt;</code>那么浏览器会识别该文档为css文件，就会并行下载资源并且不会停止对当前文档的处理。这也是为什么建议使用link方式来加载css，而不是使用@import方式。</p>
+<h3 id="alt和title区别"><a href="#alt和title区别" class="headerlink" title="alt和title区别"></a>alt和title区别</h3><ul>
+<li>title 属性规定元素的额外信息，有视觉效果，当鼠标放到链接上时有文字显示。</li>
+<li>alt属性是考虑到不支持图像显示或者图像显示被关闭的浏览器的用户，以及视觉障碍的用户和使用屏幕阅读器的用户，当图片不显示的时候，图片的替换文字。</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/web前端/" rel="tag">#web前端</a>
+          
+            <a href="/tags/html/" rel="tag">#html</a>
+          
+            <a href="/tags/css/" rel="tag">#css</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/13/html知识点整理1之浏览器/" rel="next" title="html&css知识点整理1---浏览器">
+                <i class="fa fa-chevron-left"></i> html&css知识点整理1---浏览器
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/19/html知识点整理2之html标签/"
+           data-title="html&css知识点整理2---html标签" data-url="http://fm-babybear.com/2016/10/19/html知识点整理2之html标签/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="BabyBear" />
+          <p class="site-author-name" itemprop="name">BabyBear</p>
+          <p class="site-description motion-element" itemprop="description">学习总结 生活分享</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#html常见标签"><span class="nav-number">1.</span> <span class="nav-text">html常见标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#换行"><span class="nav-number">1.1.</span> <span class="nav-text">换行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分隔横线"><span class="nav-number">1.2.</span> <span class="nav-text">分隔横线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标题"><span class="nav-number">1.3.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#段落"><span class="nav-number">1.4.</span> <span class="nav-text">段落</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#div块级元素"><span class="nav-number">1.5.</span> <span class="nav-text">div块级元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#span行内元素"><span class="nav-number">1.6.</span> <span class="nav-text">span行内元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图片"><span class="nav-number">1.7.</span> <span class="nav-text">图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#超链接"><span class="nav-number">1.8.</span> <span class="nav-text">超链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表"><span class="nav-number">1.9.</span> <span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#语义区别"><span class="nav-number">1.9.1.</span> <span class="nav-text">语义区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#应用场景"><span class="nav-number">1.9.2.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#嵌套使用"><span class="nav-number">1.9.3.</span> <span class="nav-text">嵌套使用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表格"><span class="nav-number">1.10.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单"><span class="nav-number">1.11.</span> <span class="nav-text">表单</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#常用表单标签："><span class="nav-number">1.11.1.</span> <span class="nav-text">常用表单标签：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代码示例"><span class="nav-number">1.11.2.</span> <span class="nav-text">代码示例</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#框架-iframe"><span class="nav-number">1.12.</span> <span class="nav-text">框架 iframe</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块级元素和行内元素"><span class="nav-number">2.</span> <span class="nav-text">块级元素和行内元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外部资源导入"><span class="nav-number">3.</span> <span class="nav-text">外部资源导入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#src-用于替换标签内容"><span class="nav-number">3.1.</span> <span class="nav-text">src 用于替换标签内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#href-用于标示资源和文档关系"><span class="nav-number">3.2.</span> <span class="nav-text">href 用于标示资源和文档关系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#alt和title区别"><span class="nav-number">4.</span> <span class="nav-text">alt和title区别</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BabyBear</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"fm-babybear"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
