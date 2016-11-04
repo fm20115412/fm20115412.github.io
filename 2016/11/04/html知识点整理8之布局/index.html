@@ -1,0 +1,665 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="web前端,html,css," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="所有的css布局技术的根本都是3个基本概念:1、position2、float3、margin操控
+一栏布局1234567891011121314151617181920212223242526272829303132333435363738394041424344&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;	&amp;lt;meta ch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html&css知识点整理8---css布局">
+<meta property="og:url" content="http://fm-babybear.com/2016/11/04/html知识点整理8之布局/index.html">
+<meta property="og:site_name" content="BabyBear's Blog">
+<meta property="og:description" content="所有的css布局技术的根本都是3个基本概念:1、position2、float3、margin操控
+一栏布局1234567891011121314151617181920212223242526272829303132333435363738394041424344&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;	&amp;lt;meta ch">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理8/一栏布局.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理8/二栏布局2.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理8/二栏布局缺陷.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理8/贴吧.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理8/二栏布局3.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理8/圣杯布局.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理8/圣杯布局1.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理8/圣杯布局2.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理8/圣杯布局3.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理8/圣杯布局4.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理8/双飞翼布局.png">
+<meta property="og:updated_time" content="2016-11-04T03:42:00.014Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html&css知识点整理8---css布局">
+<meta name="twitter:description" content="所有的css布局技术的根本都是3个基本概念:1、position2、float3、margin操控
+一栏布局1234567891011121314151617181920212223242526272829303132333435363738394041424344&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;	&amp;lt;meta ch">
+<meta name="twitter:image" content="http://fm-babybear.com/image/html&css知识点整理8/一栏布局.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://fm-babybear.com/2016/11/04/html知识点整理8之布局/"/>
+
+  <title> html&css知识点整理8---css布局 | BabyBear's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">BabyBear's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">walk step by step</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                html&css知识点整理8---css布局
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-04T11:37:20+08:00" content="2016-11-04">
+              2016-11-04
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/html-css知识点整理/" itemprop="url" rel="index">
+                    <span itemprop="name">html&css知识点整理</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/04/html知识点整理8之布局/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/04/html知识点整理8之布局/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>所有的css布局技术的根本都是3个基本概念:<br>1、position<br>2、float<br>3、margin<br>操控</p>
+<h3 id="一栏布局"><a href="#一栏布局" class="headerlink" title="一栏布局"></a>一栏布局</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>一栏布局<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">		<span class="selector-tag">html</span>,<span class="selector-tag">body</span>,<span class="selector-tag">div</span>&#123;</div><div class="line">			<span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">			<span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#header</span>&#123;</div><div class="line">			<span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">			<span class="attribute">background</span>: lightblue;</div><div class="line">			<span class="attribute">margin-top</span>: <span class="number">10px</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#header</span> <span class="selector-class">.container</span>,</div><div class="line">		<span class="selector-id">#footer</span> <span class="selector-class">.container</span>&#123;</div><div class="line">			<span class="attribute">width</span>:<span class="number">1000px</span>;</div><div class="line">			<span class="attribute">margin</span>:<span class="number">0</span> auto;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#content</span> <span class="selector-class">.container</span>&#123;</div><div class="line">			<span class="attribute">width</span>:<span class="number">1000px</span>;</div><div class="line">			<span class="attribute">margin</span>:<span class="number">0</span> auto;</div><div class="line">			<span class="attribute">background</span>: <span class="number">#eee</span>;</div><div class="line">			<span class="attribute">min-height</span>:<span class="number">600px</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#footer</span>&#123;</div><div class="line">			<span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">			<span class="attribute">background</span>: lightblue;</div><div class="line">		&#125;</div><div class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"header"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span>我是header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span>我是main<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"footer"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span>我是footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><img src="/image/html&amp;css知识点整理8/一栏布局.png" alt="Alt text"><br><strong>知识点：</strong><br>1、想让一个div在屏幕上水平居中，只需要定义容器的宽度，然后将水平外边距设置为auto<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.wraper</span>&#123;</div><div class="line"><span class="attribute">width</span>:<span class="number">1000px</span>;</div><div class="line"><span class="attribute">margin</span>:<span class="number">0</span> auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2、对于header、footer如果想让背景色水平铺满，而内容与content一样宽度，且居中，则只需给它设置一个子容器，给父元素设置背景和高度，子元素设置宽度与水平居中。</p>
+<h3 id="两栏布局"><a href="#两栏布局" class="headerlink" title="两栏布局"></a>两栏布局</h3><h4 id="通过position-absolute来进行两栏布局"><a href="#通过position-absolute来进行两栏布局" class="headerlink" title="通过position:absolute来进行两栏布局"></a>通过position:absolute来进行两栏布局</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>通过定位来进行两栏布局<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">		<span class="selector-tag">html</span>,<span class="selector-tag">body</span>,<span class="selector-tag">div</span>&#123;</div><div class="line">			<span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">			<span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-tag">body</span>&#123;</div><div class="line">			<span class="attribute">margin</span>: <span class="number">5px</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#header</span>&#123;</div><div class="line">			<span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">			<span class="attribute">background</span>: lightblue;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#header</span> <span class="selector-class">.container</span>,</div><div class="line">		<span class="selector-id">#footer</span> <span class="selector-class">.container</span>&#123;</div><div class="line">			<span class="attribute">width</span>:<span class="number">1000px</span>;</div><div class="line">			<span class="attribute">margin</span>:<span class="number">0</span> auto;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#content</span>&#123;</div><div class="line">			<span class="attribute">position</span>: relative;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#content</span> <span class="selector-class">.aside</span>&#123;</div><div class="line">			<span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">			<span class="attribute">height</span>: <span class="number">400px</span>;</div><div class="line">			<span class="attribute">background</span>: lightsalmon;</div><div class="line">			<span class="attribute">position</span>: absolute;</div><div class="line">			<span class="attribute">top</span>:<span class="number">0</span>;</div><div class="line">			<span class="attribute">left</span>:<span class="number">0</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#content</span> <span class="selector-class">.main</span>&#123;</div><div class="line">			<span class="attribute">min-height</span>: <span class="number">600px</span>;</div><div class="line">			<span class="attribute">margin-left</span>: <span class="number">210px</span>;</div><div class="line">			<span class="attribute">background</span>: <span class="number">#eee</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#footer</span>&#123;</div><div class="line">			<span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">			<span class="attribute">background</span>: lightblue;</div><div class="line">		&#125;</div><div class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"header"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span>我是header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aside"</span>&gt;</span>我是aside<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span>我是main<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"footer"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span>我是footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><img src="/image/html&amp;css知识点整理8/二栏布局2.png" alt="Alt text"><br><strong>知识点：</strong><br>1、通过让aside绝对定位，给main设置margin-left来实现这种布局。<br><strong>缺陷：</strong><br>由于aside绝对定位，故而脱离文档流，当aside的高度小于main时，footer会上移。<br><img src="/image/html&amp;css知识点整理8/二栏布局缺陷.png" alt="Alt text"><br>因此这种布局只适用于事先知道aside高度会低于main,如贴吧评论框里的头像，因为它的高度固定，一般会低于评论内容的高度。<br><img src="/image/html&amp;css知识点整理8/贴吧.png" alt="Alt text"></p>
+<h4 id="通过float来进行两栏布局"><a href="#通过float来进行两栏布局" class="headerlink" title="通过float来进行两栏布局"></a>通过float来进行两栏布局</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>通过定位来进行两栏布局<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">		<span class="selector-tag">html</span>,<span class="selector-tag">body</span>,<span class="selector-tag">div</span>&#123;</div><div class="line">			<span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">			<span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-tag">body</span>&#123;</div><div class="line">			<span class="attribute">margin</span>: <span class="number">5px</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#header</span>&#123;</div><div class="line">			<span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">			<span class="attribute">background</span>: lightblue;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#header</span> <span class="selector-class">.container</span>,</div><div class="line">		<span class="selector-id">#footer</span> <span class="selector-class">.container</span>&#123;</div><div class="line">			<span class="attribute">width</span>:<span class="number">1000px</span>;</div><div class="line">			<span class="attribute">margin</span>:<span class="number">0</span> auto;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;</div><div class="line">			<span class="attribute">content</span>: <span class="string">""</span>;</div><div class="line">			<span class="attribute">display</span>: block;</div><div class="line">			<span class="attribute">clear</span>: both;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#content</span> <span class="selector-class">.aside</span>&#123;</div><div class="line">			<span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">			<span class="attribute">height</span>: <span class="number">400px</span>;</div><div class="line">			<span class="attribute">background</span>: lightsalmon;</div><div class="line">			<span class="attribute">float</span>:left;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#content</span> <span class="selector-class">.main</span>&#123;</div><div class="line">			<span class="attribute">min-height</span>: <span class="number">300px</span>;</div><div class="line">			<span class="attribute">margin-left</span>: <span class="number">210px</span>;</div><div class="line">			<span class="attribute">background</span>: <span class="number">#eee</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#footer</span>&#123;</div><div class="line">			<span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">			<span class="attribute">background</span>: lightblue;</div><div class="line">		&#125;</div><div class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"header"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span>我是header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span> <span class="attr">class</span>=<span class="string">"clearfix"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aside"</span>&gt;</span>我是aside<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span>我是main<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"footer"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span>我是footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><img src="/image/html&amp;css知识点整理8/二栏布局3.png" alt="Alt text"><br><strong>知识点：</strong><br>1、通过aside向左浮动float:left,main设置margin-left来实现这种布局。<br>2、由于content设置了清除浮动，所以content的高度由aside和main两者高度较高者撑开，因此即便aside高度大于main，footer也不会上移。<br>3、涉及到浮动，一定要给父元素清除浮动。</p>
+<h3 id="三栏布局"><a href="#三栏布局" class="headerlink" title="三栏布局"></a>三栏布局</h3><h4 id="圣杯布局"><a href="#圣杯布局" class="headerlink" title="圣杯布局"></a>圣杯布局</h4><p>圣杯布局指两边固定宽度，中间自适应的三栏布局，中间栏要放在文档流前面以优先渲染。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>圣杯布局<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">		<span class="selector-tag">html</span>,<span class="selector-tag">body</span>,<span class="selector-tag">div</span>&#123;</div><div class="line">			<span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">			<span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-tag">body</span>&#123;</div><div class="line">			<span class="attribute">margin</span>: <span class="number">5px</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#header</span>&#123;</div><div class="line">			<span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">			<span class="attribute">background</span>: lightblue;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#header</span> <span class="selector-class">.container</span>,</div><div class="line">		<span class="selector-id">#footer</span> <span class="selector-class">.container</span>&#123;</div><div class="line">			<span class="attribute">width</span>:<span class="number">1000px</span>;</div><div class="line">			<span class="attribute">margin</span>:<span class="number">0</span> auto;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;</div><div class="line">			<span class="attribute">content</span>: <span class="string">""</span>;</div><div class="line">			<span class="attribute">display</span>: block;</div><div class="line">			<span class="attribute">clear</span>: both;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#content</span>&#123;</div><div class="line">			<span class="attribute">padding</span>: <span class="number">0</span> <span class="number">200px</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#content</span> <span class="selector-class">.main</span>&#123;</div><div class="line">			<span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">			<span class="attribute">min-height</span>: <span class="number">600px</span>;</div><div class="line">			<span class="attribute">background</span>: <span class="number">#eee</span>;</div><div class="line">			<span class="attribute">float</span>:left;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#content</span> <span class="selector-class">.aside-left</span>&#123;</div><div class="line">			<span class="attribute">position</span>: relative;</div><div class="line">			<span class="attribute">left</span>:-<span class="number">200px</span>;</div><div class="line">			<span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">			<span class="attribute">height</span>: <span class="number">400px</span>;</div><div class="line">			<span class="attribute">background</span>: lightsalmon;</div><div class="line">			<span class="attribute">float</span>:left;</div><div class="line">			<span class="attribute">margin-left</span>: -<span class="number">100%</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#content</span> <span class="selector-class">.aside-right</span>&#123;</div><div class="line">			<span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">			<span class="attribute">height</span>: <span class="number">400px</span>;</div><div class="line">			<span class="attribute">position</span>: relative;</div><div class="line">			<span class="attribute">right</span>:-<span class="number">200px</span>;</div><div class="line">			<span class="attribute">background</span>: lightsalmon;</div><div class="line">			<span class="attribute">float</span>:left;</div><div class="line">			<span class="attribute">margin-left</span>: -<span class="number">200px</span>;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="selector-id">#footer</span>&#123;</div><div class="line">			<span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">			<span class="attribute">background</span>: lightblue;</div><div class="line">		&#125;</div><div class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"header"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span>我是header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span> <span class="attr">class</span>=<span class="string">"clearfix"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span>我是main,我的宽度自适应<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aside-left"</span>&gt;</span>我是aside-left，我的宽度固定<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aside-right"</span>&gt;</span>我是aside-right，我的宽度固定<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"footer"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span>我是footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><img src="/image/html&amp;css知识点整理8/圣杯布局.png" alt="Alt text"><br><strong>实现原理</strong><br>1、首先写出内容部分的html结构，中间栏要放在文档流前面以优先渲染。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span> <span class="attr">class</span>=<span class="string">"clearfix"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span>我是main,我的宽度自适应<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aside-left"</span>&gt;</span>我是aside-left，我的宽度固定<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aside-right"</span>&gt;</span>我是aside-right，我的宽度固定<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>2、设置盒子的样式，此时两个侧边栏都在下面，这是因为main盒子占了百分之百的宽度，所以左右两个盒子才会被挤下来。<br><img src="/image/html&amp;css知识点整理8/圣杯布局1.png" alt="Alt text"><br>3、利用负外边距布局<br>（1）、让main向左浮动<br>（2）、让左边的盒子上去<br>需要设置其左边距为负的父容器的宽度，也就是<code>{margin-left:-100%;}</code>。这样左盒子才可以往最左边移动。<br>（3）、让右边的盒子上去<br>需要设置其左边距为负的自己的宽度，也就是<code>{margin-left：-200px;}</code>。这样右盒子才可以在一行的最右边显示出自己。<br>此时的效果图：<br><img src="/image/html&amp;css知识点整理8/圣杯布局2.png" alt="Alt text"><br>此时，左边的盒子和右边的盒子都浮动在main的上面。<br>4、让中间自适应的盒子完整显示<br>（1）、利用父级元素设置左右内边距的值，把父级的三个子盒子往中间挤。<br><img src="/image/html&amp;css知识点整理8/圣杯布局3.png" alt="Alt text"><br>（2）、给左右两个盒子加一个相对定位，加了定位之后左右两个盒子就可以设置left和right值。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.aside-left</span>&#123;</div><div class="line">	<span class="attribute">position</span>: relative;</div><div class="line">	<span class="attribute">left</span>:-<span class="number">200px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.aside-right</span>&#123;</div><div class="line">	<span class="attribute">position</span>: relative;</div><div class="line">	<span class="attribute">right</span>:-<span class="number">200px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>最终效果如下：<br><img src="/image/html&amp;css知识点整理8/圣杯布局4.png" alt="Alt text"><br>现在，圣杯布局搞定了，也实现了我们要的效果，左右侧的盒子固定，中间盒子自适应，而且中间盒子的内容完全不受影响。<br><strong>总结：</strong><br>用到的知识点：<br>position：relative；<br>float：left；<br>负margin。<br>注意点：<br>1、涉及到浮动，因此父元素要清除浮动<br>2、content要设置左右padding，以流出左右盒子的空间<br>3、左右盒子设置负margin，才能上去，此时main盒子也要浮动，否则左右盒子上不去。<br>4、左右盒子设置相对定位，以免浮在main的上方</p>
+<h4 id="双飞翼布局"><a href="#双飞翼布局" class="headerlink" title="双飞翼布局"></a>双飞翼布局</h4><p>双飞翼布局也是指两边固定宽度，中间自适应的三栏布局，中间栏要放在文档流前面以优先渲染。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>双飞翼布局<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">		<span class="selector-tag">html</span>,<span class="selector-tag">body</span>,<span class="selector-tag">div</span>&#123;</div><div class="line">			<span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">			<span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-tag">body</span>&#123;</div><div class="line">			<span class="attribute">margin</span>: <span class="number">5px</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#header</span>&#123;</div><div class="line">			<span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">			<span class="attribute">background</span>: lightblue;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#header</span> <span class="selector-class">.container</span>,</div><div class="line">		<span class="selector-id">#footer</span> <span class="selector-class">.container</span>&#123;</div><div class="line">			<span class="attribute">width</span>:<span class="number">1000px</span>;</div><div class="line">			<span class="attribute">margin</span>:<span class="number">0</span> auto;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;</div><div class="line">			<span class="attribute">content</span>: <span class="string">""</span>;</div><div class="line">			<span class="attribute">display</span>: block;</div><div class="line">			<span class="attribute">clear</span>: both;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#content</span> <span class="selector-class">.main</span>&#123;</div><div class="line">			<span class="attribute">width</span>:<span class="number">100%</span>;</div><div class="line">			<span class="attribute">float</span>: left;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#content</span> <span class="selector-class">.main</span> <span class="selector-class">.wrapper</span>&#123;</div><div class="line">			<span class="attribute">height</span>:<span class="number">400px</span>;</div><div class="line">			<span class="attribute">margin-left</span>: <span class="number">210px</span>;</div><div class="line">			<span class="attribute">margin-right</span>: <span class="number">210px</span>;</div><div class="line">			<span class="attribute">background</span>: <span class="number">#eee</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#content</span> <span class="selector-class">.aside-left</span>&#123;</div><div class="line">			<span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">			<span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">			<span class="attribute">background</span>: lightsalmon;</div><div class="line">			<span class="attribute">float</span>:left;</div><div class="line">			<span class="attribute">margin-left</span>: -<span class="number">100%</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="selector-id">#content</span> <span class="selector-class">.aside-right</span>&#123;</div><div class="line">			<span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">			<span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">			<span class="attribute">background</span>: lightpink;</div><div class="line">			<span class="attribute">float</span>:left;</div><div class="line">			<span class="attribute">margin-left</span>: -<span class="number">200px</span>;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		<span class="selector-id">#footer</span>&#123;</div><div class="line">			<span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">			<span class="attribute">background</span>: lightblue;</div><div class="line">		&#125;</div><div class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"header"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span>我是header<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span> <span class="attr">class</span>=<span class="string">"clearfix"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span>我是main,我的宽度自适应,我是main,我的宽度自适应<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aside-left"</span>&gt;</span>我是aside-left，我的宽度固定<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aside-right"</span>&gt;</span>我是aside-right，我的宽度固定<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"footer"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span>我是footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><img src="/image/html&amp;css知识点整理8/双飞翼布局.png" alt="Alt text"><br><strong>总结：</strong><br>用到的知识点：<br>float:left<br>margin<br>双飞翼的结构和圣杯差不多，都是实现左右盒子宽度固定，中间盒子宽度自适应的三栏布局。<br>不同点在于：双飞翼是让main的宽度为100%，然后给添加了一个子容器wrapper，给wrapper设置左右margin来给左右盒子腾出空间。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/web前端/" rel="tag">#web前端</a>
+          
+            <a href="/tags/html/" rel="tag">#html</a>
+          
+            <a href="/tags/css/" rel="tag">#css</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/25/雪碧图-三角-tooltip/" rel="next" title="css小技巧---雪碧图>三角>tooltip">
+                <i class="fa fa-chevron-left"></i> css小技巧---雪碧图>三角>tooltip
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/04/html知识点整理8之布局/"
+           data-title="html&css知识点整理8---css布局" data-url="http://fm-babybear.com/2016/11/04/html知识点整理8之布局/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="BabyBear" />
+          <p class="site-author-name" itemprop="name">BabyBear</p>
+          <p class="site-description motion-element" itemprop="description">学习总结 生活分享</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一栏布局"><span class="nav-number">1.</span> <span class="nav-text">一栏布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两栏布局"><span class="nav-number">2.</span> <span class="nav-text">两栏布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通过position-absolute来进行两栏布局"><span class="nav-number">2.1.</span> <span class="nav-text">通过position:absolute来进行两栏布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通过float来进行两栏布局"><span class="nav-number">2.2.</span> <span class="nav-text">通过float来进行两栏布局</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三栏布局"><span class="nav-number">3.</span> <span class="nav-text">三栏布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#圣杯布局"><span class="nav-number">3.1.</span> <span class="nav-text">圣杯布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双飞翼布局"><span class="nav-number">3.2.</span> <span class="nav-text">双飞翼布局</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BabyBear</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"fm-babybear"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
