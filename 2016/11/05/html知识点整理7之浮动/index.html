@@ -1,0 +1,672 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapi.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="web前端,html,css," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="基础知识浮动：浮动可以理解为让某个div元素脱离标准流，漂浮在标准流之上。浮动的框可以左右移动，直到它的外边缘碰到包含框或另一个浮动框的边缘。因为浮动框不在文档的普通流中，所以文档的普通流中的块框表现得就想浮动框不存在一样 。此外，浮动元素会生成一个块级框，而不论这个元素本身是什么。因此，如果让一个链接浮动，解释该链接本身是行内元素，通常会生成一个行内框，但只要它是浮动的，就会生成一个块级框，可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html&css知识点整理7---浮动">
+<meta property="og:url" content="http://fm-babybear.com/2016/11/05/html知识点整理7之浮动/index.html">
+<meta property="og:site_name" content="BabyBear's Blog">
+<meta property="og:description" content="基础知识浮动：浮动可以理解为让某个div元素脱离标准流，漂浮在标准流之上。浮动的框可以左右移动，直到它的外边缘碰到包含框或另一个浮动框的边缘。因为浮动框不在文档的普通流中，所以文档的普通流中的块框表现得就想浮动框不存在一样 。此外，浮动元素会生成一个块级框，而不论这个元素本身是什么。因此，如果让一个链接浮动，解释该链接本身是行内元素，通常会生成一个行内框，但只要它是浮动的，就会生成一个块级框，可以">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/浮动1.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/浮动2.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/浮动3.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/浮动4.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/浮动5.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/浮动6.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/浮动9.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/浮动7.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/浮动10.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/浮动11.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/浮动12.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/浮动13.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/浮动14.png">
+<meta property="og:updated_time" content="2016-11-05T12:22:19.738Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html&css知识点整理7---浮动">
+<meta name="twitter:description" content="基础知识浮动：浮动可以理解为让某个div元素脱离标准流，漂浮在标准流之上。浮动的框可以左右移动，直到它的外边缘碰到包含框或另一个浮动框的边缘。因为浮动框不在文档的普通流中，所以文档的普通流中的块框表现得就想浮动框不存在一样 。此外，浮动元素会生成一个块级框，而不论这个元素本身是什么。因此，如果让一个链接浮动，解释该链接本身是行内元素，通常会生成一个行内框，但只要它是浮动的，就会生成一个块级框，可以">
+<meta name="twitter:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/浮动1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://fm-babybear.com/2016/11/05/html知识点整理7之浮动/"/>
+
+  <title> html&css知识点整理7---浮动 | BabyBear's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">BabyBear's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">walk step by step</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                html&css知识点整理7---浮动
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-05T20:03:34+08:00" content="2016-11-05">
+              2016-11-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/html-css知识点整理/" itemprop="url" rel="index">
+                    <span itemprop="name">html&css知识点整理</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/05/html知识点整理7之浮动/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/05/html知识点整理7之浮动/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p><strong>浮动：</strong>浮动可以理解为让某个div元素脱离标准流，漂浮在标准流之上。浮动的框可以左右移动，直到它的外边缘碰到包含框或另一个浮动框的边缘。因为浮动框不在文档的普通流中，所以文档的普通流中的块框表现得就想浮动框不存在一样 。此外，浮动元素会生成一个块级框，而不论这个元素本身是什么。因此，如果让一个链接浮动，解释该链接本身是行内元素，通常会生成一个行内框，但只要它是浮动的，就会生成一个块级框，可以设置width、height属性。<br>（1）、正常情况下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box3"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">	<span class="attribute">border </span>:<span class="number">2px</span> solid;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.box1</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">background</span>: lightsalmon;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.box2</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">background</span>: green;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.box3</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">background</span>: lightblue;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/image/html&amp;css知识点整理6&amp;7/浮动1.png" alt="Alt text"><br>（2）、第一个盒子向右浮动<code>float:right</code><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box1</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">background</span>: lightsalmon;</div><div class="line">	<span class="attribute">float</span>: right;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="/image/html&amp;css知识点整理6&amp;7/浮动2.png" alt="Alt text"></p>
+<p>当把第一个盒子向右浮动时，它脱离文档流并向右移动，直到它的右边缘碰到包含框的右边缘。<br>（3）、第一个盒子向左浮动<code>float:left</code><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box1</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">background</span>: lightsalmon;</div><div class="line">	<span class="attribute">float</span>: left;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="/image/html&amp;css知识点整理6&amp;7/浮动3.png" alt="Alt text"><br>当把第一个盒子向左浮动时，它脱离文档流并向左移动，直到它的左边缘碰到包含框的左边缘。因为它不再处于文档流中，所以不占据空间，实际上覆盖住了框2，使框2从视图上消失。<br>（4）、三个盒子都浮动<br><img src="/image/html&amp;css知识点整理6&amp;7/浮动4.png" alt="Alt text"><br>如果把所有3个框都向左浮动，那么框1向左浮动直到碰到包含框，另外两个向左浮动直到碰到前一个浮动框。这里父元素设置了清除浮动，所以父元素高度没有塌陷。<br><img src="/image/html&amp;css知识点整理6&amp;7/浮动5.png" alt="Alt text"><br>如果包含框太窄，无法容纳水平排列的浮动元素，那么其他浮动块向下移动，直到有足够空间的地方。<br><img src="/image/html&amp;css知识点整理6&amp;7/浮动6.png" alt="Alt text"><br>如果浮动元素的高度不同，那么当它们向下移动时可能会被其他浮动元素“卡住”。<br><img src="/image/html&amp;css知识点整理6&amp;7/浮动9.png" alt="Alt text"><br>三个盒子都向右浮动，由于是右浮动，因此右边靠近页面边缘，所以右边是前，因此.box1在最右边。</p>
+<h3 id="浮动与行框"><a href="#浮动与行框" class="headerlink" title="浮动与行框"></a>浮动与行框</h3><p>前面指出浮动会让元素脱离文档流，不影响不浮动元素。实际上并不完全如此，如果浮动的元素后面有一个文档流中元素，那么这个元素的框会表现的像浮动元素不存在，但是框的文本内容会受到浮动元素的影响，会移动以留出空间。用术语说就是浮动元素旁边的行框被缩短，从而给浮动元素流出空间，因而行框围绕浮动框。这个特性可以制作文本围绕图片的效果。<br><img src="/image/html&amp;css知识点整理6&amp;7/浮动7.png" alt="Alt text"></p>
+<h3 id="清除浮动："><a href="#清除浮动：" class="headerlink" title="清除浮动："></a>清除浮动：</h3><h4 id="浮动带来的影响"><a href="#浮动带来的影响" class="headerlink" title="浮动带来的影响"></a>浮动带来的影响</h4><p><strong>父元素高度塌陷</strong><br>我们知道，一个块级元素如果没有设置height，其height是由子元素撑开的。对子元素使用了浮动之后，子元素会脱离标准文档流，也就是说，父级元素中没有内容可以撑开其高度，这样父级元素的height就会被忽略，这就是所谓的高度塌陷。<br><img src="/image/html&amp;css知识点整理6&amp;7/浮动10.png" alt="Alt text"><br>由上图可知，三个子元素都设置了浮动，因此父元素高度会塌陷。</p>
+<h4 id="clear属性"><a href="#clear属性" class="headerlink" title="clear属性"></a>clear属性</h4><p>有的时候，我们不希望一些元素会被旁边的浮动元素影响到，这个时候就需要用到clear属性了。<br>clear属性：确保当前元素的左右两侧不会有浮动元素。<br><strong>使用clear属性的时候要记住：clear只对元素本身的布局起作用。</strong></p>
+<h4 id="清除浮动的方法"><a href="#清除浮动的方法" class="headerlink" title="清除浮动的方法"></a>清除浮动的方法</h4><p>（1）、增加额外的div<br>这是最简单直接的方法，哪里有浮动元素，就在其父级元素的内容中增加一个（作为最后一个子元素）。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"clear:both"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>这样就会清除浮动元素带来的问题。<br>优点：简单直接，初学者常常使用的方法，也易于理解<br>缺点：增加额外的无意义标签，不利于语义化，每次清除都要添加额外的空标签，造成浪费<br>（2）、父级元素添加overflow:hidden<br>这个方法的关键在于触发了BFC，计算BFC的高度时，浮动元素也参与计算。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.clearfix&#123;overflow:hidden;&#125;</div></pre></td></tr></table></figure></p>
+<p>优点：代码量少，没有额外的标签<br>缺点：如果子元素超出父元素的范围，会造成超出的部分被隐藏<br>（3）、: after伪元素<br>after表示子元素的后面，通过它可以设置一个具有clear的元素，然后将其隐藏<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">clearfix</span><span class="selector-pseudo">:after</span>&#123;</div><div class="line">    <span class="attribute">display</span>:block; </div><div class="line">    <span class="attribute">content</span>:<span class="string">''</span>;</div><div class="line">    <span class="attribute">clear</span>:both; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这种方法的原理和第一个方法一样，就是生成一个元素来清除浮动，只是这个元素是“假的”。<br>优点：没有额外标签，综合起来算是比较好的方法<br>缺点：稍显复杂，但是理解其原理后也挺简单的<br>推荐使用这种方法。</p>
+<h3 id="浮动与定位同时作用于一个元素"><a href="#浮动与定位同时作用于一个元素" class="headerlink" title="浮动与定位同时作用于一个元素"></a>浮动与定位同时作用于一个元素</h3><p>（1）、相对定位遇上浮动<br>元素同时应用了position: relative（top / left / bottom / right）、float属性后，则元素先浮动到相应的位置，然后再根据（top / left / bottom / right）所设置的距离来发生偏移。此时可以给父元素清除浮动生效。<br><img src="/image/html&amp;css知识点整理6&amp;7/浮动11.png" alt="Alt text"><br>上图中，橘色盒子先向右浮动，再相对自身定位<br>（2）、绝对定位遇上浮动<br>元素同时应用了position: absolute及float属性，则float失效。固定定位同样如此，float会失效。并且给父元素设置清除浮动也没有效果。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box1</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">background</span>: lightsalmon;</div><div class="line">	<span class="attribute">float</span>: right;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">top</span>:<span class="number">30px</span>;</div><div class="line">	<span class="attribute">left</span>:<span class="number">30px</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="/image/html&amp;css知识点整理6&amp;7/浮动12.png" alt="Alt text"><br>橘色盒子虽然设置了向右浮动，但是float:right失效了。<br>（3）、两个相邻元素，前一个设置定位，后一个设置浮动，则如果有重叠，定位元素会覆盖在浮动元素之上。<br>第一个盒子绝对定位，第二个盒子浮动<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box1</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">background</span>: lightsalmon;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">top</span>:<span class="number">20px</span>;</div><div class="line">	<span class="attribute">left</span>:<span class="number">20px</span>;</div><div class="line">	&#125;</div><div class="line"><span class="selector-class">.box2</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">250px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">250px</span>;</div><div class="line">	<span class="attribute">background</span>: green;</div><div class="line">	<span class="attribute">float</span>: left;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">10</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p><img src="/image/html&amp;css知识点整理6&amp;7/浮动13.png" alt="Alt text"><br>第一个盒子相对定位，第二个盒子浮动<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box1</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">background</span>: lightsalmon;</div><div class="line">	<span class="attribute">position</span>: relative;</div><div class="line">	<span class="attribute">top</span>:<span class="number">20px</span>;</div><div class="line">	<span class="attribute">left</span>:<span class="number">20px</span>;</div><div class="line">	&#125;</div><div class="line"><span class="selector-class">.box2</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">250px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">250px</span>;</div><div class="line">	<span class="attribute">background</span>: green;</div><div class="line">	<span class="attribute">float</span>: left;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">10</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p><img src="/image/html&amp;css知识点整理6&amp;7/浮动14.png" alt="Alt text"></p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>（1）、文字围绕图片<br>（2）、横向导航菜单中的li通常设置浮动。<br>（3）、布局中经常用到浮动。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>（1）、float会造成元素脱离文档流，从而使浮动元素漂浮在正常流之上<br>（2）、浮动元素会生成一个块级框，而不论这个元素本身是什么<br>（3）、设置了浮动后，一定要记住给父元素清理浮动，否则会容易引发问题<br>（4）、浮动元素的后一个元素会围绕着浮动元素（典型运用是文字围绕图片）</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://luopq.com/2015/11/08/CSS-float/" target="_blank" rel="external">详解css float属性</a><br><a href="http://www.cnblogs.com/coffeedeveloper/p/3145790.html#html" target="_blank" rel="external">对CSS中的Position、Float属性的一些深入探讨</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/web前端/" rel="tag">#web前端</a>
+          
+            <a href="/tags/html/" rel="tag">#html</a>
+          
+            <a href="/tags/css/" rel="tag">#css</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/05/html知识点整理6之定位/" rel="next" title="html&css知识点整理6---定位">
+                <i class="fa fa-chevron-left"></i> html&css知识点整理6---定位
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/05/html知识点整理7之浮动/"
+           data-title="html&css知识点整理7---浮动" data-url="http://fm-babybear.com/2016/11/05/html知识点整理7之浮动/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="BabyBear" />
+          <p class="site-author-name" itemprop="name">BabyBear</p>
+          <p class="site-description motion-element" itemprop="description">学习总结 生活分享</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础知识"><span class="nav-number">1.</span> <span class="nav-text">基础知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮动与行框"><span class="nav-number">2.</span> <span class="nav-text">浮动与行框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清除浮动："><span class="nav-number">3.</span> <span class="nav-text">清除浮动：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浮动带来的影响"><span class="nav-number">3.1.</span> <span class="nav-text">浮动带来的影响</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clear属性"><span class="nav-number">3.2.</span> <span class="nav-text">clear属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清除浮动的方法"><span class="nav-number">3.3.</span> <span class="nav-text">清除浮动的方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮动与定位同时作用于一个元素"><span class="nav-number">4.</span> <span class="nav-text">浮动与定位同时作用于一个元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用"><span class="nav-number">5.</span> <span class="nav-text">应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BabyBear</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"fm-babybear"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
