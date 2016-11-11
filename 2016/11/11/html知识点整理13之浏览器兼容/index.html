@@ -84,18 +84,19 @@
 
 
 
-<meta name="description" content="Line-height (1)、line-height定义两行文字基线之间的距离 (2)、如果不设置line-height，取决于用户代理。桌面浏览器（包括火狐浏览器）使用默认值，约为1.2，这取决于元素的 font-family。 (3)、通常对于单行文本，对父元素设置height、文本设置line-height相等会让文本近似在父元素中垂直居中，但这种居中并不是严格意义上的居中，与使用哪种字体">
+<meta name="description" content="首先决定是否要兼容（1）、是否兼容IE根据用户使用百分比决定是否兼容，如淘宝，&amp;gt;3%，兼容。（2）、兼容到什么程度A级兼容标准：Chrome/Firefox ：基本上100%与设计稿一致。IE 9+ :基本上100%与设计稿一致。B级兼容标准：IE 8: 在IE8中 页面看着出入不大，与设计稿细微的差别可不用管。C级兼容标准：IE 7: 只要能用就可以，看起来好不好看无所谓。
+如何兼容可以安">
 <meta property="og:type" content="article">
-<meta property="og:title" content="html&css知识点整理4---line-height>vertical-align>text-align>文档流">
-<meta property="og:url" content="http://fm-babybear.com/2016/11/08/html知识点整理4之line-height/index.html">
+<meta property="og:title" content="html&css知识点整理10---浏览器兼容">
+<meta property="og:url" content="http://fm-babybear.com/2016/11/11/html知识点整理13之浏览器兼容/index.html">
 <meta property="og:site_name" content="BabyBear's Blog">
-<meta property="og:description" content="Line-height (1)、line-height定义两行文字基线之间的距离 (2)、如果不设置line-height，取决于用户代理。桌面浏览器（包括火狐浏览器）使用默认值，约为1.2，这取决于元素的 font-family。 (3)、通常对于单行文本，对父元素设置height、文本设置line-height相等会让文本近似在父元素中垂直居中，但这种居中并不是严格意义上的居中，与使用哪种字体">
-<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理4/文档流.png">
-<meta property="og:updated_time" content="2016-11-08T05:24:08.299Z">
+<meta property="og:description" content="首先决定是否要兼容（1）、是否兼容IE根据用户使用百分比决定是否兼容，如淘宝，&amp;gt;3%，兼容。（2）、兼容到什么程度A级兼容标准：Chrome/Firefox ：基本上100%与设计稿一致。IE 9+ :基本上100%与设计稿一致。B级兼容标准：IE 8: 在IE8中 页面看着出入不大，与设计稿细微的差别可不用管。C级兼容标准：IE 7: 只要能用就可以，看起来好不好看无所谓。
+如何兼容可以安">
+<meta property="og:updated_time" content="2016-11-11T11:52:00.303Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="html&css知识点整理4---line-height>vertical-align>text-align>文档流">
-<meta name="twitter:description" content="Line-height (1)、line-height定义两行文字基线之间的距离 (2)、如果不设置line-height，取决于用户代理。桌面浏览器（包括火狐浏览器）使用默认值，约为1.2，这取决于元素的 font-family。 (3)、通常对于单行文本，对父元素设置height、文本设置line-height相等会让文本近似在父元素中垂直居中，但这种居中并不是严格意义上的居中，与使用哪种字体">
-<meta name="twitter:image" content="http://fm-babybear.com/image/html&css知识点整理4/文档流.png">
+<meta name="twitter:title" content="html&css知识点整理10---浏览器兼容">
+<meta name="twitter:description" content="首先决定是否要兼容（1）、是否兼容IE根据用户使用百分比决定是否兼容，如淘宝，&amp;gt;3%，兼容。（2）、兼容到什么程度A级兼容标准：Chrome/Firefox ：基本上100%与设计稿一致。IE 9+ :基本上100%与设计稿一致。B级兼容标准：IE 8: 在IE8中 页面看着出入不大，与设计稿细微的差别可不用管。C级兼容标准：IE 7: 只要能用就可以，看起来好不好看无所谓。
+如何兼容可以安">
 
 
 
@@ -116,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://fm-babybear.com/2016/11/08/html知识点整理4之line-height/"/>
+  <link rel="canonical" href="http://fm-babybear.com/2016/11/11/html知识点整理13之浏览器兼容/"/>
 
-  <title> html&css知识点整理4---line-height>vertical-align>text-align>文档流 | BabyBear's Blog </title>
+  <title> html&css知识点整理10---浏览器兼容 | BabyBear's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -258,7 +259,7 @@
             
             
               
-                html&css知识点整理4---line-height>vertical-align>text-align>文档流
+                html&css知识点整理10---浏览器兼容
               
             
           </h1>
@@ -270,8 +271,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-08T13:15:10+08:00" content="2016-11-08">
-              2016-11-08
+            <time itemprop="dateCreated" datetime="2016-11-11T19:49:25+08:00" content="2016-11-11">
+              2016-11-11
             </time>
           </span>
 
@@ -300,8 +301,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/08/html知识点整理4之line-height/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/08/html知识点整理4之line-height/" itemprop="commentsCount"></span>
+                <a href="/2016/11/11/html知识点整理13之浏览器兼容/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/11/html知识点整理13之浏览器兼容/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -324,10 +325,13 @@
       
 
       
-        <h3 id="Line-height"><a href="#Line-height" class="headerlink" title="Line-height"></a>Line-height</h3><p> (1)、line-height定义两行文字基线之间的距离<br> (2)、如果不设置line-height，取决于用户代理。桌面浏览器（包括火狐浏览器）使用默认值，约为1.2，这取决于元素的 font-family。<br> (3)、通常对于单行文本，对父元素设置height、文本设置line-height相等会让文本近似在父元素中垂直居中，但这种居中并不是严格意义上的居中，与使用哪种字体有关。<br> (4)、line-height取值对于倍数和百分数是有区别的。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">line-height</span> : 1<span class="selector-class">.5</span>       <span class="comment">/*继承倍数*/</span></div><div class="line"><span class="selector-tag">line-height</span> ：150%      <span class="comment">/*先计算值，再把计算的值继承下去*/</span></div></pre></td></tr></table></figure></p>
-<h3 id="vertical-align"><a href="#vertical-align" class="headerlink" title="vertical-align"></a>vertical-align</h3><p><a href="http://www.cnblogs.com/hykun/p/3937852.html" target="_blank" rel="external">关于vertical-align属性</a></p>
-<h3 id="文档流"><a href="#文档流" class="headerlink" title="文档流"></a>文档流</h3><p><img src="/image/html&amp;css知识点整理4/文档流.png" alt="Alt text"></p>
-<h3 id="text-align"><a href="#text-align" class="headerlink" title="text-align"></a>text-align</h3><p><code>text-align:center</code>：它定义在块级元素中，能让块级元素内部的行内元素（包括display：inline-block的元素）如文本、图片居中，但对块级元素内部的块级元素没有作用。<br>补充：如果对表单元格<code>td</code>设置<code>text-align:center</code>也可以让表单元格的文本水平居中。</p>
+        <h3 id="首先决定是否要兼容"><a href="#首先决定是否要兼容" class="headerlink" title="首先决定是否要兼容"></a>首先决定是否要兼容</h3><p>（1）、是否兼容IE<br>根据用户使用百分比决定是否兼容，如淘宝，&gt;3%，兼容。<br>（2）、兼容到什么程度<br>A级兼容标准：<br>Chrome/Firefox ：基本上100%与设计稿一致。<br>IE 9+ :基本上100%与设计稿一致。<br>B级兼容标准：<br>IE 8: 在IE8中 页面看着出入不大，与设计稿细微的差别可不用管。<br>C级兼容标准：<br>IE 7: 只要能用就可以，看起来好不好看无所谓。</p>
+<h3 id="如何兼容"><a href="#如何兼容" class="headerlink" title="如何兼容"></a>如何兼容</h3><p>可以安装虚拟机，查看低版本IE下的效果；也可以IE下可以F12 -&gt; 仿真 -&gt; 查看元素在IE低版本效果。<br>遇到兼容bug ，直接google搜索解决方法<br><strong>property hack</strong><br>（1）、IE  inline-block bug，此时可以<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">display</span><span class="selector-pseudo">:inline-block</span>;</div><div class="line">*<span class="selector-tag">zoom</span><span class="selector-pseudo">:1</span></div><div class="line">*<span class="selector-tag">dislpay</span><span class="selector-pseudo">:inline</span>;</div></pre></td></tr></table></figure></p>
+<p><code>zoom:1</code>会触发IE下的BFC(haslayout)属性，故而该元素会成为一个块级元素，其次<code>display:inline</code>属性又让它是一个行内元素，故而综合一下就是inline-block元素了。其中<code>*</code>是IE浏览器的一个bug，其他浏览器看见<code>*属性：值</code>会忽略掉这条语句，而IE浏览器会认这条语句。<br>（2）、IE hover bug<br>IE 7以下只支持a标签的hover属性，因此想让其他的元素在IE 7以下有hover效果，只能将其改为a标签。<br>但这种方式，会更改文档结构，改变了文档的语义化，因此可以用javascript去监听，当鼠标hover到这个元素，给他添加一个类，在类里面增添某些属性，当鼠标移出时，删掉这个类。<br><a href="http://browserhacks.com/" target="_blank" rel="external">各种浏览器兼容写法</a><br><strong>条件注释：cc (ie conditional comments)</strong><br>为了提高与 HTML5 的可互操作性和兼容性，Internet Explorer 10 标准模式和 Quirks 模式中删除了对条件注释的支持。 这意味着，与在其他浏览器中相同，条件注释将被视作一般注释。 使用了条件注释的页面在 Windows Internet Explorer 9 中可正常工作，但在 Internet Explorer 10 中无法正常工作。<br><code>cc:ie</code> -&gt; Tab键<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!--[if IE 8]&gt;   只能针对ie 8</span></div><div class="line">	&lt;link rel="stylesheet" href="ie.css"&gt;  </div><div class="line">	&lt;![endif]--&gt;</div><div class="line"></div><div class="line">	<span class="comment">&lt;!--[if lt IE 8]&gt;   只能针对ie 8以下（lt=less than）</span></div><div class="line">	&lt;link rel="stylesheet" href="ie.css"&gt;  </div><div class="line">	&lt;![endif]--&gt;</div><div class="line">	</div><div class="line">	<span class="comment">&lt;!--[if lte IE 8]&gt;   只能针对ie8以及ie8以下（lte=less than equal）</span></div><div class="line">	&lt;link rel="stylesheet" href="ie8.css"&gt;  </div><div class="line">	&lt;![endif]--&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>上述代码中，对于IE 区别的样式写在ie.css中即可。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!--[if IE 8]&gt;</div><div class="line">&lt;link rel="stylesheet" href="ie8.css"&gt;  </div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure></p>
+<p>这段代码在其他浏览器中会当成注释忽略掉，但是ie浏览器能够识别。</p>
+<h3 id="IE-调试方法"><a href="#IE-调试方法" class="headerlink" title="IE    调试方法"></a>IE    调试方法</h3><p>（1）、使用高版本控制台<br>（2）、<code>border: 1px solid red</code><br>（3）、<code>outline:1px solid red</code><br>（4）、<code>javascript：alert(document.get...)</code></p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://blog.csdn.net/freshlover/article/details/12132801" target="_blank" rel="external">史上最全的CSS hack方式一览</a></p>
 
       
     </div>
@@ -363,17 +367,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/07/html知识点整理9之BFC/" rel="next" title="html&css知识点整理9---BFC(Block formatting contexts)">
-                <i class="fa fa-chevron-left"></i> html&css知识点整理9---BFC(Block formatting contexts)
+              <a href="/2016/11/11/html知识点整理10之浏览器兼容/" rel="next" title="html知识点整理13之浏览器兼容">
+                <i class="fa fa-chevron-left"></i> html知识点整理13之浏览器兼容
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/11/水平垂直居中/" rel="prev" title="水平垂直居中">
-                水平垂直居中 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -399,8 +399,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/08/html知识点整理4之line-height/"
-           data-title="html&css知识点整理4---line-height>vertical-align>text-align>文档流" data-url="http://fm-babybear.com/2016/11/08/html知识点整理4之line-height/">
+      <div class="ds-thread" data-thread-key="2016/11/11/html知识点整理13之浏览器兼容/"
+           data-title="html&css知识点整理10---浏览器兼容" data-url="http://fm-babybear.com/2016/11/11/html知识点整理13之浏览器兼容/">
       </div>
     
   </div>
@@ -491,7 +491,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Line-height"><span class="nav-number">1.</span> <span class="nav-text">Line-height</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vertical-align"><span class="nav-number">2.</span> <span class="nav-text">vertical-align</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文档流"><span class="nav-number">3.</span> <span class="nav-text">文档流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-align"><span class="nav-number">4.</span> <span class="nav-text">text-align</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先决定是否要兼容"><span class="nav-number">1.</span> <span class="nav-text">首先决定是否要兼容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何兼容"><span class="nav-number">2.</span> <span class="nav-text">如何兼容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IE-调试方法"><span class="nav-number">3.</span> <span class="nav-text">IE    调试方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
           </div>
         </section>
