@@ -84,17 +84,17 @@
 
 
 
-<meta name="description" content="Line-height 1、line-height定义两行文字基线之间的距离 2、如果不设置line-height，取决于用户代理。桌面浏览器（包括火狐浏览器）使用默认值，约为1.2，这取决于元素的 font-family。 3、通常对于单行文本，设置height与line-height相等会让文本近似垂直居中，但这种居中并不是严格意义上的居中，与使用哪种字体有关。 4、line-height取值">
+<meta name="description" content="Line-height (1)、line-height定义两行文字基线之间的距离 (2)、如果不设置line-height，取决于用户代理。桌面浏览器（包括火狐浏览器）使用默认值，约为1.2，这取决于元素的 font-family。 (3)、通常对于单行文本，对父元素设置height、文本设置line-height相等会让文本近似在父元素中垂直居中，但这种居中并不是严格意义上的居中，与使用哪种字体">
 <meta property="og:type" content="article">
 <meta property="og:title" content="html&css知识点整理4---line-height>vertical-align>text-align>文档流">
 <meta property="og:url" content="http://fm-babybear.com/2016/11/08/html知识点整理4之line-height/index.html">
 <meta property="og:site_name" content="BabyBear's Blog">
-<meta property="og:description" content="Line-height 1、line-height定义两行文字基线之间的距离 2、如果不设置line-height，取决于用户代理。桌面浏览器（包括火狐浏览器）使用默认值，约为1.2，这取决于元素的 font-family。 3、通常对于单行文本，设置height与line-height相等会让文本近似垂直居中，但这种居中并不是严格意义上的居中，与使用哪种字体有关。 4、line-height取值">
+<meta property="og:description" content="Line-height (1)、line-height定义两行文字基线之间的距离 (2)、如果不设置line-height，取决于用户代理。桌面浏览器（包括火狐浏览器）使用默认值，约为1.2，这取决于元素的 font-family。 (3)、通常对于单行文本，对父元素设置height、文本设置line-height相等会让文本近似在父元素中垂直居中，但这种居中并不是严格意义上的居中，与使用哪种字体">
 <meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理4/文档流.png">
-<meta property="og:updated_time" content="2016-11-08T05:18:51.339Z">
+<meta property="og:updated_time" content="2016-11-08T05:24:08.299Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html&css知识点整理4---line-height>vertical-align>text-align>文档流">
-<meta name="twitter:description" content="Line-height 1、line-height定义两行文字基线之间的距离 2、如果不设置line-height，取决于用户代理。桌面浏览器（包括火狐浏览器）使用默认值，约为1.2，这取决于元素的 font-family。 3、通常对于单行文本，设置height与line-height相等会让文本近似垂直居中，但这种居中并不是严格意义上的居中，与使用哪种字体有关。 4、line-height取值">
+<meta name="twitter:description" content="Line-height (1)、line-height定义两行文字基线之间的距离 (2)、如果不设置line-height，取决于用户代理。桌面浏览器（包括火狐浏览器）使用默认值，约为1.2，这取决于元素的 font-family。 (3)、通常对于单行文本，对父元素设置height、文本设置line-height相等会让文本近似在父元素中垂直居中，但这种居中并不是严格意义上的居中，与使用哪种字体">
 <meta name="twitter:image" content="http://fm-babybear.com/image/html&css知识点整理4/文档流.png">
 
 
@@ -324,7 +324,7 @@
       
 
       
-        <h3 id="Line-height"><a href="#Line-height" class="headerlink" title="Line-height"></a>Line-height</h3><p> 1、line-height定义两行文字基线之间的距离<br> 2、如果不设置line-height，取决于用户代理。桌面浏览器（包括火狐浏览器）使用默认值，约为1.2，这取决于元素的 font-family。<br> 3、通常对于单行文本，设置height与line-height相等会让文本近似垂直居中，但这种居中并不是严格意义上的居中，与使用哪种字体有关。<br> 4、line-height取值对于倍数和百分数是有区别的。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">line-height</span> : 1<span class="selector-class">.5</span>       <span class="comment">/*继承倍数*/</span></div><div class="line"><span class="selector-tag">line-height</span> ：150%      <span class="comment">/*先计算值，再把计算的值继承下去*/</span></div></pre></td></tr></table></figure></p>
+        <h3 id="Line-height"><a href="#Line-height" class="headerlink" title="Line-height"></a>Line-height</h3><p> (1)、line-height定义两行文字基线之间的距离<br> (2)、如果不设置line-height，取决于用户代理。桌面浏览器（包括火狐浏览器）使用默认值，约为1.2，这取决于元素的 font-family。<br> (3)、通常对于单行文本，对父元素设置height、文本设置line-height相等会让文本近似在父元素中垂直居中，但这种居中并不是严格意义上的居中，与使用哪种字体有关。<br> (4)、line-height取值对于倍数和百分数是有区别的。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">line-height</span> : 1<span class="selector-class">.5</span>       <span class="comment">/*继承倍数*/</span></div><div class="line"><span class="selector-tag">line-height</span> ：150%      <span class="comment">/*先计算值，再把计算的值继承下去*/</span></div></pre></td></tr></table></figure></p>
 <h3 id="vertical-align"><a href="#vertical-align" class="headerlink" title="vertical-align"></a>vertical-align</h3><p><a href="http://www.cnblogs.com/hykun/p/3937852.html" target="_blank" rel="external">关于vertical-align属性</a></p>
 <h3 id="文档流"><a href="#文档流" class="headerlink" title="文档流"></a>文档流</h3><p><img src="/image/html&amp;css知识点整理4/文档流.png" alt="Alt text"></p>
 <h3 id="text-align"><a href="#text-align" class="headerlink" title="text-align"></a>text-align</h3><p><code>text-align:center</code>：它定义在块级元素中，能让块级元素内部的行内元素（包括display：inline-block的元素）如文本、图片居中，但对块级元素内部的块级元素没有作用。<br>补充：如果对表单元格<code>td</code>设置<code>text-align:center</code>也可以让表单元格的文本水平居中。</p>
@@ -370,6 +370,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/11/水平垂直居中/" rel="prev" title="水平垂直居中">
+                水平垂直居中 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -441,7 +445,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
