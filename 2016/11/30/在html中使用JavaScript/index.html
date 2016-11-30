@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="BabyBear,前端总结,生活分享" />
+  <meta name="keywords" content="Web前端,JavaScript,JS的引入," />
 
 
 
@@ -84,16 +84,21 @@
 
 
 
-<meta name="description" content="学习总结 生活分享">
+<meta name="description" content="JS的引入Js的引入方式：（1）、直接在页面中嵌入JavaScript代码，此时只需为&amp;lt;script&amp;gt;指定type属性，然后像下面这样把JavaScript代码直接放在元素内部即可。（2）、导入外部JavaScript文件，src属性时必须的。
+Js的放置位置：为了避免影响页面出现延迟，一般将Js代码放在&amp;lt;body&amp;gt;元素中页面内容的后面。原因：HTML,CSS资源的解析是可">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在html中使用JavaScript">
 <meta property="og:url" content="http://fm-babybear.com/2016/11/30/在html中使用JavaScript/index.html">
 <meta property="og:site_name" content="BabyBear's Blog">
-<meta property="og:description" content="学习总结 生活分享">
-<meta property="og:updated_time" content="2016-11-30T06:33:05.627Z">
+<meta property="og:description" content="JS的引入Js的引入方式：（1）、直接在页面中嵌入JavaScript代码，此时只需为&amp;lt;script&amp;gt;指定type属性，然后像下面这样把JavaScript代码直接放在元素内部即可。（2）、导入外部JavaScript文件，src属性时必须的。
+Js的放置位置：为了避免影响页面出现延迟，一般将Js代码放在&amp;lt;body&amp;gt;元素中页面内容的后面。原因：HTML,CSS资源的解析是可">
+<meta property="og:image" content="http://fm-babybear.com/image/Script元素/渲染机制.png">
+<meta property="og:updated_time" content="2016-11-30T06:39:13.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在html中使用JavaScript">
-<meta name="twitter:description" content="学习总结 生活分享">
+<meta name="twitter:description" content="JS的引入Js的引入方式：（1）、直接在页面中嵌入JavaScript代码，此时只需为&amp;lt;script&amp;gt;指定type属性，然后像下面这样把JavaScript代码直接放在元素内部即可。（2）、导入外部JavaScript文件，src属性时必须的。
+Js的放置位置：为了避免影响页面出现延迟，一般将Js代码放在&amp;lt;body&amp;gt;元素中页面内容的后面。原因：HTML,CSS资源的解析是可">
+<meta name="twitter:image" content="http://fm-babybear.com/image/Script元素/渲染机制.png">
 
 
 
@@ -274,6 +279,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -303,7 +327,40 @@
       
 
       
-        
+        <h3 id="JS的引入"><a href="#JS的引入" class="headerlink" title="JS的引入"></a>JS的引入</h3><h4 id="Js的引入方式："><a href="#Js的引入方式：" class="headerlink" title="Js的引入方式："></a>Js的引入方式：</h4><p>（1）、直接在页面中嵌入JavaScript代码，此时只需为<code>&lt;script&gt;</code>指定type属性，然后像下面这样把JavaScript代码直接放在元素内部即可。<br>（2）、导入外部JavaScript文件，<code>src</code>属性时必须的。</p>
+<h4 id="Js的放置位置："><a href="#Js的放置位置：" class="headerlink" title="Js的放置位置："></a>Js的放置位置：</h4><p>为了避免影响页面出现延迟，一般将Js代码放在<code>&lt;body&gt;</code>元素中页面内容的后面。<br><strong>原因：</strong>HTML,CSS资源的解析是可并行的，也就是网页在从上至下渲染时，碰到css文件，虽然要解析css文件，可它能同时继续下面的HTML文件，这是可同时进行的，而JS则不同了，JS运行在浏览器中是单线程的，运行到它的时候它很强势的只能执行它自己了，会阻塞其他代码的执行，这时候如果JS是放在页面上部，下面很多代码没有执行的话，可能会出现白屏的现象，影响运行速度，造成不好的用户体验。所以，一般情况下会把JS放在页面底部。</p>
+<ul>
+<li>脚本会阻塞后面内容的呈现</li>
+<li>脚本会阻塞其后组件的下载</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"index.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">		<span class="selector-tag">body</span>&#123;</div><div class="line">			<span class="attribute">background</span>: red;</div><div class="line">		&#125;</div><div class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!--这里放内容--&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!--直接在页面中嵌入JavaScript代码--&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">		<span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			alert(<span class="string">"Hi!"</span>);</div><div class="line">		&#125;</div><div class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!--包含外部JavaScript文件--&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"example.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="JS-CSS页面渲染机制"><a href="#JS-CSS页面渲染机制" class="headerlink" title="JS CSS页面渲染机制"></a>JS CSS页面渲染机制</h3><ul>
+<li>解析 HTML 标签, 构建 DOM 树</li>
+<li>解析 CSS 标签, 构建 CSSOM 树</li>
+<li>把 DOM 和 CSSOM 组合成 渲染树 (render tree)</li>
+<li>在渲染树的基础上进⾏布局, 计算每个节点的⼏何结构</li>
+<li>把每个节点绘制到屏幕上 (painting)</li>
+</ul>
+<p><img src="/image/Script元素/渲染机制.png" alt="渲染机制"></p>
+<h3 id="CSS与JS的放置顺序"><a href="#CSS与JS的放置顺序" class="headerlink" title="CSS与JS的放置顺序"></a>CSS与JS的放置顺序</h3><p>在探讨白屏问题和FOUC无样式内容闪烁问题出现的原因之前，我们要知道的一个原则是<strong>浏览器在对于图片和CSS, 在加载时会并发加载(如一个域名下同时加载两个文件). 但在加载 JavaScript 时,会禁用并发,并且阻止其他内容的下载。</strong></p>
+<h4 id="白屏问题"><a href="#白屏问题" class="headerlink" title="白屏问题"></a>白屏问题</h4><p>不同的浏览器对于CSS和HTML的处理方式不同，有的是等待CSS加载完成之后，对HTML元素进行渲染和展示，如果CSS加载过程很慢，就会造成页面出现白屏，将样式放在页面底部常常会出现这种情况。<br>如果使用<code>@import</code> 标签,即使 CSS 放入 link, 并且放在头部,也可能出现白屏</p>
+<h4 id="FOUC-Flash-of-Unstyled-Content-无样式内容闪烁"><a href="#FOUC-Flash-of-Unstyled-Content-无样式内容闪烁" class="headerlink" title="FOUC(Flash of Unstyled Content) 无样式内容闪烁"></a>FOUC(Flash of Unstyled Content) 无样式内容闪烁</h4><p>有的是先对HTML元素进行展示，然后等待CSS加载完成之后重新对样式进行修改，这样刚开始绘制的页面没有任何样式，等待样式加载后才会知道各个元素的样式。</p>
+<h4 id="加载异步"><a href="#加载异步" class="headerlink" title="加载异步"></a>加载异步</h4><p><code>&lt;script defer src=&quot;script.js&quot;&gt;&lt;/script&gt;</code><br><code>&lt;script async src=&quot;script.js&quot;&gt;&lt;/script&gt;</code><br>没有 defer 或 async，浏览器会立即加载并执行指定的脚本，“立即”指的是在渲染该 script标签之下的文档元素之前，也就是说不等待后续载入的文档元素，读到就加载并执行。</p>
+<ul>
+<li>有 <code>async</code>，加载和渲染后续文档元素的过程将和 script.js 的<code>加载与执行</code>并行进行（异步）。</li>
+<li>有 <code>defer</code>，加载后续文档元素的过程将和 script.js 的<code>加载</code>并行进行（异步），但 script.js的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</li>
+</ul>
+<p><strong>二者区别</strong> </p>
+<ul>
+<li><code>async</code>：页面的加载与JS代码的加载与执行同时进行，所以要确保JS代码不会依赖文档中的元素，因为此时元素可能尚未加载出来，此外标记为<code>async</code>的脚本并不保证按照指定它们的先后顺序执行。</li>
+<li><code>defer</code>：脚本延迟到文档解析和显示后执行，并且脚本的执行有顺序。</li>
+</ul>
+<h3 id="JS调试"><a href="#JS调试" class="headerlink" title="JS调试"></a>JS调试</h3><ul>
+<li>alert </li>
+<li>console.log</li>
+<li>断点 （F8）</li>
+</ul>
+
       
     </div>
 
@@ -322,6 +379,16 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Web前端/" rel="tag">#Web前端</a>
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+            <a href="/tags/JS的引入/" rel="tag">#JS的引入</a>
+          
+        </div>
       
 
       
@@ -423,7 +490,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -452,7 +519,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS的引入"><span class="nav-number">1.</span> <span class="nav-text">JS的引入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Js的引入方式："><span class="nav-number">1.1.</span> <span class="nav-text">Js的引入方式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Js的放置位置："><span class="nav-number">1.2.</span> <span class="nav-text">Js的放置位置：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS-CSS页面渲染机制"><span class="nav-number">2.</span> <span class="nav-text">JS CSS页面渲染机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS与JS的放置顺序"><span class="nav-number">3.</span> <span class="nav-text">CSS与JS的放置顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#白屏问题"><span class="nav-number">3.1.</span> <span class="nav-text">白屏问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FOUC-Flash-of-Unstyled-Content-无样式内容闪烁"><span class="nav-number">3.2.</span> <span class="nav-text">FOUC(Flash of Unstyled Content) 无样式内容闪烁</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载异步"><span class="nav-number">3.3.</span> <span class="nav-text">加载异步</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS调试"><span class="nav-number">4.</span> <span class="nav-text">JS调试</span></a></li></ol></div>
             
           </div>
         </section>

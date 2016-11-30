@@ -278,6 +278,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -309,8 +328,9 @@
       
         
           
-          
-          
+          JS的引入Js的引入方式：（1）、直接在页面中嵌入JavaScript代码，此时只需为&lt;script&gt;指定type属性，然后像下面这样把JavaScript代码直接放在元素内部即可。（2）、导入外部JavaScript文件，src属性时必须的。
+Js的放置位置：为了避免影响页面出现延迟，一般将Js代码放在&lt;body&gt;元素中页面内容的后面。原因：HTML,CSS资源的解析是可
+          ...
 
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/11/30/在html中使用JavaScript/#more" rel="contents">
@@ -434,7 +454,7 @@
       
         
           
-          获取当前时间与指定时间的间隔毫秒转换为天、小时、分、秒123456789101112var str = getIntv(&quot;2017/02/21&quot;);function getIntv(time)&#123;	var nowTime=new Date();	var calTime=new Date(time);	var interval=Math.abs(nowTime-calTi
+          获取当前时间与指定时间的间隔毫秒转换为天、小时、分、秒123456789101112var str = getIntv("2017/02/21");function getIntv(time)&#123;	var nowTime=new Date();	var calTime=new Date(time);	var interval=Math.abs(nowTime-calTime);	var d
           ...
 
           <div class="post-more-link text-center">
@@ -907,7 +927,7 @@ demo：123456789101112&lt;div class="center-child"&gt;	我是文本&lt;/div&gt;&
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
