@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="BabyBear's Blog">
 <meta property="og:description" content="今天在用正则表达式匹配字符串时，关于反斜杠引起了一点小疑惑，查阅了一些资料，故在此总结一下。
 反斜杠&amp;#39;\&amp;#39;是转义字符，如果它出现在字符的前面，那么他们就是一个整体，比如说&amp;#39;\n&amp;#39;,就表示换行符。字符串&amp;#39;\a&amp;#39;是转义操作，但是a不是有效的转义符，字符串就会忽略&amp;#39;\&amp;#39;,因此直接是字符a了。123&apos;\a&apos; === &apos;a&apos;">
-<meta property="og:updated_time" content="2016-12-16T09:06:36.449Z">
+<meta property="og:updated_time" content="2016-12-16T09:08:50.047Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符串中的转义符">
 <meta name="twitter:description" content="今天在用正则表达式匹配字符串时，关于反斜杠引起了一点小疑惑，查阅了一些资料，故在此总结一下。
@@ -327,7 +327,7 @@
       
         <p>今天在用正则表达式匹配字符串时，关于反斜杠引起了一点小疑惑，查阅了一些资料，故在此总结一下。</p>
 <p>反斜杠<code>&#39;\&#39;</code>是转义字符，如果它出现在字符的前面，那么他们就是一个整体，比如说<code>&#39;\n&#39;</code>,就表示换行符。<br>字符串<code>&#39;\a&#39;</code>是转义操作，但是<strong>a不是有效的转义符</strong>，字符串就会忽略<code>&#39;\&#39;</code>,因此直接是字符a了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">'\a'</span> === <span class="string">'a'</span>                  <span class="comment">// true</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">"\abc"</span>;</div><div class="line"><span class="built_in">console</span>.info(str.length);     <span class="comment">// 3</span></div></pre></td></tr></table></figure></p>
-<p>如果想在字符串里面表示<code>&#39;\&#39;</code>，那么就得转义它，给它也加一个反斜杠<code>&#39;\\&#39;</code>。<br>所以上面的代码应该这么写：<br><code>&#39;\\abc&#39;</code> 才是真正的<code>&#39;\abc&#39;</code> 字符串。<br>```javascript<br>var str = “\abc”;<br>var patt= /^\abc/;<br>console.log(patt.test(str));//true<br>console.log(str.match(patt));// [“\abc”, index: 0, input: “\abc”]</p>
+<p>如果想在字符串里面表示<code>&#39;\&#39;</code>，那么就得转义它，给它也加一个反斜杠<code>&#39;\\&#39;</code>。<br>所以上面的代码应该这么写：<br><code>&#39;\\abc&#39;</code> 才是真正的<code>&#39;\abc&#39;</code> 字符串。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">"\\abc"</span>;</div><div class="line"><span class="keyword">var</span> patt= <span class="regexp">/^\\abc/</span>;</div><div class="line"><span class="built_in">console</span>.log(patt.test(str));<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(str.match(patt));<span class="comment">// ["\abc", index: 0, input: "\abc"]</span></div></pre></td></tr></table></figure></p>
 
       
     </div>
