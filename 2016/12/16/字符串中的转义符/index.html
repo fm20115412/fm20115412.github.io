@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="BabyBear,前端总结,生活分享" />
+  <meta name="keywords" content="Web前端,JavaScript," />
 
 
 
@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="学习总结 生活分享">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://fm-babybear.com/about/index.html">
+<meta name="description" content="今天在用正则表达式匹配字符串时，关于反斜杠引起了一点小疑惑，查阅了一些资料，故在此总结一下。
+反斜杠&amp;#39;\&amp;#39;是转义字符，如果它出现在字符的前面，那么他们就是一个整体，比如说&amp;#39;\n&amp;#39;,就表示换行符。字符串&amp;#39;\a&amp;#39;是转义操作，但是a不是有效的转义符，字符串就会忽略&amp;#39;\&amp;#39;,因此直接是字符a了。123&apos;\a&apos; === &apos;a&apos;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字符串中的转义符">
+<meta property="og:url" content="http://fm-babybear.com/2016/12/16/字符串中的转义符/index.html">
 <meta property="og:site_name" content="BabyBear's Blog">
-<meta property="og:description" content="学习总结 生活分享">
-<meta property="og:updated_time" content="2016-10-25T12:56:26.837Z">
+<meta property="og:description" content="今天在用正则表达式匹配字符串时，关于反斜杠引起了一点小疑惑，查阅了一些资料，故在此总结一下。
+反斜杠&amp;#39;\&amp;#39;是转义字符，如果它出现在字符的前面，那么他们就是一个整体，比如说&amp;#39;\n&amp;#39;,就表示换行符。字符串&amp;#39;\a&amp;#39;是转义操作，但是a不是有效的转义符，字符串就会忽略&amp;#39;\&amp;#39;,因此直接是字符a了。123&apos;\a&apos; === &apos;a&apos;">
+<meta property="og:updated_time" content="2016-12-16T09:06:36.449Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="学习总结 生活分享">
+<meta name="twitter:title" content="字符串中的转义符">
+<meta name="twitter:description" content="今天在用正则表达式匹配字符串时，关于反斜杠引起了一点小疑惑，查阅了一些资料，故在此总结一下。
+反斜杠&amp;#39;\&amp;#39;是转义字符，如果它出现在字符的前面，那么他们就是一个整体，比如说&amp;#39;\n&amp;#39;,就表示换行符。字符串&amp;#39;\a&amp;#39;是转义操作，但是a不是有效的转义符，字符串就会忽略&amp;#39;\&amp;#39;,因此直接是字符a了。123&apos;\a&apos; === &apos;a&apos;">
 
 
 
@@ -114,15 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://fm-babybear.com/about/"/>
+  <link rel="canonical" href="http://fm-babybear.com/2016/12/16/字符串中的转义符/"/>
 
-  <title>
-  
-
-  
-    about | BabyBear's Blog
-  
-</title>
+  <title> 字符串中的转义符 | BabyBear's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -143,7 +140,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -243,16 +240,150 @@
 
   <div id="posts" class="posts-expand">
     
-    
-      
-    
-    
-  <div class="comments" id="comments">
-    
-  </div>
 
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                字符串中的转义符
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-16T17:05:16+08:00" content="2016-12-16">
+              2016-12-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/16/字符串中的转义符/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/16/字符串中的转义符/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>今天在用正则表达式匹配字符串时，关于反斜杠引起了一点小疑惑，查阅了一些资料，故在此总结一下。</p>
+<p>反斜杠<code>&#39;\&#39;</code>是转义字符，如果它出现在字符的前面，那么他们就是一个整体，比如说<code>&#39;\n&#39;</code>,就表示换行符。<br>字符串<code>&#39;\a&#39;</code>是转义操作，但是<strong>a不是有效的转义符</strong>，字符串就会忽略<code>&#39;\&#39;</code>,因此直接是字符a了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">'\a'</span> === <span class="string">'a'</span>                  <span class="comment">// true</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">"\abc"</span>;</div><div class="line"><span class="built_in">console</span>.info(str.length);     <span class="comment">// 3</span></div></pre></td></tr></table></figure></p>
+<p>如果想在字符串里面表示<code>&#39;\&#39;</code>，那么就得转义它，给它也加一个反斜杠<code>&#39;\\&#39;</code>。<br>所以上面的代码应该这么写：<br><code>&#39;\\abc&#39;</code> 才是真正的<code>&#39;\abc&#39;</code> 字符串。<br>```javascript<br>var str = “\abc”;<br>var patt= /^\abc/;<br>console.log(patt.test(str));//true<br>console.log(str.match(patt));// [“\abc”, index: 0, input: “\abc”]</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Web前端/" rel="tag">#Web前端</a>
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/16/排序对象数组/" rel="next" title="排序对象数组">
+                <i class="fa fa-chevron-left"></i> 排序对象数组
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
- 
 
 
           </div>
@@ -262,8 +393,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="about/index.html"
-           data-title="about" data-url="http://fm-babybear.com/about/index.html">
+      <div class="ds-thread" data-thread-key="2016/12/16/字符串中的转义符/"
+           data-title="字符串中的转义符" data-url="http://fm-babybear.com/2016/12/16/字符串中的转义符/">
       </div>
     
   </div>
@@ -287,8 +418,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -338,6 +478,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -434,6 +585,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
