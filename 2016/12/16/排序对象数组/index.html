@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="web前端,html,css," />
+  <meta name="keywords" content="Web前端,JavaScript,对象数组的排序," />
 
 
 
@@ -84,18 +84,21 @@
 
 
 
-<meta name="description" content="Line-height (1)、line-height定义两行文字基线之间的距离 (2)、如果不设置line-height，取决于用户代理。桌面浏览器（包括火狐浏览器）使用默认值，约为1.2，这取决于元素的 font-family。 (3)、通常对于单行文本，对父元素设置height、文本设置line-height相等会让文本近似在父元素中垂直居中，但这种居中并不是严格意义上的居中，与使用哪种字体">
+<meta name="description" content="问题根据对象数组中的某个属性，对对象数组进行排序例如给定如下对象数组：123456[     &amp;#123;a: 1, b: 3&amp;#125;,     &amp;#123;a: 3, b: 2&amp;#125;,     &amp;#123;a: 2, b: 40&amp;#125;,     &amp;#123;a: 4, b: 12&amp;#125; ]
+根据对象的某个特定属性，按升序对整个数组进行排列。例如按属性a进行排序后，结果如下：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="html&css知识点整理4---line-height>vertical-align>text-align>文档流">
-<meta property="og:url" content="http://fm-babybear.com/2016/11/08/html知识点整理4之line-height/index.html">
+<meta property="og:title" content="排序对象数组">
+<meta property="og:url" content="http://fm-babybear.com/2016/12/16/排序对象数组/index.html">
 <meta property="og:site_name" content="BabyBear's Blog">
-<meta property="og:description" content="Line-height (1)、line-height定义两行文字基线之间的距离 (2)、如果不设置line-height，取决于用户代理。桌面浏览器（包括火狐浏览器）使用默认值，约为1.2，这取决于元素的 font-family。 (3)、通常对于单行文本，对父元素设置height、文本设置line-height相等会让文本近似在父元素中垂直居中，但这种居中并不是严格意义上的居中，与使用哪种字体">
-<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理4/文档流.png">
-<meta property="og:updated_time" content="2016-11-08T05:24:08.299Z">
+<meta property="og:description" content="问题根据对象数组中的某个属性，对对象数组进行排序例如给定如下对象数组：123456[     &amp;#123;a: 1, b: 3&amp;#125;,     &amp;#123;a: 3, b: 2&amp;#125;,     &amp;#123;a: 2, b: 40&amp;#125;,     &amp;#123;a: 4, b: 12&amp;#125; ]
+根据对象的某个特定属性，按升序对整个数组进行排列。例如按属性a进行排序后，结果如下：">
+<meta property="og:image" content="http://fm-babybear.com/image/JS函数/2.png">
+<meta property="og:updated_time" content="2016-12-16T03:05:51.533Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="html&css知识点整理4---line-height>vertical-align>text-align>文档流">
-<meta name="twitter:description" content="Line-height (1)、line-height定义两行文字基线之间的距离 (2)、如果不设置line-height，取决于用户代理。桌面浏览器（包括火狐浏览器）使用默认值，约为1.2，这取决于元素的 font-family。 (3)、通常对于单行文本，对父元素设置height、文本设置line-height相等会让文本近似在父元素中垂直居中，但这种居中并不是严格意义上的居中，与使用哪种字体">
-<meta name="twitter:image" content="http://fm-babybear.com/image/html&css知识点整理4/文档流.png">
+<meta name="twitter:title" content="排序对象数组">
+<meta name="twitter:description" content="问题根据对象数组中的某个属性，对对象数组进行排序例如给定如下对象数组：123456[     &amp;#123;a: 1, b: 3&amp;#125;,     &amp;#123;a: 3, b: 2&amp;#125;,     &amp;#123;a: 2, b: 40&amp;#125;,     &amp;#123;a: 4, b: 12&amp;#125; ]
+根据对象的某个特定属性，按升序对整个数组进行排列。例如按属性a进行排序后，结果如下：">
+<meta name="twitter:image" content="http://fm-babybear.com/image/JS函数/2.png">
 
 
 
@@ -116,9 +119,9 @@
 
 
 
-  <link rel="canonical" href="http://fm-babybear.com/2016/11/08/html知识点整理4之line-height/"/>
+  <link rel="canonical" href="http://fm-babybear.com/2016/12/16/排序对象数组/"/>
 
-  <title> html&css知识点整理4---line-height>vertical-align>text-align>文档流 | BabyBear's Blog </title>
+  <title> 排序对象数组 | BabyBear's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -258,7 +261,7 @@
             
             
               
-                html&css知识点整理4---line-height>vertical-align>text-align>文档流
+                排序对象数组
               
             
           </h1>
@@ -270,8 +273,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-08T13:15:10+08:00" content="2016-11-08">
-              2016-11-08
+            <time itemprop="dateCreated" datetime="2016-12-16T11:02:15+08:00" content="2016-12-16">
+              2016-12-16
             </time>
           </span>
 
@@ -284,8 +287,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/html-css知识点整理/" itemprop="url" rel="index">
-                    <span itemprop="name">html&css知识点整理</span>
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -300,8 +303,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/08/html知识点整理4之line-height/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/08/html知识点整理4之line-height/" itemprop="commentsCount"></span>
+                <a href="/2016/12/16/排序对象数组/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/16/排序对象数组/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -324,10 +327,22 @@
       
 
       
-        <h3 id="Line-height"><a href="#Line-height" class="headerlink" title="Line-height"></a>Line-height</h3><p> (1)、line-height定义两行文字基线之间的距离<br> (2)、如果不设置line-height，取决于用户代理。桌面浏览器（包括火狐浏览器）使用默认值，约为1.2，这取决于元素的 font-family。<br> (3)、通常对于单行文本，对父元素设置height、文本设置line-height相等会让文本近似在父元素中垂直居中，但这种居中并不是严格意义上的居中，与使用哪种字体有关。<br> (4)、line-height取值对于倍数和百分数是有区别的。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">line-height</span> : 1<span class="selector-class">.5</span>       <span class="comment">/*继承倍数*/</span></div><div class="line"><span class="selector-tag">line-height</span> ：150%      <span class="comment">/*先计算值，再把计算的值继承下去*/</span></div></pre></td></tr></table></figure></p>
-<h3 id="vertical-align"><a href="#vertical-align" class="headerlink" title="vertical-align"></a>vertical-align</h3><p><a href="http://www.cnblogs.com/hykun/p/3937852.html" target="_blank" rel="external">关于vertical-align属性</a></p>
-<h3 id="文档流"><a href="#文档流" class="headerlink" title="文档流"></a>文档流</h3><p><img src="/image/html&amp;css知识点整理4/文档流.png" alt="Alt text"></p>
-<h3 id="text-align"><a href="#text-align" class="headerlink" title="text-align"></a>text-align</h3><p><code>text-align:center</code>：它定义在块级元素中，能让块级元素内部的行内元素（包括display：inline-block的元素）如文本、图片居中，但对块级元素内部的块级元素没有作用。<br>补充：如果对表单元格<code>td</code>设置<code>text-align:center</code>也可以让表单元格的文本水平居中。</p>
+        <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>根据对象数组中的某个属性，对对象数组进行排序<br>例如给定如下对象数组：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[ </div><div class="line">    &#123;a: <span class="number">1</span>, b: <span class="number">3</span>&#125;, </div><div class="line">    &#123;a: <span class="number">3</span>, b: <span class="number">2</span>&#125;, </div><div class="line">    &#123;a: <span class="number">2</span>, b: <span class="number">40</span>&#125;, </div><div class="line">    &#123;a: <span class="number">4</span>, b: <span class="number">12</span>&#125; </div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>根据对象的某个特定属性，按升序对整个数组进行排列。例如按属性a进行排序后，结果如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[ </div><div class="line">    &#123;a: <span class="number">1</span>, b: <span class="number">3</span>&#125;, </div><div class="line">    &#123;a: <span class="number">2</span>, b: <span class="number">40</span>&#125;, </div><div class="line">    &#123;a: <span class="number">3</span>, b: <span class="number">2</span>&#125;, </div><div class="line">    &#123;a: <span class="number">4</span>, b: <span class="number">12</span>&#125; </div><div class="line">]</div></pre></td></tr></table></figure></p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>JS中的数组可以包含任何元素，包括对象。包含多个对象的数组构成一个对象数组。在数组中用花括号标记对象，并由逗号分隔各个对象，对象的属性则由键/值对组成。数组中的对象可以通过数组名加上数组索引进行访问。<br>例如有如下对象数组：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> employees=[];</div><div class="line">employees[<span class="number">0</span>]=&#123;name:<span class="string">"George"</span>, age:<span class="number">32</span>, retiredate:<span class="string">"March 12, 2014"</span>&#125;;</div><div class="line">employees[<span class="number">1</span>]=&#123;name:<span class="string">"Edward"</span>, age:<span class="number">17</span>, retiredate:<span class="string">"June 2, 2023"</span>&#125;;</div><div class="line">employees[<span class="number">2</span>]=&#123;name:<span class="string">"Christine"</span>, age:<span class="number">58</span>, retiredate:<span class="string">"December 20, 2036"</span>&#125;;</div><div class="line">employees[<span class="number">3</span>]=&#123;name:<span class="string">"Sarah"</span>, age:<span class="number">62</span>, retiredate:<span class="string">"April 30, 2020"</span>&#125;;</div></pre></td></tr></table></figure></p>
+<p>则<code>employees[0].name</code> 将返回<code>George</code></p>
+<p>下面来看看数组排序。JS的Array对象有一个sort方法可用于排序，该方法可接受一个比较函数用于比较数组元素，决定排序顺序。</p>
+<p>定义： <code>arr.sort([compareFunction])</code></p>
+<blockquote>
+<ul>
+<li>compareFunction(a, b) 返回值 &lt; 0， 则a排在b前</li>
+<li>compareFunction(a, b) 返回值 &gt; 0，则b在a前</li>
+<li>compareFunction(a, b) 返回值 === 0，则a、b的位置不变</li>
+</ul>
+</blockquote>
+<p>因此，我们可以定义一个函数，它接收一个属性名，然后根据这个属性名来创建一个比较函数。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare</span>(<span class="params">propertyName</span>) </span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">object1,object2</span>)</span>&#123;</div><div class="line">		<span class="comment">//升序</span></div><div class="line">		<span class="keyword">return</span> object1[propertyName]&lt;object2[propertyName]?<span class="number">-1</span>:<span class="number">1</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> employees=[];</div><div class="line">employees[<span class="number">0</span>]=&#123;name:<span class="string">"George"</span>, age:<span class="number">32</span>, retiredate:<span class="string">"March 12, 2014"</span>&#125;;</div><div class="line">employees[<span class="number">1</span>]=&#123;name:<span class="string">"Edward"</span>, age:<span class="number">17</span>, retiredate:<span class="string">"June 2, 2023"</span>&#125;;</div><div class="line">employees[<span class="number">2</span>]=&#123;name:<span class="string">"Christine"</span>, age:<span class="number">58</span>, retiredate:<span class="string">"December 20, 2036"</span>&#125;;</div><div class="line">employees[<span class="number">3</span>]=&#123;name:<span class="string">"Sarah"</span>, age:<span class="number">62</span>, retiredate:<span class="string">"April 30, 2020"</span>&#125;;</div><div class="line">employees.sort(compare(<span class="string">"name"</span>));</div></pre></td></tr></table></figure>
+<p>输出：<br><img src="/image/JS函数/2.png" alt="Alt text"></p>
 
       
     </div>
@@ -350,11 +365,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/web前端/" rel="tag">#web前端</a>
+            <a href="/tags/Web前端/" rel="tag">#Web前端</a>
           
-            <a href="/tags/html/" rel="tag">#html</a>
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
           
-            <a href="/tags/css/" rel="tag">#css</a>
+            <a href="/tags/对象数组的排序/" rel="tag">#对象数组的排序</a>
           
         </div>
       
@@ -363,17 +378,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/07/html知识点整理9之BFC/" rel="next" title="html&css知识点整理9---BFC(Block formatting contexts)">
-                <i class="fa fa-chevron-left"></i> html&css知识点整理9---BFC(Block formatting contexts)
+              <a href="/2016/12/14/JS部分操作符的使用/" rel="next" title="JS部分操作符的使用">
+                <i class="fa fa-chevron-left"></i> JS部分操作符的使用
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/11/水平垂直居中/" rel="prev" title="水平垂直居中">
-                水平垂直居中 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -399,8 +410,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/08/html知识点整理4之line-height/"
-           data-title="html&css知识点整理4---line-height>vertical-align>text-align>文档流" data-url="http://fm-babybear.com/2016/11/08/html知识点整理4之line-height/">
+      <div class="ds-thread" data-thread-key="2016/12/16/排序对象数组/"
+           data-title="排序对象数组" data-url="http://fm-babybear.com/2016/12/16/排序对象数组/">
       </div>
     
   </div>
@@ -491,7 +502,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Line-height"><span class="nav-number">1.</span> <span class="nav-text">Line-height</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vertical-align"><span class="nav-number">2.</span> <span class="nav-text">vertical-align</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文档流"><span class="nav-number">3.</span> <span class="nav-text">文档流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#text-align"><span class="nav-number">4.</span> <span class="nav-text">text-align</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
             
           </div>
         </section>
