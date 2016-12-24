@@ -96,15 +96,15 @@
 用户在浏览器输入要访问的URL
 通过本机配置好的DNS域名服务器地址寻找DNS服务器，将网站URL中的Web主机域名解析为Web服务器所在的Linux操作系统（Apache通常与Linux操作系统组合使用）中对应的IP地址。
 通过HTTP协议（超文本传输协议）去连接上述IP地址的服务器系统，通过默认80端口（默认的端口是80，也有其他端口，">
-<meta property="og:image" content="http://fm-babybear.com/./1482576393642.png">
-<meta property="og:updated_time" content="2016-12-24T11:19:32.491Z">
+<meta property="og:image" content="http://fm-babybear.com/image/url解析.png">
+<meta property="og:updated_time" content="2016-12-24T11:23:19.107Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从输入URL到页面加载完的过程中都发生了什么事情">
 <meta name="twitter:description" content="web 服务器、PHP、数据库、浏览器是如何实现动态网站
 用户在浏览器输入要访问的URL
 通过本机配置好的DNS域名服务器地址寻找DNS服务器，将网站URL中的Web主机域名解析为Web服务器所在的Linux操作系统（Apache通常与Linux操作系统组合使用）中对应的IP地址。
 通过HTTP协议（超文本传输协议）去连接上述IP地址的服务器系统，通过默认80端口（默认的端口是80，也有其他端口，">
-<meta name="twitter:image" content="http://fm-babybear.com/./1482576393642.png">
+<meta name="twitter:image" content="http://fm-babybear.com/image/url解析.png">
 
 
 
@@ -355,7 +355,7 @@
 <li>PHP应用服务器打开操作数据库的php文件，在php文件中通过对数据库连接的代码来连接本机或者网络上其他机器上的MySQL数据库，并在php程序中通过执行标准的SQL查询语句来获取数据库中的数据，再通过PHP应用服务器将数据生成html静态代码。</li>
 <li>浏览器收到Web服务器的响应后，接收并下载服务器端的html静态代码，然后浏览器解读代码，最终将网页呈现出来。</li>
 </ul>
-<p>因此，对于html文件，服务器只是找到了本地对应的文件，并返回给浏览器，而对于php文件，由于服务器程序不能处理php文件，因此它会委托PHP应用服务器来处理php文件，如果需要访问数据库，则通过SQL语句来操作数据库，并最终将结果翻译成html代码，并返回给浏览器。<br><img src="./1482576393642.png" alt="Alt text"></p>
+<p>因此，对于html文件，服务器只是找到了本地对应的文件，并返回给浏览器，而对于php文件，由于服务器程序不能处理php文件，因此它会委托PHP应用服务器来处理php文件，如果需要访问数据库，则通过SQL语句来操作数据库，并最终将结果翻译成html代码，并返回给浏览器。<br><img src="/image/url解析.png" alt="Alt text"></p>
 <h3 id="DNS域名解析过程"><a href="#DNS域名解析过程" class="headerlink" title="DNS域名解析过程"></a>DNS域名解析过程</h3><ul>
 <li><strong>浏览器缓存</strong> ： 如果之前访问过该主机（不是url）指定的资源，浏览器回缓存DNS一段时间，这样就可以直接使用浏览器缓存的DNS，只与一段时间是多久没要求，浏览器会自行决定。</li>
 <li><strong>系统缓存</strong>：如果浏览器缓存里面没有记录，浏览器会做系统调用，获取系统中的缓存记录。</li>
