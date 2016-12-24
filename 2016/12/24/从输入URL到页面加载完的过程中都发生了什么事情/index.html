@@ -97,7 +97,8 @@
 通过本机配置好的DNS域名服务器地址寻找DNS服务器，将网站URL中的Web主机域名解析为Web服务器所在的Linux操作系统（Apache通常与Linux操作系统组合使用）中对应的IP地址。
 通过HTTP协议（超文本传输协议）去连接上述IP地址的服务器系统，通过默认80端口（默认的端口是80，也有其他端口，">
 <meta property="og:image" content="http://fm-babybear.com/image/url解析.png">
-<meta property="og:updated_time" content="2016-12-24T11:23:19.107Z">
+<meta property="og:image" content="http://fm-babybear.com/image/url解析1.png">
+<meta property="og:updated_time" content="2016-12-24T11:28:50.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从输入URL到页面加载完的过程中都发生了什么事情">
 <meta name="twitter:description" content="web 服务器、PHP、数据库、浏览器是如何实现动态网站
@@ -370,19 +371,19 @@
 <li><strong>IIS</strong>（Internet信息服务）英文InternetInformationServer的缩写。它是微软公司主推的服务器。IIS的特点具有：安全性，强大，灵活。</li>
 <li><strong>Lighttpd</strong> 是由德国人JanKneschke领导开发的，基于BSD许可的开源WEB服务器软件，其根本的目的是提供一个专门针对高性能网站，安全、快速、兼容性好并且灵活的webserver环境。具有非常低的内存开销，CPU占用率低，效能好，以及丰富的模块等特点。支持FastCGI,CGI,Auth,输出压缩(outputcompress),URL重写,Alias等重要功能。</li>
 </ul>
-<h3 id="从输入-URL-到页面加载完的过程中都发生了什么事情"><a href="#从输入-URL-到页面加载完的过程中都发生了什么事情" class="headerlink" title="从输入 URL 到页面加载完的过程中都发生了什么事情"></a>从输入 URL 到页面加载完的过程中都发生了什么事情</h3><p>比如打开浏览器，在地址栏输入 <a href="http://jirengu.com" target="_blank" rel="external">http://jirengu.com</a> 页面展现了饥人谷官网的信息（饥人谷官网后台语言 php,web服务器 nginx，数据库 mysql）<br>（1）、<strong>URL解析</strong>：浏览器首先会将这个URL解析成三部分：</p>
+<h3 id="从输入-URL-到页面加载完的过程中都发生了什么事情"><a href="#从输入-URL-到页面加载完的过程中都发生了什么事情" class="headerlink" title="从输入 URL 到页面加载完的过程中都发生了什么事情"></a>从输入 URL 到页面加载完的过程中都发生了什么事情</h3><p>比如打开浏览器，在地址栏输入 <a href="http://jirengu.com" target="_blank" rel="external">http://jirengu.com</a> 页面展现了饥人谷官网的信息（饥人谷官网后台语言 php,web服务器 nginx，数据库 mysql）<br><img src="/image/url解析1.png" alt="Alt text"><br><strong>（1）、URL解析</strong>：浏览器首先会将这个URL解析成三部分：</p>
 <ul>
 <li>域名：www.jirengu.com</li>
 <li>端口：默认为80</li>
 <li>资源：默认为index.html和index.php</li>
 </ul>
-<p>（2）、<strong>DNS解析</strong>：浏览器查找URL地址对应的IP地址，这里会涉及到DNS解析流程。一般顺序是浏览器缓存–&gt;系统缓存–&gt;路由器缓存–&gt;ISP DNS缓存。<br>（3）、<strong>打包http请求</strong>：浏览器打包HTTP请求,这个打包的是HTTP报文。<br>（4）、<strong>创建TCP连接</strong>：传输层发现没有和目标IP建立连接，因此发起请求建立连接，发生3次握手建立TCP连接。<br>（5）、<strong>浏览器发送请求</strong>：浏览器向饥人谷的远端Nginx服务器发送GET请求。<br>（6）、<strong>服务器处理请求</strong>：Nginx服务器主机通过默认的80端口来处理HTTP请求，并根据请求的类型进行相应的处理</p>
+<p><strong>（2）、DNS解析</strong>：浏览器查找URL地址对应的IP地址，这里会涉及到DNS解析流程。一般顺序是浏览器缓存–&gt;系统缓存–&gt;路由器缓存–&gt;ISP DNS缓存。<br><strong>（3）、打包http请求</strong>：浏览器打包HTTP请求,这个打包的是HTTP报文。<br><strong>（4）、创建TCP连接</strong>：传输层发现没有和目标IP建立连接，因此发起请求建立连接，发生3次握手建立TCP连接。<br><strong>（5）、浏览器发送请求</strong>：浏览器向饥人谷的远端Nginx服务器发送GET请求。<br><strong>（6）、服务器处理请求</strong>：Nginx服务器主机通过默认的80端口来处理HTTP请求，并根据请求的类型进行相应的处理</p>
 <ul>
 <li>如果请求的是html文件，就将hmtl文件内容返回给浏览器。</li>
 <li>如果请求的是php文件，就通过PHP引用服务器将php转换为html静态代码返回给浏览器。</li>
 <li>如果请求的是数据库MySQL，就通过PHP应用服务器打开php文件，通过php文件对数据库连接的代码来连接数据库，并在php程序中执行标准的SQL查询语句来获取数据库中的数据，再通过PHP应用服务器生成html静态代码返回给服务器，服务器再返回给浏览器。</li>
 </ul>
-<p>（7）、<strong>服务器响应内容</strong>：将文件内容响应给客户端浏览器 (如果处理PHP文件或链接数据库，则把相应请求委托给PHP应用服务器，生成HTML静态代码后再发送给服务器)。<br>（8）、<strong>浏览器渲染页面</strong>：浏览器接受到服务器响应后下载HTML代码并进行解析，将网页呈现。</p>
+<p><strong>（7）、服务器响应内容</strong>：将文件内容响应给客户端浏览器 (如果处理PHP文件或链接数据库，则把相应请求委托给PHP应用服务器，生成HTML静态代码后再发送给服务器)。<br><strong>（8）、浏览器渲染页面</strong>：浏览器接受到服务器响应后下载HTML代码并进行解析，将网页呈现。</p>
 <ul>
 <li>浏览器下载的顺序是从上到下，渲染的顺序也是从上到下，下载和渲染同时进行。</li>
 <li>解析html成DOM树</li>
