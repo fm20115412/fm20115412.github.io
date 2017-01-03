@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="web前端,html,css," />
+  <meta name="keywords" content="Web前端,jQuery函数用法," />
 
 
 
@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="首先决定是否要兼容（1）、是否兼容IE根据用户使用百分比决定是否兼容，如淘宝，&amp;gt;3%，兼容。（2）、兼容到什么程度A级兼容标准：Chrome/Firefox ：基本上100%与设计稿一致。IE 9+ :基本上100%与设计稿一致。B级兼容标准：IE 8: 在IE8中 页面看着出入不大，与设计稿细微的差别可不用管。C级兼容标准：IE 7: 只要能用就可以，看起来好不好看无所谓。
-如何兼容可以安">
+<meta name="description" content="说明index()函数用于获取当前jQuery对象中指定DOM元素的索引值。语法：1jQueryObject.index( [ object ] )
+参数：| 参数|     描述|| :——–: | :——–:|| object|   可选/String/Element/jQuery类型表示指定元素的对象|参数object可以是DOM元素、jQuery对象或字符串。如果参数object是字符串，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="html&css知识点整理10---浏览器兼容">
-<meta property="og:url" content="http://fm-babybear.com/2016/11/11/html知识点整理10之浏览器兼容/index.html">
+<meta property="og:title" content="jQuery中的index()方法">
+<meta property="og:url" content="http://fm-babybear.com/2017/01/03/jQuery中的index()方法/index.html">
 <meta property="og:site_name" content="BabyBear's Blog">
-<meta property="og:description" content="首先决定是否要兼容（1）、是否兼容IE根据用户使用百分比决定是否兼容，如淘宝，&amp;gt;3%，兼容。（2）、兼容到什么程度A级兼容标准：Chrome/Firefox ：基本上100%与设计稿一致。IE 9+ :基本上100%与设计稿一致。B级兼容标准：IE 8: 在IE8中 页面看着出入不大，与设计稿细微的差别可不用管。C级兼容标准：IE 7: 只要能用就可以，看起来好不好看无所谓。
-如何兼容可以安">
-<meta property="og:updated_time" content="2016-11-11T11:52:00.000Z">
+<meta property="og:description" content="说明index()函数用于获取当前jQuery对象中指定DOM元素的索引值。语法：1jQueryObject.index( [ object ] )
+参数：| 参数|     描述|| :——–: | :——–:|| object|   可选/String/Element/jQuery类型表示指定元素的对象|参数object可以是DOM元素、jQuery对象或字符串。如果参数object是字符串，">
+<meta property="og:updated_time" content="2017-01-03T08:35:59.362Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="html&css知识点整理10---浏览器兼容">
-<meta name="twitter:description" content="首先决定是否要兼容（1）、是否兼容IE根据用户使用百分比决定是否兼容，如淘宝，&amp;gt;3%，兼容。（2）、兼容到什么程度A级兼容标准：Chrome/Firefox ：基本上100%与设计稿一致。IE 9+ :基本上100%与设计稿一致。B级兼容标准：IE 8: 在IE8中 页面看着出入不大，与设计稿细微的差别可不用管。C级兼容标准：IE 7: 只要能用就可以，看起来好不好看无所谓。
-如何兼容可以安">
+<meta name="twitter:title" content="jQuery中的index()方法">
+<meta name="twitter:description" content="说明index()函数用于获取当前jQuery对象中指定DOM元素的索引值。语法：1jQueryObject.index( [ object ] )
+参数：| 参数|     描述|| :——–: | :——–:|| object|   可选/String/Element/jQuery类型表示指定元素的对象|参数object可以是DOM元素、jQuery对象或字符串。如果参数object是字符串，">
 
 
 
@@ -117,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://fm-babybear.com/2016/11/11/html知识点整理10之浏览器兼容/"/>
+  <link rel="canonical" href="http://fm-babybear.com/2017/01/03/jQuery中的index()方法/"/>
 
-  <title> html&css知识点整理10---浏览器兼容 | BabyBear's Blog </title>
+  <title> jQuery中的index()方法 | BabyBear's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -259,7 +259,7 @@
             
             
               
-                html&css知识点整理10---浏览器兼容
+                jQuery中的index()方法
               
             
           </h1>
@@ -271,8 +271,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-11T19:49:25+08:00" content="2016-11-11">
-              2016-11-11
+            <time itemprop="dateCreated" datetime="2017-01-03T16:33:50+08:00" content="2017-01-03">
+              2017-01-03
             </time>
           </span>
 
@@ -285,8 +285,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/html-css知识点整理/" itemprop="url" rel="index">
-                    <span itemprop="name">html&css知识点整理</span>
+                  <a href="/categories/jQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">jQuery</span>
                   </a>
                 </span>
 
@@ -301,8 +301,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/11/html知识点整理10之浏览器兼容/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/11/html知识点整理10之浏览器兼容/" itemprop="commentsCount"></span>
+                <a href="/2017/01/03/jQuery中的index()方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/03/jQuery中的index()方法/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -325,13 +325,33 @@
       
 
       
-        <h3 id="首先决定是否要兼容"><a href="#首先决定是否要兼容" class="headerlink" title="首先决定是否要兼容"></a>首先决定是否要兼容</h3><p>（1）、是否兼容IE<br>根据用户使用百分比决定是否兼容，如淘宝，&gt;3%，兼容。<br>（2）、兼容到什么程度<br>A级兼容标准：<br>Chrome/Firefox ：基本上100%与设计稿一致。<br>IE 9+ :基本上100%与设计稿一致。<br>B级兼容标准：<br>IE 8: 在IE8中 页面看着出入不大，与设计稿细微的差别可不用管。<br>C级兼容标准：<br>IE 7: 只要能用就可以，看起来好不好看无所谓。</p>
-<h3 id="如何兼容"><a href="#如何兼容" class="headerlink" title="如何兼容"></a>如何兼容</h3><p>可以安装虚拟机，查看低版本IE下的效果；也可以IE下可以F12 -&gt; 仿真 -&gt; 查看元素在IE低版本效果。<br>遇到兼容bug ，直接google搜索解决方法<br><strong>property hack</strong><br>（1）、IE  inline-block bug，此时可以<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">display</span><span class="selector-pseudo">:inline-block</span>;</div><div class="line">*<span class="selector-tag">zoom</span><span class="selector-pseudo">:1</span></div><div class="line">*<span class="selector-tag">dislpay</span><span class="selector-pseudo">:inline</span>;</div></pre></td></tr></table></figure></p>
-<p><code>zoom:1</code>会触发IE下的BFC(haslayout)属性，故而该元素会成为一个块级元素，其次<code>display:inline</code>属性又让它是一个行内元素，故而综合一下就是inline-block元素了。其中<code>*</code>是IE浏览器的一个bug，其他浏览器看见<code>*属性：值</code>会忽略掉这条语句，而IE浏览器会认这条语句。<br>（2）、IE hover bug<br>IE 7以下只支持a标签的hover属性，因此想让其他的元素在IE 7以下有hover效果，只能将其改为a标签。<br>但这种方式，会更改文档结构，改变了文档的语义化，因此可以用javascript去监听，当鼠标hover到这个元素，给他添加一个类，在类里面增添某些属性，当鼠标移出时，删掉这个类。<br><a href="http://browserhacks.com/" target="_blank" rel="external">各种浏览器兼容写法</a><br><strong>条件注释：cc (ie conditional comments)</strong><br>为了提高与 HTML5 的可互操作性和兼容性，Internet Explorer 10 标准模式和 Quirks 模式中删除了对条件注释的支持。 这意味着，与在其他浏览器中相同，条件注释将被视作一般注释。 使用了条件注释的页面在 Windows Internet Explorer 9 中可正常工作，但在 Internet Explorer 10 中无法正常工作。<br><code>cc:ie</code> -&gt; Tab键<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!--[if IE 8]&gt;   只能针对ie 8</span></div><div class="line">	&lt;link rel="stylesheet" href="ie.css"&gt;  </div><div class="line">	&lt;![endif]--&gt;</div><div class="line"></div><div class="line">	<span class="comment">&lt;!--[if lt IE 8]&gt;   只能针对ie 8以下（lt=less than）</span></div><div class="line">	&lt;link rel="stylesheet" href="ie.css"&gt;  </div><div class="line">	&lt;![endif]--&gt;</div><div class="line">	</div><div class="line">	<span class="comment">&lt;!--[if lte IE 8]&gt;   只能针对ie8以及ie8以下（lte=less than equal）</span></div><div class="line">	&lt;link rel="stylesheet" href="ie8.css"&gt;  </div><div class="line">	&lt;![endif]--&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>上述代码中，对于IE 区别的样式写在ie.css中即可。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!--[if IE 8]&gt;</div><div class="line">&lt;link rel="stylesheet" href="ie8.css"&gt;  </div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure></p>
-<p>这段代码在其他浏览器中会当成注释忽略掉，但是ie浏览器能够识别。</p>
-<h3 id="IE-调试方法"><a href="#IE-调试方法" class="headerlink" title="IE    调试方法"></a>IE    调试方法</h3><p>（1）、使用高版本控制台<br>（2）、<code>border: 1px solid red</code><br>（3）、<code>outline:1px solid red</code><br>（4）、<code>javascript：alert(document.get...)</code></p>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://blog.csdn.net/freshlover/article/details/12132801" target="_blank" rel="external">史上最全的CSS hack方式一览</a></p>
+        <p><strong>说明</strong><br><code>index()</code>函数用于获取当前jQuery对象中指定DOM元素的索引值。<br><strong>语法：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jQueryObject.index( [ object ] )</div></pre></td></tr></table></figure></p>
+<p><strong>参数：</strong><br>| 参数|     描述|<br>| :——–: | :——–:|<br>| object|   可选/String/Element/jQuery类型表示指定元素的对象|<br>参数object可以是DOM元素、jQuery对象或字符串。如果参数object是字符串，则将其视作jQuery选择器，表示该选择器所匹配的元素。<br><strong>返回值：</strong><br><code>index()</code>方法的返回值为<code>Number</code>类型，返回指定元素的索引位置(从0开始算起)。</p>
+<p>注意：以下文本描述中的当前元素表示当前<code>jQuery</code>对象的第一个元素。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">没有参数</td>
+<td style="text-align:center">返回当前元素在其所有同辈元素中的索引位置。</td>
+</tr>
+<tr>
+<td style="text-align:center">object为String类型</td>
+<td style="text-align:center">则将其视作选择器，返回当前元素在选择器所匹配的元素中的索引位置。如果该选择器不匹配任何元素或者当前元素不在匹配到的元素内，则返回-1。</td>
+</tr>
+<tr>
+<td style="text-align:center">object为DOM元素或jQuery对象</td>
+<td style="text-align:center">返回该元素(或该jQuery对象中的第一个元素)在当前jQuery对象所匹配的元素中的索引位置。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>实例&amp;&amp;说明</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"n1"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"n2"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"n3"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"n4"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"n5"</span>&gt;</span>item1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"n6"</span>&gt;</span>item2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">id</span>=<span class="string">"n7"</span>&gt;</span>item3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"n8"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 省略参数： 返回第一个li元素在所有同辈元素中的索引</span></div><div class="line"><span class="built_in">document</span>.writeln( $(<span class="string">"li"</span>).index( ) ); <span class="comment">// 0</span></div><div class="line"></div><div class="line"><span class="comment">// 参数为DOM元素： 返回n6在$li中的索引</span></div><div class="line"><span class="built_in">document</span>.writeln( $(<span class="string">"li"</span>).index( <span class="built_in">document</span>.getElementById(<span class="string">"n6"</span>) ) ); <span class="comment">// 1</span></div><div class="line"><span class="comment">// 参数为jQuery对象： 返回$("#n7")在$li中的索引</span></div><div class="line"><span class="built_in">document</span>.writeln( $(<span class="string">"li"</span>).index( $(<span class="string">"#n7"</span>) ) ); <span class="comment">// 2</span></div><div class="line"></div><div class="line"><span class="comment">// 参数为选择器字符串： 返回$li中的第一个元素(即n5)在选择器"#n4"所匹配的元素中的索引</span></div><div class="line"><span class="comment">// 选择器"#n4"匹配的元素只有n4一个，没有n5，因此返回-1</span></div><div class="line"><span class="built_in">document</span>.writeln( $(<span class="string">"li"</span>).index( <span class="string">"#n4"</span> ) ); <span class="comment">// -1</span></div><div class="line"></div><div class="line"><span class="comment">// 省略参数：n4在同辈元素中的索引，n4之前的同辈元素有一个n3，因此返回索引为1</span></div><div class="line"><span class="built_in">document</span>.writeln ( $(<span class="string">"#n4"</span>).index( ) ); <span class="comment">// 1</span></div><div class="line"></div><div class="line"><span class="comment">// 参数为选择器字符串：n8在选择器"span"所匹配的元素中的索引</span></div><div class="line"><span class="comment">// 选择器"span"匹配n3、n8两个元素，n8是其中的第二个元素，因此返回索引为1</span></div><div class="line"><span class="built_in">document</span>.writeln ( $(<span class="string">"#n8"</span>).index( <span class="string">"span"</span> ) ); <span class="comment">// 1</span></div></pre></td></tr></table></figure>
 
       
     </div>
@@ -354,11 +374,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/web前端/" rel="tag">#web前端</a>
+            <a href="/tags/Web前端/" rel="tag">#Web前端</a>
           
-            <a href="/tags/html/" rel="tag">#html</a>
-          
-            <a href="/tags/css/" rel="tag">#css</a>
+            <a href="/tags/jQuery函数用法/" rel="tag">#jQuery函数用法</a>
           
         </div>
       
@@ -367,17 +385,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/11/水平垂直居中/" rel="next" title="水平垂直居中">
-                <i class="fa fa-chevron-left"></i> 水平垂直居中
+              <a href="/2016/12/24/从输入URL到页面加载完的过程中都发生了什么事情/" rel="next" title="从输入URL到页面加载完的过程中都发生了什么事情">
+                <i class="fa fa-chevron-left"></i> 从输入URL到页面加载完的过程中都发生了什么事情
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/30/在html中使用JavaScript/" rel="prev" title="在html中使用JavaScript">
-                在html中使用JavaScript <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -403,8 +417,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/11/html知识点整理10之浏览器兼容/"
-           data-title="html&css知识点整理10---浏览器兼容" data-url="http://fm-babybear.com/2016/11/11/html知识点整理10之浏览器兼容/">
+      <div class="ds-thread" data-thread-key="2017/01/03/jQuery中的index()方法/"
+           data-title="jQuery中的index()方法" data-url="http://fm-babybear.com/2017/01/03/jQuery中的index()方法/">
       </div>
     
   </div>
@@ -495,7 +509,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先决定是否要兼容"><span class="nav-number">1.</span> <span class="nav-text">首先决定是否要兼容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何兼容"><span class="nav-number">2.</span> <span class="nav-text">如何兼容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IE-调试方法"><span class="nav-number">3.</span> <span class="nav-text">IE    调试方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
