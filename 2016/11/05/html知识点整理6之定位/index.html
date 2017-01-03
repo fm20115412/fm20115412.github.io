@@ -1,0 +1,859 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="web前端,html,css," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="CSS有三种基本的定位机制：普通流，浮动和绝对定位
+普通流普通流是默认定位方式，在普通流中元素框的位置由元素在html中的位置决定，元素position属性为static或继承来的static时就会按照普通流定位，这也是我们最常见的方式。
+position要想了解CSS元素定位就需要了解position属性了，position属性有几个常用值如下：
+
+
+
+值
+属性
+
+
+
+
+static
+默认值,没">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html&css知识点整理6---定位">
+<meta property="og:url" content="http://fm-babybear.com/2016/11/05/html知识点整理6之定位/index.html">
+<meta property="og:site_name" content="BabyBear's Blog">
+<meta property="og:description" content="CSS有三种基本的定位机制：普通流，浮动和绝对定位
+普通流普通流是默认定位方式，在普通流中元素框的位置由元素在html中的位置决定，元素position属性为static或继承来的static时就会按照普通流定位，这也是我们最常见的方式。
+position要想了解CSS元素定位就需要了解position属性了，position属性有几个常用值如下：
+
+
+
+值
+属性
+
+
+
+
+static
+默认值,没">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/普通流.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/相对定位.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/绝对定位.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/固定定位.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/z-index1.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/z-index2.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/z-index3.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/z-index4.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/z-index5.png">
+<meta property="og:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/z-index6.png">
+<meta property="og:updated_time" content="2016-11-05T12:08:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html&css知识点整理6---定位">
+<meta name="twitter:description" content="CSS有三种基本的定位机制：普通流，浮动和绝对定位
+普通流普通流是默认定位方式，在普通流中元素框的位置由元素在html中的位置决定，元素position属性为static或继承来的static时就会按照普通流定位，这也是我们最常见的方式。
+position要想了解CSS元素定位就需要了解position属性了，position属性有几个常用值如下：
+
+
+
+值
+属性
+
+
+
+
+static
+默认值,没">
+<meta name="twitter:image" content="http://fm-babybear.com/image/html&css知识点整理6&7/普通流.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://fm-babybear.com/2016/11/05/html知识点整理6之定位/"/>
+
+  <title> html&css知识点整理6---定位 | BabyBear's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">BabyBear's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">walk step by step</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                html&css知识点整理6---定位
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-05T20:03:21+08:00" content="2016-11-05">
+              2016-11-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/html-css知识点整理/" itemprop="url" rel="index">
+                    <span itemprop="name">html&css知识点整理</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/05/html知识点整理6之定位/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/05/html知识点整理6之定位/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+         
+          
+          
+             <span id="/2016/11/05/html知识点整理6之定位/" class="leancloud_visitors" data-flag-title="html&css知识点整理6---定位">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>CSS有三种基本的定位机制：<strong>普通流，浮动和绝对定位</strong></p>
+<h3 id="普通流"><a href="#普通流" class="headerlink" title="普通流"></a>普通流</h3><p>普通流是默认定位方式，在普通流中元素框的位置由元素在html中的位置决定，元素position属性为static或继承来的static时就会按照普通流定位，这也是我们最常见的方式。</p>
+<h3 id="position"><a href="#position" class="headerlink" title="position"></a>position</h3><p>要想了解CSS元素定位就需要了解position属性了，position属性有几个常用值如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">值</th>
+<th style="text-align:center">属性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">static</td>
+<td style="text-align:center">默认值,没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）</td>
+</tr>
+<tr>
+<td style="text-align:center">relative</td>
+<td style="text-align:center">生成相对定位的元素，相对于元素本身正常位置进行定位,因此，left:20px 会向元素的 left 位置添加20px</td>
+</tr>
+<tr>
+<td style="text-align:center">absolute</td>
+<td style="text-align:center">生成绝对定位的元素，相对于static定位以外的第一个祖先元素（offset parent）进行定位,元素的位置通过 left, top, right 以及 bottom 属性进行规定</td>
+</tr>
+<tr>
+<td style="text-align:center">fixed</td>
+<td style="text-align:center">生成绝对定位的元素，相对于浏览器窗口进行定位。元素的位置通过 left, top, right 以及 bottom 属性进行规定</td>
+</tr>
+</tbody>
+</table>
+<p>（1）、<code>static</code>：默认值，元素出现在正常流中。一个 static 元素表示它不会被“positioned”，一个 position 属性被设置为其他值的元素表示它会被“positioned”。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box1 common"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box2 common"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box3 common"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;</div><div class="line">		<span class="attribute">border</span>:<span class="number">2px</span> solid black;</div><div class="line">		<span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">	&#125;</div><div class="line"><span class="selector-class">.common</span>&#123;</div><div class="line">		<span class="attribute">width</span>:<span class="number">100px</span>;</div><div class="line">		<span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">	&#125;</div><div class="line"><span class="selector-class">.box1</span>&#123;</div><div class="line">		<span class="attribute">background</span>:red;</div><div class="line">	&#125;</div><div class="line"><span class="selector-class">.box2</span>&#123;</div><div class="line">		<span class="attribute">background</span>: green;</div><div class="line">	&#125;</div><div class="line"><span class="selector-class">.box3</span>&#123;</div><div class="line">		<span class="attribute">background</span>:blue;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p><img src="/image/html&amp;css知识点整理6&amp;7/普通流.png" alt="Alt text"><br>（2）、<code>relative</code>：相对定位，如果对一个元素进行相对定位，它将出现在它所在的位置上。然后，可以通过设置left、right、top、bottom属性，让这个元素相对于它的起点移动。相对定位的主要用处不是移动一个元素，而是给它内部的绝对定位的元素设定一个移动参考点。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box2</span>&#123;</div><div class="line">		<span class="attribute">background</span>: green;</div><div class="line">		<span class="attribute">position</span>: relative;</div><div class="line">		<span class="attribute">left</span>:<span class="number">20px</span>;</div><div class="line">		<span class="attribute">top</span>:<span class="number">20px</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="/image/html&amp;css知识点整理6&amp;7/相对定位.png" alt="Alt text"><br>上面例子可以看出，对绿色div进行相对定位，分别右移，下移20px后第二个红色div位置并没有相应变化，而是在原位置，绿色div遮挡住了部分蓝色div。<br>（3）、<code>absolute</code>：绝对定位，绝对定位的元素的位置是相对于距离它最近的那个已经定位的祖先元素确定的。如果绝对定位（position属性的值为absolute）的元素没有“positioned”祖先元素，那么它是相对于文档的 body 元素，并且它会随着页面滚动而移动。记住一个“positioned”元素是指p osition 值不是 static 的元素。<br>相对定位可以看作特殊的普通流定位，元素位置是相对于它在普通流中位置发生变化，而绝对定位使元素的位置与文档流无关，也不占据文档流空间，普通流中的元素布局就像绝对定位元素不存在一样。<br>因为绝对定位与文档流无关，所以绝对定位的元素可以覆盖页面上的其他元素，可以通过z-index属性控制叠放顺序，z-index越高，元素位置越靠上。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;</div><div class="line">		<span class="attribute">border</span>:<span class="number">2px</span> solid black;</div><div class="line">		<span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">		<span class="attribute">position</span>: relative;</div><div class="line">	&#125;</div><div class="line"><span class="selector-class">.box2</span>&#123;</div><div class="line">		<span class="attribute">background</span>: green;</div><div class="line">		<span class="attribute">position</span>: absolute;</div><div class="line">		<span class="attribute">left</span>:<span class="number">20px</span>;</div><div class="line">		<span class="attribute">top</span>:<span class="number">20px</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="/image/html&amp;css知识点整理6&amp;7/绝对定位.png" alt="Alt text"><br>这时可以看出，绿色div是相对于父元素，也就是黑框div进行的移位，而红色和黄色div进行布局时就像绿色div不存在一样。<br>（4）、<code>fixed</code>：固定定位（position属性的值为fixed）元素会相对于视窗来定位，这意味着即便页面滚动，它还是会停留在相同的位置。和 relative 一样， top 、 right 、 bottom 和 left 属性都可用。固定定位的元素也不包含在普通文档流中，差异是固定元素的包含块是视口（viewport），经常见一些页面的如人人网看在线好友那个模块总在窗口右下角，估计用的是类似技术。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box2</span>&#123;</div><div class="line">		<span class="attribute">background</span>: green;</div><div class="line">		<span class="attribute">position</span>: fixed;</div><div class="line">		<span class="attribute">right</span>:<span class="number">20px</span>;</div><div class="line">		<span class="attribute">bottom</span>:<span class="number">20px</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="/image/html&amp;css知识点整理6&amp;7/固定定位.png" alt="Alt text"><br>可见红色和蓝色div布局没有受到绿色div影响，而无论是页面纵向滚动条在页面顶端还是底端，绿色div总是在视口左下角。<br>总结：<code>position:absolute</code>和<code>position:fixed</code>会使得元素脱离文档流。</p>
+<h3 id="top、right、bottom、left属性"><a href="#top、right、bottom、left属性" class="headerlink" title="top、right、bottom、left属性"></a>top、right、bottom、left属性</h3><p><code>top: 20px | 50%</code><br>百分数：对于top和bottom,相对于包含块的高度，对于right和left，相对于包含块的宽度。</p>
+<p>盒子的位移属性有四个“top、right、bottom和left”，用来指定元素的定位位置和方向。这些属性只能在元素的“position”属性设置了“relative、absolute和fixed”属性值，才生效。<br>对于相对定位元素，这些属性的设置让元素从默认位置移动。例如，top设置一个值“20px”在一个相对定位的元素上，这个元素会在原来位置向下移动“20px”。反之，“top”设置一个“-20px”，这个元素会在原来的位置向上移动“20px”。<br>对于绝对定位和固定定位元素，这些属性指定了元素<code>外边距</code>与父元素<code>边框</code>之间的距离，例如，绝对定位的元素设置一个“top”值为“20px”，将使绝对定位元素相对于其设置了相对定位的祖先元素顶部边缘向下移动“20px”，反之，如果设置一个“top”值为“20px”，将使绝对定位元素相对于其设置了相对定位的祖先元素顶部边缘向上移动“20px”。（绝对定位的参考点是其祖先元素设置了“relative”或者“absolute”值）。</p>
+<h3 id="Z-index"><a href="#Z-index" class="headerlink" title="Z-index"></a>Z-index</h3><p>z-index是针对网页显示中的一个特殊属性。因为显示器是显示的图案是一个二维平面，拥有x轴和y轴来表示位置属性。为了表示三维立体的概念如显示元素的上下层的叠加顺序引入了z-index属性来表示z轴的区别。表示一个元素在叠加顺序上的上下立体关系。<br>z-index值较大的元素将叠加在z-index值较小的元素之上。对于未指定此属性的定位对象，z-index 值为正数的对象会在其之上，而 z-index 值为负数的对象在其之下。<br>特点：</p>
+<h4 id="只对定位元素有效"><a href="#只对定位元素有效" class="headerlink" title="只对定位元素有效"></a>只对定位元素有效</h4><p>z-index属性适用于定位元素（position属性值为 relative 或 absolute 或 fixed的对象），用来确定定位元素在垂直于显示屏方向（称为Z轴）上的层叠顺序，也就是说如果元素是没有定位的，对其设置的z-index会是无效的。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box1 common"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box2 common"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box3 common"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;</div><div class="line">		<span class="attribute">border</span>:<span class="number">2px</span> solid;</div><div class="line">		<span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">	&#125;</div><div class="line"><span class="selector-class">.common</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">100px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">	&#125;</div><div class="line"><span class="selector-class">.box1</span>&#123;</div><div class="line">	<span class="attribute">background</span>: lightsalmon;</div><div class="line">	<span class="attribute">z-index</span>:<span class="number">2</span>;</div><div class="line">	&#125;</div><div class="line"><span class="selector-class">.box2</span>&#123;</div><div class="line">	<span class="attribute">background</span>: green;</div><div class="line">	<span class="attribute">position</span>: relative;</div><div class="line">	<span class="attribute">top</span>:-<span class="number">20px</span>;</div><div class="line">	<span class="attribute">index</span>:<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.box3</span>&#123;</div><div class="line">	<span class="attribute">background</span>: lightblue;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p><img src="/image/html&amp;css知识点整理6&amp;7/z-index1.png" alt="Alt text"><br>虽然第一个div的z-index比第二个div大，但是由于第一个div未定位，其z-index属性未起作用，所以仍然会被第二个div覆盖。</p>
+<h4 id="相同z-index谁上谁下"><a href="#相同z-index谁上谁下" class="headerlink" title="相同z-index谁上谁下"></a>相同z-index谁上谁下</h4><p>（1）、如果两个元素都没有定位发生位置重合现象或者两个都已定位元素且z-index相同发生位置重合现象，那么按文档流顺序，后面的覆盖前面的。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box1 common"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box2 common"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box3 common"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span>&#123;</div><div class="line">		<span class="attribute">border</span>:<span class="number">2px</span> solid;</div><div class="line">		<span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">	&#125;</div><div class="line"><span class="selector-class">.common</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">100px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">	&#125;</div><div class="line"><span class="selector-class">.box1</span>&#123;</div><div class="line">	<span class="attribute">background</span>: lightsalmon;</div><div class="line">	<span class="attribute">z-index</span>:<span class="number">2</span>;</div><div class="line">	<span class="attribute">position</span>: relative;</div><div class="line">	&#125;</div><div class="line"><span class="selector-class">.box2</span>&#123;</div><div class="line">	<span class="attribute">background</span>: green;</div><div class="line">	<span class="attribute">position</span>: relative;</div><div class="line">	<span class="attribute">top</span>:-<span class="number">20px</span>;</div><div class="line">	<span class="attribute">index</span>:<span class="number">2</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.box3</span>&#123;</div><div class="line">	<span class="attribute">background</span>: lightblue;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p><img src="/image/html&amp;css知识点整理6&amp;7/z-index2.png" alt="Alt text"><br>如图，两个盒子都相对定位了，且z-index相等，则后面的盒子会覆盖前面的盒子。<br>（2）、如果两个元素都没有设置z-index，使用默认值，一个定位一个没有定位，那么定位元素覆盖未定位元素。<br><img src="/image/html&amp;css知识点整理6&amp;7/z-index3.png" alt="Alt text"><br>如图所示，绿色盒子和蓝色盒子均未设置z-index,但由于绿色盒子设置了定位，因此依然会覆盖蓝色盒子。</p>
+<h4 id="父子关系处理"><a href="#父子关系处理" class="headerlink" title="父子关系处理"></a>父子关系处理</h4><p>（1）、如果父元素z-index有效，那么子元素无论是否设置z-index都和父元素一致，会在父元素上方<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box4"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box5"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box4</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">200px</span>;</div><div class="line">	<span class="attribute">background</span>: green;</div><div class="line">	<span class="attribute">position</span>: relative;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">10</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.box5</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">background</span>: lightblue;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">top</span>:<span class="number">30px</span>;</div><div class="line">	<span class="attribute">left</span>:<span class="number">30px</span>;</div><div class="line">	<span class="attribute">z-index</span>: -<span class="number">5</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/image/html&amp;css知识点整理6&amp;7/z-index4.png" alt="Alt text"><br>（2）、如果父元素z-index失效（未定位或者使用默认值），那么定位子元素的z-index设置生效<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box4"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box5"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box4</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">200px</span>;</div><div class="line">	<span class="attribute">background</span>: green;</div><div class="line">	<span class="attribute">position</span>: relative;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.box5</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">background</span>: lightblue;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">top</span>:<span class="number">30px</span>;</div><div class="line">	<span class="attribute">left</span>:<span class="number">30px</span>;</div><div class="line">	<span class="attribute">z-index</span>: -<span class="number">5</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="/image/html&amp;css知识点整理6&amp;7/z-index5.png" alt="Alt text"><br>子元素z-index=-5生效，被父元素覆盖</p>
+<h4 id="兄弟之间子元素"><a href="#兄弟之间子元素" class="headerlink" title="兄弟之间子元素"></a>兄弟之间子元素</h4><p>如果兄弟元素的z-index生效，那么其子元素覆盖关系由父元素决定<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box4"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box5"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box6"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box7"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box4</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">100px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">	<span class="attribute">background</span>: green;</div><div class="line">	<span class="attribute">position</span>: relative;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">5</span>;</div><div class="line">	&#125;</div><div class="line"><span class="selector-class">.box5</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">50px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">250px</span>;</div><div class="line">	<span class="attribute">background</span>: lightblue;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">z-index</span>:<span class="number">20</span>;</div><div class="line">	&#125;</div><div class="line"><span class="selector-class">.box6</span>&#123;</div><div class="line">	<span class="attribute">margin-top</span>: <span class="number">10px</span>;</div><div class="line">	<span class="attribute">width</span>:<span class="number">100px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">	<span class="attribute">background</span>: red;</div><div class="line">	<span class="attribute">position</span>: relative;</div><div class="line">	<span class="attribute">z-index</span>: <span class="number">15</span>;</div><div class="line">	&#125;</div><div class="line"><span class="selector-class">.box7</span>&#123;</div><div class="line">	<span class="attribute">width</span>:<span class="number">30px</span>;</div><div class="line">	<span class="attribute">height</span>:<span class="number">150px</span>;</div><div class="line">	<span class="attribute">background</span>: lightsalmon;</div><div class="line">	<span class="attribute">position</span>: absolute;</div><div class="line">	<span class="attribute">z-index</span>:-<span class="number">10</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p><img src="/image/html&amp;css知识点整理6&amp;7/z-index6.png" alt="Alt text"><br>虽然第一个div的子元素的z-index比较高，但是由于其父元素z-index比第二个div低，所以第一个div子元素会被第二个div及其子元素覆盖</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/web前端/" rel="tag">#web前端</a>
+          
+            <a href="/tags/html/" rel="tag">#html</a>
+          
+            <a href="/tags/css/" rel="tag">#css</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/04/html知识点整理8之布局/" rel="next" title="html&css知识点整理8---css布局">
+                <i class="fa fa-chevron-left"></i> html&css知识点整理8---css布局
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/05/html知识点整理7之浮动/" rel="prev" title="html&css知识点整理7---浮动">
+                html&css知识点整理7---浮动 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/05/html知识点整理6之定位/"
+           data-title="html&css知识点整理6---定位" data-url="http://fm-babybear.com/2016/11/05/html知识点整理6之定位/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="BabyBear" />
+          <p class="site-author-name" itemprop="name">BabyBear</p>
+          <p class="site-description motion-element" itemprop="description">学习总结 生活分享</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通流"><span class="nav-number">1.</span> <span class="nav-text">普通流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#position"><span class="nav-number">2.</span> <span class="nav-text">position</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#top、right、bottom、left属性"><span class="nav-number">3.</span> <span class="nav-text">top、right、bottom、left属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Z-index"><span class="nav-number">4.</span> <span class="nav-text">Z-index</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#只对定位元素有效"><span class="nav-number">4.1.</span> <span class="nav-text">只对定位元素有效</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相同z-index谁上谁下"><span class="nav-number">4.2.</span> <span class="nav-text">相同z-index谁上谁下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#父子关系处理"><span class="nav-number">4.3.</span> <span class="nav-text">父子关系处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#兄弟之间子元素"><span class="nav-number">4.4.</span> <span class="nav-text">兄弟之间子元素</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BabyBear</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"fm-babybear"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("2eL1ET4BYsjumXovDMeyVa2C-gzGzoHsz", "pF9on5DyTyLRL5FLV1Pz92KU");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+ 
+</body>
+</html>
