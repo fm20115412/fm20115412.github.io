@@ -1,0 +1,786 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Web前端,JavaScript,木桶布局," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="木桶布局介绍木桶布局是IFE自己取名的，在500px等一些图片网站中我们经常会看到这样的布局，每张图片的占位长宽比和图片本身的长宽比是一致的；每一行的高度是不固定的；每行的图片数也是不同的，但是每一行图片的总宽度是相同的。效果如下：
+木桶布局网站实例：500px：http://500px.me/community/discover/ratingflickr：https://www.flickr.c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="木桶布局">
+<meta property="og:url" content="http://fm-babybear.com/2017/02/08/木桶布局/index.html">
+<meta property="og:site_name" content="BabyBear's Blog">
+<meta property="og:description" content="木桶布局介绍木桶布局是IFE自己取名的，在500px等一些图片网站中我们经常会看到这样的布局，每张图片的占位长宽比和图片本身的长宽比是一致的；每一行的高度是不固定的；每行的图片数也是不同的，但是每一行图片的总宽度是相同的。效果如下：
+木桶布局网站实例：500px：http://500px.me/community/discover/ratingflickr：https://www.flickr.c">
+<meta property="og:image" content="http://fm-babybear.com/image/木桶布局.png">
+<meta property="og:updated_time" content="2017-02-08T01:56:06.559Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="木桶布局">
+<meta name="twitter:description" content="木桶布局介绍木桶布局是IFE自己取名的，在500px等一些图片网站中我们经常会看到这样的布局，每张图片的占位长宽比和图片本身的长宽比是一致的；每一行的高度是不固定的；每行的图片数也是不同的，但是每一行图片的总宽度是相同的。效果如下：
+木桶布局网站实例：500px：http://500px.me/community/discover/ratingflickr：https://www.flickr.c">
+<meta name="twitter:image" content="http://fm-babybear.com/image/木桶布局.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://fm-babybear.com/2017/02/08/木桶布局/"/>
+
+  <title> 木桶布局 | BabyBear's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">BabyBear's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">walk step by step</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                木桶布局
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-08T08:18:09+08:00" content="2017-02-08">
+              2017-02-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/web实例/" itemprop="url" rel="index">
+                    <span itemprop="name">web实例</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/08/木桶布局/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/08/木桶布局/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+         
+          
+          
+             <span id="/2017/02/08/木桶布局/" class="leancloud_visitors" data-flag-title="木桶布局">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="木桶布局介绍"><a href="#木桶布局介绍" class="headerlink" title="木桶布局介绍"></a>木桶布局介绍</h4><p>木桶布局是IFE自己取名的，在500px等一些图片网站中我们经常会看到这样的布局，每张图片的占位长宽比和图片本身的长宽比是一致的；每一行的高度是不固定的；每行的图片数也是不同的，但是每一行图片的总宽度是相同的。效果如下：<br><img src="/image/木桶布局.png" alt="Alt text"></p>
+<p>木桶布局网站实例：<br>500px：<a href="http://500px.me/community/discover/rating" target="_blank" rel="external">http://500px.me/community/discover/rating</a><br>flickr：<a href="https://www.flickr.com/explore" target="_blank" rel="external">https://www.flickr.com/explore</a></p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p><strong>1、获取图片</strong>：从<a href="https://unsplash.it网站加载长宽随机的图片，把图片的url存在一个数组中" target="_blank" rel="external">https://unsplash.it网站加载长宽随机的图片，把图片的url存在一个数组中</a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">getImgUrls:<span class="function"><span class="keyword">function</span> (<span class="params">num</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> width,height,urls=[];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;num;i++)&#123;</div><div class="line">        width=<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">500</span>+<span class="number">800</span>);</div><div class="line">        height=<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">400</span>+<span class="number">600</span>);</div><div class="line">        urls.push(<span class="string">"https://unsplash.it/"</span>+width+<span class="string">"/"</span>+height);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> urls;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>2、加载图片</strong>：当图片加载后，我们给定每张图片一个初始高度<code>baseHeight</code>，这样可以根据比例计算出每张图片的宽度。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">loadImg:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> _this=<span class="keyword">this</span>;</div><div class="line">    <span class="keyword">var</span> imgs=<span class="keyword">this</span>.getImgUrls(_this.imgNum);</div><div class="line">    $.each(imgs,<span class="function"><span class="keyword">function</span> (<span class="params">idx,url</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> img=<span class="keyword">new</span> Image();</div><div class="line">    img.src=url;</div><div class="line">    img.onload=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        _this.imgIndex++;</div><div class="line">        <span class="keyword">var</span> originWidth = img.width,</div><div class="line">            originHeight = img.height,</div><div class="line">            ratio = originWidth/originHeight;</div><div class="line">        <span class="keyword">var</span> imgInfo=&#123;</div><div class="line">            target:img,</div><div class="line">            width: _this.baseHeight*ratio,</div><div class="line">            height: _this.baseHeight</div><div class="line">        &#125;;</div><div class="line">        _this.render(imgInfo);</div><div class="line">                &#125;</div><div class="line">            &#125;)</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p><strong>3、渲染图片</strong>：首先计算外层容器的宽度<code>clientWidth</code>，对于加进来的每张图片，添加到<code>rowList</code>数组中，并计算出数组中图片的总宽度<code>rowWidth</code>，若刚好第n张加载进来的图片使得<code>rowWidth&gt;clientWidth</code>，说明前面n-1张图片会占据这一行，将第n张图片从数组弹出，减去它的宽度，并且计算出这一行图片新的高度<code>newRowHeight</code>，然后对前面n-1张图片进行布局。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">render:<span class="function"><span class="keyword">function</span> (<span class="params">imgInfo</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> clientWidth=<span class="keyword">this</span>.$ct.width();</div><div class="line">    <span class="keyword">var</span> rowWidth=<span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> lastImgInfo=imgInfo;</div><div class="line">    <span class="keyword">var</span> newRowHeight=<span class="number">0</span>;</div><div class="line">    <span class="keyword">this</span>.rowList.push(imgInfo);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.rowList.length;i++)&#123;</div><div class="line">        rowWidth+=<span class="keyword">this</span>.rowList[i].width+<span class="keyword">this</span>.marginRight;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(rowWidth&gt;clientWidth)&#123;</div><div class="line">        <span class="keyword">this</span>.rowList.pop();</div><div class="line">        rowWidth=rowWidth-lastImgInfo.width-<span class="keyword">this</span>.marginRight;</div><div class="line">        newRowHeight=(clientWidth* <span class="keyword">this</span>.baseHeight)/rowWidth;</div><div class="line">        <span class="keyword">this</span>.layout(newRowHeight);</div><div class="line">        <span class="keyword">this</span>.rowList=[];</div><div class="line">        <span class="keyword">this</span>.rowList.push(lastImgInfo);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>((<span class="keyword">this</span>.imgIndex==<span class="keyword">this</span>.imgNum)&amp;&amp;(rowWidth&lt;clientWidth))&#123;</div><div class="line">        newRowHeight= <span class="keyword">this</span>.baseHeight;</div><div class="line">        <span class="keyword">this</span>.layout(newRowHeight);</div><div class="line">    &#125;</div><div class="line">&#125;,</div></pre></td></tr></table></figure></p>
+<p><strong>4、对每一行的图片进行布局</strong>：这一步骤主要是进行比例计算，由前面的步骤可以得知该行的新高度，那么我们可以相应计算出该行每张图片的宽度，然后将每一行的图片加载到页面中即可。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">layout:<span class="function"><span class="keyword">function</span> (<span class="params">newRowHeight</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> _this=<span class="keyword">this</span>;</div><div class="line">    <span class="keyword">var</span> $rowCt=$(<span class="string">"&lt;div class='img-row'&gt;&lt;/div&gt;"</span>);</div><div class="line">    $.each(<span class="keyword">this</span>.rowList,<span class="function"><span class="keyword">function</span> (<span class="params">idx,imgInfo</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> $imgCt=$(<span class="string">"&lt;div class='img-box'&gt;&lt;/div&gt;"</span>),</div><div class="line">            $img=$(imgInfo.target);</div><div class="line">            <span class="comment">//这一步由于为了美观，加入了margin-right，因此宽度的计算会复杂一些，但也是根据比例，进行数学推倒的。</span></div><div class="line">        <span class="keyword">var</span> newImgWidth=(imgInfo.width+_this.marginRight)*(newRowHeight/_this.baseHeight)-_this.marginRight;</div><div class="line">        $img.height(newRowHeight);</div><div class="line">        $img.width(newImgWidth);</div><div class="line">        $imgCt.append($img);</div><div class="line">        $rowCt.append($imgCt);</div><div class="line">    &#125;)</div><div class="line">    <span class="keyword">this</span>.$ct.append($rowCt);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h4><p>html<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"img-preview"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">padding</span>:<span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.img-preview</span>&#123;</div><div class="line">    <span class="attribute">width</span>:<span class="number">1200px</span>;</div><div class="line">    <span class="attribute">margin</span>:<span class="number">8px</span> auto;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.img-row</span>&#123;</div><div class="line">    <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.img-row</span><span class="selector-pseudo">:after</span>&#123;</div><div class="line">    <span class="attribute">content</span>: <span class="string">""</span>;</div><div class="line">    <span class="attribute">display</span>: block;</div><div class="line">    <span class="attribute">clear</span>: both;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.img-box</span>&#123;</div><div class="line">    <span class="attribute">float</span>: left;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">img</span>&#123;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">8px</span>;</div><div class="line">    <span class="attribute">margin-right</span>: <span class="number">8px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>javascript<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Barrels</span>(<span class="params">$ct</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.$ct=$ct;</div><div class="line">    <span class="keyword">this</span>.imgNum=<span class="number">20</span>;</div><div class="line">    <span class="keyword">this</span>.baseHeight=<span class="number">200</span>;</div><div class="line">    <span class="keyword">this</span>.rowList=[];</div><div class="line">    <span class="keyword">this</span>.imgIndex=<span class="number">0</span>;</div><div class="line">    <span class="keyword">this</span>.marginRight=<span class="number">10</span>;</div><div class="line">    <span class="keyword">this</span>.loadImg();</div><div class="line">&#125;</div><div class="line">Barrels.prototype=&#123;</div><div class="line">    loadImg:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> _this=<span class="keyword">this</span>;</div><div class="line">        <span class="keyword">var</span> imgs=<span class="keyword">this</span>.getImgUrls(_this.imgNum);</div><div class="line">        $.each(imgs,<span class="function"><span class="keyword">function</span> (<span class="params">idx,url</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> img=<span class="keyword">new</span> Image();</div><div class="line">            img.src=url;</div><div class="line">            img.onload=<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                _this.imgIndex++;</div><div class="line">                <span class="keyword">var</span> originWidth = img.width,</div><div class="line">                    originHeight = img.height,</div><div class="line">                    ratio = originWidth/originHeight;</div><div class="line">                <span class="keyword">var</span> imgInfo=&#123;</div><div class="line">                    target:img,</div><div class="line">                    width: _this.baseHeight*ratio,</div><div class="line">                    height: _this.baseHeight</div><div class="line">                &#125;;</div><div class="line">                _this.render(imgInfo);</div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    &#125;,</div><div class="line">    getImgUrls:<span class="function"><span class="keyword">function</span> (<span class="params">num</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> width,height,urls=[];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;num;i++)&#123;</div><div class="line">            width=<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">500</span>+<span class="number">800</span>);</div><div class="line">            height=<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*<span class="number">400</span>+<span class="number">600</span>);</div><div class="line">            urls.push(<span class="string">"https://unsplash.it/"</span>+width+<span class="string">"/"</span>+height);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> urls;</div><div class="line">    &#125;,</div><div class="line">    render:<span class="function"><span class="keyword">function</span> (<span class="params">imgInfo</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> clientWidth=<span class="keyword">this</span>.$ct.width();</div><div class="line">        <span class="keyword">var</span> rowWidth=<span class="number">0</span>;</div><div class="line">        <span class="keyword">var</span> lastImgInfo=imgInfo;</div><div class="line">        <span class="keyword">var</span> newRowHeight=<span class="number">0</span>;</div><div class="line">        <span class="keyword">this</span>.rowList.push(imgInfo);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.rowList.length;i++)&#123;</div><div class="line">            rowWidth+=<span class="keyword">this</span>.rowList[i].width+<span class="keyword">this</span>.marginRight;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(rowWidth&gt;clientWidth)&#123;</div><div class="line">            <span class="keyword">this</span>.rowList.pop();</div><div class="line">            rowWidth=rowWidth-lastImgInfo.width-<span class="keyword">this</span>.marginRight;</div><div class="line">            newRowHeight=(clientWidth* <span class="keyword">this</span>.baseHeight)/rowWidth;</div><div class="line">            <span class="keyword">this</span>.layout(newRowHeight);</div><div class="line">            <span class="keyword">this</span>.rowList=[];</div><div class="line">            <span class="keyword">this</span>.rowList.push(lastImgInfo);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>((<span class="keyword">this</span>.imgIndex==<span class="keyword">this</span>.imgNum)&amp;&amp;(rowWidth&lt;clientWidth))&#123;</div><div class="line"><span class="comment">//                    newRowHeight=(clientWidth* this.baseHeight)/rowWidth;</span></div><div class="line">            newRowHeight= <span class="keyword">this</span>.baseHeight;</div><div class="line">            <span class="keyword">this</span>.layout(newRowHeight);</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    layout:<span class="function"><span class="keyword">function</span> (<span class="params">newRowHeight</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> _this=<span class="keyword">this</span>;</div><div class="line">        <span class="keyword">var</span> $rowCt=$(<span class="string">"&lt;div class='img-row'&gt;&lt;/div&gt;"</span>);</div><div class="line"></div><div class="line">        $.each(<span class="keyword">this</span>.rowList,<span class="function"><span class="keyword">function</span> (<span class="params">idx,imgInfo</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> $imgCt=$(<span class="string">"&lt;div class='img-box'&gt;&lt;/div&gt;"</span>),</div><div class="line">                $img=$(imgInfo.target);</div><div class="line">            <span class="keyword">var</span> newImgWidth=(imgInfo.width+_this.marginRight)*(newRowHeight/_this.baseHeight)-_this.marginRight;</div><div class="line">            $img.height(newRowHeight);</div><div class="line">                $img.width(newImgWidth);</div><div class="line">                $imgCt.append($img);</div><div class="line">                $rowCt.append($imgCt);</div><div class="line">        &#125;)</div><div class="line">        <span class="keyword">this</span>.$ct.append($rowCt);</div><div class="line">    &#125;,</div><div class="line">&#125;</div><div class="line"><span class="keyword">new</span> Barrels($(<span class="string">".img-preview"</span>));</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Web前端/" rel="tag">#Web前端</a>
+          
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+            <a href="/tags/木桶布局/" rel="tag">#木桶布局</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/07/瀑布流布局/" rel="next" title="瀑布流布局">
+                <i class="fa fa-chevron-left"></i> 瀑布流布局
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/08/最近问题总结2-8/" rel="prev" title="最近遇到的问题总结（2017-2-8）">
+                最近遇到的问题总结（2017-2-8） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/08/木桶布局/"
+           data-title="木桶布局" data-url="http://fm-babybear.com/2017/02/08/木桶布局/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="BabyBear" />
+          <p class="site-author-name" itemprop="name">BabyBear</p>
+          <p class="site-description motion-element" itemprop="description">学习总结 生活分享</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#木桶布局介绍"><span class="nav-number">1.</span> <span class="nav-text">木桶布局介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完整代码"><span class="nav-number">3.</span> <span class="nav-text">完整代码</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BabyBear</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"fm-babybear"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("2eL1ET4BYsjumXovDMeyVa2C-gzGzoHsz", "pF9on5DyTyLRL5FLV1Pz92KU");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+ 
+</body>
+</html>

@@ -4,8 +4,102 @@
 
     
   <url>
+    <loc>http://fm-babybear.com/2017/02/08/%E6%9C%80%E8%BF%91%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%932-8/</loc>
+    <lastmod>2017-02-08T02:03:43.439Z</lastmod>
+    <data>
+        <display>
+        <title>最近遇到的问题总结（2017-2-8）</title>
+        <pubTime>2017-02-08T01:18:09.000Z</pubTime>
+        
+        <tag>Web前端</tag>
+         
+        <tag>问题总结</tag>
+         
+         
+           
+             
+              <breadCrumb title="问题总结" url="http://fm-babybear.com/categories/%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fm-babybear.com/2017/02/04/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/</loc>
+    <lastmod>2017-02-08T01:59:54.450Z</lastmod>
+    <data>
+        <display>
+        <title>模板引擎</title>
+        <pubTime>2017-02-04T12:18:09.000Z</pubTime>
+        
+        <tag>Web前端</tag>
+         
+        <tag>JavaScript</tag>
+         
+        <tag>模板引擎</tag>
+         
+         
+           
+             
+              <breadCrumb title="JavaScript" url="http://fm-babybear.com/categories/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fm-babybear.com/2017/02/08/%E6%9C%A8%E6%A1%B6%E5%B8%83%E5%B1%80/</loc>
+    <lastmod>2017-02-08T01:56:06.559Z</lastmod>
+    <data>
+        <display>
+        <title>木桶布局</title>
+        <pubTime>2017-02-08T00:18:09.000Z</pubTime>
+        
+        <tag>Web前端</tag>
+         
+        <tag>JavaScript</tag>
+         
+        <tag>木桶布局</tag>
+         
+         
+           
+             
+              <breadCrumb title="web实例" url="http://fm-babybear.com/categories/web%E5%AE%9E%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://fm-babybear.com/2017/02/07/%E7%80%91%E5%B8%83%E6%B5%81%E5%B8%83%E5%B1%80/</loc>
+    <lastmod>2017-02-08T01:56:02.778Z</lastmod>
+    <data>
+        <display>
+        <title>瀑布流布局</title>
+        <pubTime>2017-02-07T12:18:09.000Z</pubTime>
+        
+        <tag>Web前端</tag>
+         
+        <tag>JavaScript</tag>
+         
+        <tag>瀑布流布局</tag>
+         
+         
+           
+             
+              <breadCrumb title="web实例" url="http://fm-babybear.com/categories/web%E5%AE%9E%E4%BE%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://fm-babybear.com/2017/02/02/JS%E4%B8%AD%E7%9A%84%E8%B7%A8%E5%9F%9F/</loc>
-    <lastmod>2017-02-02T12:40:16.275Z</lastmod>
+    <lastmod>2017-02-02T12:42:18.215Z</lastmod>
     <data>
         <display>
         <title>JavaScript中的跨域</title>
