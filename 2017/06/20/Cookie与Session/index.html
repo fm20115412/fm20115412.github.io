@@ -1,0 +1,826 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="BabyBear,前端总结,生活分享" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="CookieCookie和Session是为了在无状态的HTTP协议之上维护会话状态，使得服务器可以知道当前是和哪个客户在打交道。因为HTTP协议是无状态的，即每次用户请求到达服务器时，HTTP服务器并不知道这个用户是谁、是否登录过等。现在的服务器之所以知道我们是否已经登录，是因为服务器在登录时设置了浏览器的Cookie！Session则是借由Cookie而实现的更高层的服务器与浏览器之间的会话。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cookie与Session">
+<meta property="og:url" content="http://fm-babybear.com/2017/06/20/Cookie与Session/index.html">
+<meta property="og:site_name" content="BabyBear's Blog">
+<meta property="og:description" content="CookieCookie和Session是为了在无状态的HTTP协议之上维护会话状态，使得服务器可以知道当前是和哪个客户在打交道。因为HTTP协议是无状态的，即每次用户请求到达服务器时，HTTP服务器并不知道这个用户是谁、是否登录过等。现在的服务器之所以知道我们是否已经登录，是因为服务器在登录时设置了浏览器的Cookie！Session则是借由Cookie而实现的更高层的服务器与浏览器之间的会话。">
+<meta property="og:image" content="http://fm-babybear.com/1.png">
+<meta property="og:updated_time" content="2017-06-20T09:47:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Cookie与Session">
+<meta name="twitter:description" content="CookieCookie和Session是为了在无状态的HTTP协议之上维护会话状态，使得服务器可以知道当前是和哪个客户在打交道。因为HTTP协议是无状态的，即每次用户请求到达服务器时，HTTP服务器并不知道这个用户是谁、是否登录过等。现在的服务器之所以知道我们是否已经登录，是因为服务器在登录时设置了浏览器的Cookie！Session则是借由Cookie而实现的更高层的服务器与浏览器之间的会话。">
+<meta name="twitter:image" content="http://fm-babybear.com/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://fm-babybear.com/2017/06/20/Cookie与Session/"/>
+
+  <title> Cookie与Session | BabyBear's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">BabyBear's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">walk step by step</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Cookie与Session
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-20T17:35:39+08:00" content="2017-06-20">
+              2017-06-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/HTTP/" itemprop="url" rel="index">
+                    <span itemprop="name">HTTP</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/06/20/Cookie与Session/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/20/Cookie与Session/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+         
+          
+          
+             <span id="/2017/06/20/Cookie与Session/" class="leancloud_visitors" data-flag-title="Cookie与Session">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>Cookie和Session是为了在无状态的HTTP协议之上维护会话状态，使得服务器可以知道当前是和哪个客户在打交道。因为HTTP协议是无状态的，即每次用户请求到达服务器时，HTTP服务器并不知道这个用户是谁、是否登录过等。现在的服务器之所以知道我们是否已经登录，是因为服务器在登录时设置了浏览器的Cookie！Session则是借由Cookie而实现的更高层的服务器与浏览器之间的会话。<br><img src="1.png" alt="Alt text"></p>
+<h4 id="cookie的实现机制"><a href="#cookie的实现机制" class="headerlink" title="cookie的实现机制"></a>cookie的实现机制</h4><p>Cookie是由客户端保存的小型文本文件，其内容为一系列的键值对。 Cookie是由HTTP服务器设置的，保存在浏览器中， 在用户访问其他页面时，会在HTTP请求中附上该服务器之前设置的Cookie。<br>其流程如下：</p>
+<ul>
+<li>浏览器向某个URL发起HTTP请求（可以是任何请求，比如GET一个页面、POST一个登录表单等）</li>
+<li>对应的服务器收到该HTTP请求，并计算应当返回给浏览器的HTTP响应。</li>
+<li>在响应头加入Set-Cookie字段，它的值是要设置的Cookie。</li>
+<li>浏览器收到来自服务器的HTTP响应。</li>
+<li>浏览器在响应头中发现Set-Cookie字段，就会将该字段的值保存在内存或者硬盘中Set-Cookie字段的值可以是很多项Cookie，每一项都可以指定过期时间Expires。 默认的过期时间是用户关闭浏览器时。</li>
+<li>浏览器下次给该服务器发送HTTP请求时， 会将服务器设置的Cookie附加在HTTP请求的头字段Cookie中。浏览器可以存储多个域名下的Cookie，但只发送当前请求的域名曾经指定的Cookie， 这个域名也可以在Set-Cookie字段中指定）。</li>
+<li>服务器收到这个HTTP请求，发现请求头中有Cookie字段， 便知道之前就和这个用户打过交道了。</li>
+<li>过期的Cookie会被浏览器删除。</li>
+</ul>
+<p>总之，服务器通过Set-Cookie响应头字段来指示浏览器保存Cookie， 浏览器通过Cookie请求头字段来告诉服务器之前的状态。 Cookie中包含若干个键值对，每个键值对可以设置过期时间。</p>
+<h4 id="为什么需要Cookie？"><a href="#为什么需要Cookie？" class="headerlink" title="为什么需要Cookie？"></a>为什么需要Cookie？</h4><p>因为HTTP协议是无状态的，对于一个浏览器发出的多次请求，WEB服务器无法区分 是不是来源于同一个浏览器。所以，需要额外的数据用于维护会话。 Cookie 正是这样的一段随HTTP请求一起被传递的额外数据。</p>
+<h4 id="Cookie能做什么？"><a href="#Cookie能做什么？" class="headerlink" title="Cookie能做什么？"></a>Cookie能做什么？</h4><p>Cookie只是一段文本，所以它只能保存字符串。而且浏览器对它有大小限制以及 它会随着每次请求被发送到服务器，所以应该保证它不要太大。 Cookie的内容也是明文保存的，有些浏览器提供界面修改，所以， 不适合保存重要的或者涉及隐私的内容。</p>
+<h4 id="Cookie-的限制。"><a href="#Cookie-的限制。" class="headerlink" title="Cookie 的限制。"></a>Cookie 的限制。</h4><p> 大多数浏览器支持最大为 4096 字节的 Cookie。由于这限制了 Cookie 的大小，最好用 Cookie 来存储少量数据，或者存储用户 ID 之类的标识符。用户 ID 随后便可用于标识用户，以及从数据库或其他数据源中读取用户信息。 浏览器还限制站点可以在用户计算机上存储的 Cookie 的数量。大多数浏览器只允许每个站点存储 20 个 Cookie；如果试图存储更多 Cookie，则最旧的 Cookie 便会被丢弃。有些浏览器还会对它们将接受的来自所有站点的 Cookie 总数作出绝对限制，通常为 300 个。</p>
+<p>通过前面的内容，我们了解到Cookie是用于维持服务端会话状态的，通常由服务端写入，在后续请求中，供服务端读取。 </p>
+<h4 id="Cookie-的安全隐患"><a href="#Cookie-的安全隐患" class="headerlink" title="Cookie 的安全隐患"></a>Cookie 的安全隐患</h4><p>Cookie提供了一种手段使得HTTP请求可以附加当前状态， 现今的网站也是靠Cookie来标识用户的登录状态的：</p>
+<ul>
+<li>用户提交用户名和密码的表单，这通常是一个POST HTTP请求。</li>
+<li>服务器验证用户名与密码，如果合法则返回200（OK）并设置Set-Cookie为authed=true。</li>
+<li>浏览器存储该Cookie。</li>
+<li>浏览器发送请求时，设置Cookie字段为authed=true。</li>
+<li>服务器收到第二次请求，从Cookie字段得知该用户已经登录。 按照已登录用户的权限来处理此次请求。</li>
+</ul>
+<p>我们知道可以发送HTTP请求的不只是浏览器，很多HTTP客户端软件（包括curl、Node.js）都可以发送任意的HTTP请求，可以设置任何头字段。 假如我们直接设置Cookie字段为authed=true并发送该HTTP请求， 服务器岂不是被欺骗了？这种攻击非常容易，Cookie是可以被篡改的！</p>
+<h3 id="Cookie-防篡改机制"><a href="#Cookie-防篡改机制" class="headerlink" title="Cookie 防篡改机制"></a>Cookie 防篡改机制</h3><p>服务器可以为每个Cookie项生成签名，由于用户篡改Cookie后无法生成对应的签名， 服务器便可以得知用户对Cookie进行了篡改。一个简单的校验过程可能是这样的：</p>
+<ul>
+<li>在服务器中配置一个不为人知的字符串（我们叫它Secret），比如：x$sfz32。</li>
+<li>当服务器需要设置Cookie时（比如authed=false），不仅设置authed的值为false， 在值的后面进一步设置一个签名，最终设置的Cookie是authed=false|6hTiBl7lVpd1P。<br>签名6hTiBl7lVpd1P是这样生成的：Hash(‘x$sfz32’+’true’)。 要设置的值与Secret相加再取哈希。</li>
+<li>用户收到HTTP响应并发现头字段Set-Cookie: authed=false|6hTiBl7lVpd1P。</li>
+<li>用户在发送HTTP请求时，篡改了authed值，设置头字段Cookie: authed=true|???。 因为用户不知道Secret，无法生成签名，只能随便填一个。</li>
+<li>服务器收到HTTP请求，发现Cookie: authed=true|???。服务器开始进行校验： Hash(‘true’+’x$sfz32’)，便会发现用户提供的签名不正确。</li>
+</ul>
+<p>通过给Cookie添加签名，使得服务器得以知道Cookie被篡改。然而故事并未结束。</p>
+<p>因为Cookie是明文传输的， 只要服务器设置过一次authed=true|xxxx我不就知道true的签名是xxxx了么， 以后就可以用这个签名来欺骗服务器了。因此Cookie中最好不要放敏感数据。 一般来讲Cookie中只会放一个Session Id，而Session存储在服务器端。</p>
+<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><h4 id="Session是什么"><a href="#Session是什么" class="headerlink" title="Session是什么"></a>Session是什么</h4><p>Session 是存储在服务器端的，避免了在客户端Cookie中存储敏感数据。 Session 可以存储在HTTP服务器的内存中，也可以存在内存数据库（如redis）中， 对于重量级的应用甚至可以存储在数据库中。</p>
+<h4 id="Session的用途"><a href="#Session的用途" class="headerlink" title="Session的用途"></a>Session的用途</h4><ul>
+<li>Session可以记录用户的登录与行为数据，即记录下用户目前访问服务器上的那些内容，状态是什么，而考虑到这些数据用户修改的随意性很大，并没有必要直接存储在数据库中。</li>
+<li>在用户执行刷新操作时，即再次访问服务器时，可以直接根据Session，打开用户上次访问时网页的状态（如用户输入的表单内容等等），为用户带来更优的体验，提供个性化服务。</li>
+<li><p>用户的session信息非常关键，它记录了用户在进入页面、查看结果、点击结果以及后继的操作（比如翻页、加购物车等）。只有通过session信息才能把用户的行为联系起来，构建出完整的模型，因此从海量数据中把每一个用户所有session的操作都完整地挖掘出来非常重要。</p>
+<h4 id="Session的实现机制"><a href="#Session的实现机制" class="headerlink" title="Session的实现机制"></a>Session的实现机制</h4><p>我们以存储在redis中的Session为例，还是考察如何验证用户登录状态的问题。</p>
+</li>
+<li><p>用户提交包含用户名和密码的表单，发送HTTP请求。</p>
+</li>
+<li>服务器验证用户发来的用户名密码。</li>
+<li>如果正确则把当前用户名（通常是用户对象）存储到redis中，并生成它在redis中的ID。这个ID称为Session ID，通过Session ID可以从Redis中取出对应的用户对象， 敏感数据（比如authed=true）都存储在这个用户对象中。</li>
+<li>设置Cookie为sessionId=xxxxxx|checksum并发送HTTP响应， 仍然为每一项Cookie都设置签名。</li>
+<li>用户收到HTTP响应后，便看不到任何敏感数据了。在此后的请求中发送该Cookie给服务器。</li>
+<li>服务器收到此后的HTTP请求后，发现Cookie中有SessionID，进行放篡改验证。</li>
+<li>如果通过了验证，根据该ID从Redis中取出对应的用户对象， 查看该对象的状态并继续执行业务逻辑。</li>
+</ul>
+<p>Web应用框架都会实现上述过程，在Web应用中可以直接获得当前用户。 <strong>相当于在HTTP协议之上，通过Cookie实现了持久的会话。这个会话便称为Session。</strong></p>
+<h3 id="Cookie与Session的区别与联系"><a href="#Cookie与Session的区别与联系" class="headerlink" title="Cookie与Session的区别与联系"></a>Cookie与Session的区别与联系</h3><p>具体来说cookie机制采用的是在客户端保持状态的方案，而session机制采用的是在服务器端保持状态的方案。两者存储的都是用户登录信息，操作行为等等的数据。</p>
+<ul>
+<li>cookie是把用户的数据写在用户本地浏览器上, 其他网站也可以扫描使用你的cookie，容易泄露自己网站用户的隐私，而且一般浏览器对单个网站站点有cookie数量与大小的限制。</li>
+<li>Session是把用户的数据写在用户的独占session上，存储在服务器上，一般只将session的id存储在cookie中。但将数据存储在服务器对服务器的成本会高。</li>
+<li>session是由服务器创建的，开发人员可以在服务器上通过request对象的getsession方法得到session。</li>
+<li>一般情况，登录信息等重要信息存储在session中，其他信息存储在cookie中。</li>
+</ul>
+<h3 id="Cookie与Session的有效时长"><a href="#Cookie与Session的有效时长" class="headerlink" title="Cookie与Session的有效时长"></a>Cookie与Session的有效时长</h3><p><strong>session的有效时长</strong><br>服务器会把长时间没有活动的Session从服务器内存中清除，此时Session便失效。具体根据服务器设置，一般在二三十分钟左右。<br><strong>cookie的有效时长</strong><br>cookie的内容主要包括：名字，值，过期时间，路径和域。路径与域一起构成cookie的作用范围。通过过期时间可以设置cookie的有效时长，若不设置过期时间: 表示这个cookie的生命周期为浏览器回话期间，关闭访问服务器的浏览器窗口，cookie就消失了。一般称为会话cookie，保存在内存中。若设置了过期时间：则cookie会存储在硬盘上，直到超过有效时间。</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://www.cnblogs.com/fish-li/archive/2011/07/03/2096903.html" target="_blank" rel="external">细说Cookie</a><br><a href="http://harttle.com/2015/08/10/cookie-session.html" target="_blank" rel="external">Cookie/Session的机制与安全</a><br><a href="https://www.zhihu.com/question/19786827" target="_blank" rel="external">COOKIE和SESSION有什么区别？</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/20/浏览器缓存解析/" rel="next" title="浏览器缓存解析">
+                <i class="fa fa-chevron-left"></i> 浏览器缓存解析
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/24/Node中的模块/" rel="prev" title="Node中的模块">
+                Node中的模块 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/06/20/Cookie与Session/"
+           data-title="Cookie与Session" data-url="http://fm-babybear.com/2017/06/20/Cookie与Session/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="BabyBear" />
+          <p class="site-author-name" itemprop="name">BabyBear</p>
+          <p class="site-description motion-element" itemprop="description">walk step by step</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">58</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie"><span class="nav-number">1.</span> <span class="nav-text">Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cookie的实现机制"><span class="nav-number">1.1.</span> <span class="nav-text">cookie的实现机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么需要Cookie？"><span class="nav-number">1.2.</span> <span class="nav-text">为什么需要Cookie？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie能做什么？"><span class="nav-number">1.3.</span> <span class="nav-text">Cookie能做什么？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie-的限制。"><span class="nav-number">1.4.</span> <span class="nav-text">Cookie 的限制。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookie-的安全隐患"><span class="nav-number">1.5.</span> <span class="nav-text">Cookie 的安全隐患</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie-防篡改机制"><span class="nav-number">2.</span> <span class="nav-text">Cookie 防篡改机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Session"><span class="nav-number">3.</span> <span class="nav-text">Session</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Session是什么"><span class="nav-number">3.1.</span> <span class="nav-text">Session是什么</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session的用途"><span class="nav-number">3.2.</span> <span class="nav-text">Session的用途</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Session的实现机制"><span class="nav-number">3.3.</span> <span class="nav-text">Session的实现机制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie与Session的区别与联系"><span class="nav-number">4.</span> <span class="nav-text">Cookie与Session的区别与联系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie与Session的有效时长"><span class="nav-number">5.</span> <span class="nav-text">Cookie与Session的有效时长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BabyBear</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"fm-babybear"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("2eL1ET4BYsjumXovDMeyVa2C-gzGzoHsz", "pF9on5DyTyLRL5FLV1Pz92KU");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+ 
+</body>
+</html>

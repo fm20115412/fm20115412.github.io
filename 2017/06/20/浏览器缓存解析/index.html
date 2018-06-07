@@ -1,0 +1,790 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="BabyBear,前端总结,生活分享" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="缓存是什么缓存是指代理服务器或客户端本地磁盘内保存的资源副本。每次访问网页，通常浏览器会从服务器下载所需的资源，例如 HTML 文档、图片、CSS、JavaScript，甚至包括字体文件等。这里面的许多文件（例如图片）都是很少变动的，如果每次都要从服务器重新下载，会不必要地增加网页载入时间，同时也会对服务器造成一定压力。利用缓存可以减少对源服务器的访问，因此也就节省了通信流量和通信时间。浏览器是否">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器缓存解析">
+<meta property="og:url" content="http://fm-babybear.com/2017/06/20/浏览器缓存解析/index.html">
+<meta property="og:site_name" content="BabyBear's Blog">
+<meta property="og:description" content="缓存是什么缓存是指代理服务器或客户端本地磁盘内保存的资源副本。每次访问网页，通常浏览器会从服务器下载所需的资源，例如 HTML 文档、图片、CSS、JavaScript，甚至包括字体文件等。这里面的许多文件（例如图片）都是很少变动的，如果每次都要从服务器重新下载，会不必要地增加网页载入时间，同时也会对服务器造成一定压力。利用缓存可以减少对源服务器的访问，因此也就节省了通信流量和通信时间。浏览器是否">
+<meta property="og:image" content="http://fm-babybear.com/1.png">
+<meta property="og:image" content="http://fm-babybear.com/2.png">
+<meta property="og:updated_time" content="2017-06-20T05:28:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浏览器缓存解析">
+<meta name="twitter:description" content="缓存是什么缓存是指代理服务器或客户端本地磁盘内保存的资源副本。每次访问网页，通常浏览器会从服务器下载所需的资源，例如 HTML 文档、图片、CSS、JavaScript，甚至包括字体文件等。这里面的许多文件（例如图片）都是很少变动的，如果每次都要从服务器重新下载，会不必要地增加网页载入时间，同时也会对服务器造成一定压力。利用缓存可以减少对源服务器的访问，因此也就节省了通信流量和通信时间。浏览器是否">
+<meta name="twitter:image" content="http://fm-babybear.com/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://fm-babybear.com/2017/06/20/浏览器缓存解析/"/>
+
+  <title> 浏览器缓存解析 | BabyBear's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">BabyBear's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">walk step by step</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                浏览器缓存解析
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-20T12:48:42+08:00" content="2017-06-20">
+              2017-06-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/HTTP/" itemprop="url" rel="index">
+                    <span itemprop="name">HTTP</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/06/20/浏览器缓存解析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/20/浏览器缓存解析/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+         
+          
+          
+             <span id="/2017/06/20/浏览器缓存解析/" class="leancloud_visitors" data-flag-title="浏览器缓存解析">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="缓存是什么"><a href="#缓存是什么" class="headerlink" title="缓存是什么"></a>缓存是什么</h3><p><strong>缓存是指代理服务器或客户端本地磁盘内保存的资源副本。</strong>每次访问网页，通常浏览器会从服务器下载所需的资源，例如 HTML 文档、图片、CSS、JavaScript，甚至包括字体文件等。这里面的许多文件（例如图片）都是很少变动的，如果每次都要从服务器重新下载，会不必要地增加网页载入时间，同时也会对服务器造成一定压力。利用缓存可以减少对源服务器的访问，因此也就节省了通信流量和通信时间。<br>浏览器是否使用缓存、缓存多久，是由服务器控制的。准确来说，当浏览器请求一个网页（或者其他资源）时，服务器发回的响应的「响应头」部分的某些字段指明了有关缓存的关键信息。</p>
+<h3 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cache-Control : private,max-age=<span class="number">604800</span></div></pre></td></tr></table></figure>
+<p>指令的参数是可选的，多个指令之间通过<code>,</code>分隔。<br><code>Cache-Control HTTP</code> 响应头是 HTTP 1.1 协议新增的指令，每个资源都可以通过设定 <code>Cache-Control</code> 来建立缓存策略。通常，可为它指定一个<code>max-age</code>，表示缓存的最长时间，单位为秒。例如，若设定<code>Cache-Control: max-age=604800</code>则表示这个资源的有效时间为 7 天。浏览器第一次获取这个资源后，7 天之内若再次请求，通常都不会与服务器进行任何通信，而是直接使用本地副本。</p>
+<p>浏览器把文件和附带信息保存起来。当再次需要<code>a.jpg</code>时，如果是在300秒以内发起的请求则直接使用缓存(<code>200, from xx cache</code>)，否则重新发起网络请求(200)。下面是<code>Cache-Control</code>常见的几个值：</p>
+<ul>
+<li>Public表示响应可被任何中间节点缓存，如 Browser &lt;– proxy1 &lt;– proxy2 &lt;– Server，中间的proxy可以缓存资源，比如下次再请求同一资源proxy1直接把自己缓存的东西给 Browser 而不再向proxy2要。</li>
+<li>Private表示中间节点不允许缓存，对于Browser &lt;– proxy1 &lt;– proxy2 &lt;– Server，proxy 会老老实实把Server 返回的数据发送给proxy1,自己不缓存任何数据。当下次Browser再次请求时proxy会做好请求转发而不是自作主张给自己缓存的数据。</li>
+<li>no-cache表示不使用 Cache-Control的缓存控制方式做前置验证，而是使用 Etag 或者Last-Modified字段来控制缓存</li>
+<li>no-store ，真正的不缓存任何东西。浏览器会直接向服务器请求原始文件，并且请求中不附带 Etag 参数(服务器认为是新请求)。</li>
+<li>max-age，表示当前资源的有效时间，单位为秒。</li>
+</ul>
+<p><strong>优点</strong>：缓存控制功能更强大</p>
+<p><strong>缺点</strong>：假如浏览器再次请求资源a.jpg的时间间隔超过了max-age，这时候向服务器发送请求服务器应该会重新返回a.jpg的完整文件。但如果 a.jpg 在服务器上未做任何修改，发送a.jpg的完整文件就太浪费带宽了，其实只要发送一个「a.jpg未被更改」的短消息标示就好了。</p>
+<h3 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h3><p><img src="1.png" alt="Alt text"><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Expires: Wed ,<span class="number">04</span> Jul <span class="number">2012</span> <span class="number">09</span>:<span class="number">12</span>:<span class="number">36</span> GMT</div></pre></td></tr></table></figure></p>
+<p><code>Expires</code>响应头从另一个角度——指明缓存的具体过期日期，来控制资源何时过期。在过期时间以内，若再次发起请求，通常浏览器都不会与服务器进行任何通信，而是直接使用本地副本。<br>当 <code>Expires</code> 和 <code>Cache-Control</code> 同时出现时，通常后者会覆盖前者的设定。由于 Expires 对用户的系统时间有所依赖，因此通常认为使用<code>Cache-Control</code>是更好的选择（基本上所有的浏览器都支持 <code>Cache-Control</code> 指令）。</p>
+<h3 id="ETag与Last-Modified"><a href="#ETag与Last-Modified" class="headerlink" title="ETag与Last-Modified"></a>ETag与Last-Modified</h3><p>服务器可在<code>HTTP</code>返回头中包含<code>Last-Modified</code>字段或者<code>ETag</code>字段。<code>Last-Modified</code> 表示被请求资源在服务器端的上次修改时间，而<code>ETag</code> 则是一个唯一文件标识符，每次文件修改后都会生成一个新的 <code>ETag</code>。服务器通过向浏览器发送这两个字段，来告知浏览器其获得的资源的版本。</p>
+<h4 id="ETag"><a href="#ETag" class="headerlink" title="ETag"></a>ETag</h4><ul>
+<li>服务器使用 ETag HTTP 标头传递验证令牌。</li>
+<li>验证令牌可实现高效的资源更新检查：资源未发生变化时不会传送任何数据。<br><img src="2.png" alt="Alt text"></li>
+</ul>
+<p>比如：浏览器第一次请求a.jpg 时，服务器会发送完整的文件并附带额外信息，其中Etag 是 对a.jpg文件的编码，如果a.jpg在服务端未被修改，这个值就不会变<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Cache-Control: max-age=<span class="number">300</span>；</div><div class="line">ETag:W/<span class="string">"e-cbxLFQW5zapn79tQwb/g6Q"</span></div></pre></td></tr></table></figure></p>
+<p>浏览器把<code>a.jpg</code>和额外信息保存到本地。假如浏览器在300秒以内再次需要获取a.jpg时，浏览器直接从缓存读取<code>a.jpg(200, from xx cache)</code>。假如浏览器在300秒之后再次需要获取<code>a.jpg</code>时，浏览器发现该缓存的文件已经不新鲜了，于是就向服务器发送请求 重新获取<code>a.jpg</code>, 在发送请求的时候附带刚刚保存的<code>a.jpg</code>的<code>ETag ( If-None-Match：W/&quot;e-cbxLFQW5zapn79tQwb/g6Q&quot;)</code>。 服务器在接收到请求后拿浏览器请求的<code>Etag</code>和当前文件重新计算后端 <code>Etag</code>做个比较，如果二者相等表示文件在未修改则发送个短消息（响应头，不包含图片内容, 304），如果二者不等则发送新文件和新的<code>ETag</code>，浏览器获取新文件并更新该文件的 <code>Etag</code>。</p>
+<h4 id="Last-Modified"><a href="#Last-Modified" class="headerlink" title="Last-Modified"></a>Last-Modified</h4><p>与 <code>ETag</code> 类似功能的是<code>Last-Modified/If-Modified-Since</code>。当资源过期时（<code>max-age</code>超时），发现资源具有<code>Last-Modified</code>声明，则再次向web服务器请求时带上头<code>If-Modified-Since</code>，表示请求时间。web服务器收到请求后发现有头<code>If-Modified-Since</code> 则与被请求资源的最后修改时间进行比对。若最后修改时间较新，说明资源又被改动过，则响应整片资源内容（200）；若最后修改时间较旧，说明资源无新修改，则响应<code>HTTP 304</code>告知浏览器继续使用所保存的<code>cache</code>。</p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>由于 <code>Last-Modified</code> 和<code>ETag</code>的作用是相同的（均为向服务器验证资源是否最新），因此只使用一个即可。通常认为<code>Last-Modified</code> 更好（它和<code>Expires</code> 不同，由服务器生成，不依赖浏览器端时间）。</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://www.renfei.org/blog/http-caching.html" target="_blank" rel="external">网站优化：浏览器缓存控制简介及配置策略</a><br><a href="https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/http-caching?hl=zh-cn" target="_blank" rel="external">HTTP 缓存</a><br><a href="https://zhuanlan.zhihu.com/p/23299600" target="_blank" rel="external">简述浏览器缓存是如何控制的</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/19/CSS3的小技巧/" rel="next" title="CSS3的小技巧">
+                <i class="fa fa-chevron-left"></i> CSS3的小技巧
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/20/Cookie与Session/" rel="prev" title="Cookie与Session">
+                Cookie与Session <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/06/20/浏览器缓存解析/"
+           data-title="浏览器缓存解析" data-url="http://fm-babybear.com/2017/06/20/浏览器缓存解析/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="BabyBear" />
+          <p class="site-author-name" itemprop="name">BabyBear</p>
+          <p class="site-description motion-element" itemprop="description">walk step by step</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">58</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存是什么"><span class="nav-number">1.</span> <span class="nav-text">缓存是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cache-Control"><span class="nav-number">2.</span> <span class="nav-text">Cache-Control</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Expires"><span class="nav-number">3.</span> <span class="nav-text">Expires</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ETag与Last-Modified"><span class="nav-number">4.</span> <span class="nav-text">ETag与Last-Modified</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ETag"><span class="nav-number">4.1.</span> <span class="nav-text">ETag</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Last-Modified"><span class="nav-number">4.2.</span> <span class="nav-text">Last-Modified</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结"><span class="nav-number">4.3.</span> <span class="nav-text">小结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">BabyBear</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"fm-babybear"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("2eL1ET4BYsjumXovDMeyVa2C-gzGzoHsz", "pF9on5DyTyLRL5FLV1Pz92KU");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+ 
+</body>
+</html>
