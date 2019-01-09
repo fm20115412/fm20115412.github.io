@@ -92,15 +92,15 @@
 <meta property="og:site_name" content="BabyBear's Blog">
 <meta property="og:description" content="npm的包安装分为本地安装（local）、全局安装（global）两种，从敲的命令行来看，差别只是有没有-g而已，比如：12npm install grunt # 本地安装npm install -g grunt-cli # 全局安装
 如果你想像使用类似于 Node.js 中 require 函数那样依赖自己的模块，那么你可以选择局部安装， 这也是 npm install 的默认行为。另一种情况是">
-<meta property="og:image" content="http://fm-babybear.com/a.png">
-<meta property="og:image" content="http://fm-babybear.com/a.png">
-<meta property="og:image" content="http://fm-babybear.com/b.png">
+<meta property="og:image" content="http://fm-babybear.com/2017/03/21/node全局安装与本地安装/a.png">
+<meta property="og:image" content="http://fm-babybear.com/2017/03/21/node全局安装与本地安装/a.png">
+<meta property="og:image" content="http://fm-babybear.com/2017/03/21/node全局安装与本地安装/b.png">
 <meta property="og:updated_time" content="2017-03-21T14:28:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node全局安装与本地安装">
 <meta name="twitter:description" content="npm的包安装分为本地安装（local）、全局安装（global）两种，从敲的命令行来看，差别只是有没有-g而已，比如：12npm install grunt # 本地安装npm install -g grunt-cli # 全局安装
 如果你想像使用类似于 Node.js 中 require 函数那样依赖自己的模块，那么你可以选择局部安装， 这也是 npm install 的默认行为。另一种情况是">
-<meta name="twitter:image" content="http://fm-babybear.com/a.png">
+<meta name="twitter:image" content="http://fm-babybear.com/2017/03/21/node全局安装与本地安装/a.png">
 
 
 
@@ -345,7 +345,7 @@
 <ol>
 <li>将安装包放在<code>./node_modules</code>下（运行npm时所在的目录）</li>
 <li>可以通过<code>require()</code>来引入本地安装的包</li>
-<li>若<code>package.json</code>文件有<code>bin</code>字段：<br><img src="a.png" alt="Alt text"></li>
+<li>若<code>package.json</code>文件有<code>bin</code>字段：<br><img src="/2017/03/21/node全局安装与本地安装/a.png" alt="Alt text"></li>
 </ol>
 <p>则会在<code>./node_modules/.bin/</code>目录下创建一个软链接,真实的文件放在<code>./node_modules/grunt/bin</code>下</p>
 <p>比如运行下面命令：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install grunt</div></pre></td></tr></table></figure></p>
@@ -354,9 +354,9 @@
 <ol>
 <li>将安装包放在<code>C:\Users\fm\AppData\Roaming\npm\node_modules</code>下</li>
 <li>可以直接在命令行里使用</li>
-<li>若<code>package.json</code>文件有<code>bin</code>字段：<br><img src="a.png" alt="Alt text"></li>
+<li>若<code>package.json</code>文件有<code>bin</code>字段：<br><img src="/2017/03/21/node全局安装与本地安装/a.png" alt="Alt text"></li>
 </ol>
-<p>则npm会为bin中配置的文件在<code>C:\Users\fm\AppData\Roaming\npm</code>目录下创建一个软链接，真实的可执行文件在<code>C:\Users\fm\AppData\Roaming\npm\node_modules\grunt-cli\bin</code>下<br><img src="b.png" alt="Alt text"></p>
+<p>则npm会为bin中配置的文件在<code>C:\Users\fm\AppData\Roaming\npm</code>目录下创建一个软链接，真实的可执行文件在<code>C:\Users\fm\AppData\Roaming\npm\node_modules\grunt-cli\bin</code>下<br><img src="/2017/03/21/node全局安装与本地安装/b.png" alt="Alt text"></p>
 <p><strong>如果只是全局安装，不能直接通过<code>require()</code>的方式去引用模块</strong><br><a href="http://www.cnblogs.com/PeunZhang/p/5629329.html" target="_blank" rel="external">nodejs全局安装和本地安装的区别</a></p>
 
       
@@ -473,7 +473,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">57</span>
+              <span class="site-state-item-count">58</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -481,7 +481,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -538,7 +538,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

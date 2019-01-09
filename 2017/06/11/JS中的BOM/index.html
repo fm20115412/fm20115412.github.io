@@ -92,14 +92,14 @@ innerHeight与outerHeight通过window.innerHeight和window.outerHeight可以得�
 <meta property="og:site_name" content="BabyBear's Blog">
 <meta property="og:description" content="history 对象history对象保存着用户上网的历史记录。12345678// 后退一页history.go(-1)// 前进两页history.go(2)// 后退一页history.back()// 前进一页history.forward()
 innerHeight与outerHeight通过window.innerHeight和window.outerHeight可以得到整个窗口的高度">
-<meta property="og:image" content="http://fm-babybear.com/1.png">
-<meta property="og:image" content="http://fm-babybear.com/2.png">
+<meta property="og:image" content="http://fm-babybear.com/2017/06/11/JS中的BOM/1.png">
+<meta property="og:image" content="http://fm-babybear.com/2017/06/11/JS中的BOM/2.png">
 <meta property="og:updated_time" content="2017-06-12T04:47:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS中的BOM(更新中...)">
 <meta name="twitter:description" content="history 对象history对象保存着用户上网的历史记录。12345678// 后退一页history.go(-1)// 前进两页history.go(2)// 后退一页history.back()// 前进一页history.forward()
 innerHeight与outerHeight通过window.innerHeight和window.outerHeight可以得到整个窗口的高度">
-<meta name="twitter:image" content="http://fm-babybear.com/1.png">
+<meta name="twitter:image" content="http://fm-babybear.com/2017/06/11/JS中的BOM/1.png">
 
 
 
@@ -342,12 +342,12 @@ innerHeight与outerHeight通过window.innerHeight和window.outerHeight可以得�
 <h3 id="innerHeight与outerHeight"><a href="#innerHeight与outerHeight" class="headerlink" title="innerHeight与outerHeight"></a>innerHeight与outerHeight</h3><p>通过<code>window.innerHeight</code>和<code>window.outerHeight</code>可以得到整个窗口的高度。其中：</p>
 <ul>
 <li><code>innerHeight</code>是DOM视口的大小，包括滚动条。</li>
-<li><code>outerHeight</code>是整个浏览器窗口的大小，包括窗口标题、工具栏、状态栏等<br><img src="1.png" alt="Alt text"><br>把<code>Height</code>改为<code>Width</code>同样有效，分别是<code>innerWidth</code>和<code>outerWidth</code>。<h3 id="location"><a href="#location" class="headerlink" title="location"></a>location</h3>location对象用于获取窗口当前的URL信息，它有如下属性：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 当前网址为 http://user:passwd@www.example.com:4097/path/a.html?x=111#part1</span></div><div class="line"><span class="built_in">document</span>.location.href <span class="comment">// "http://user:passwd@www.example.com:4097/path/a.html?x=111#part1"</span></div><div class="line"><span class="built_in">document</span>.location.protocol <span class="comment">// "http:"</span></div><div class="line"><span class="built_in">document</span>.location.host <span class="comment">// "www.example.com:4097"</span></div><div class="line"><span class="built_in">document</span>.location.hostname <span class="comment">// "www.example.com"</span></div><div class="line"><span class="built_in">document</span>.location.port <span class="comment">// "4097"</span></div><div class="line"><span class="built_in">document</span>.location.pathname <span class="comment">// "/path/a.html"</span></div><div class="line"><span class="built_in">document</span>.location.search <span class="comment">// "?x=111"</span></div><div class="line"><span class="built_in">document</span>.location.hash <span class="comment">// "#part1"</span></div><div class="line"><span class="built_in">document</span>.location.user <span class="comment">// "user"</span></div><div class="line"><span class="built_in">document</span>.location.password <span class="comment">// "passed"</span></div></pre></td></tr></table></figure>
+<li><code>outerHeight</code>是整个浏览器窗口的大小，包括窗口标题、工具栏、状态栏等<br><img src="/2017/06/11/JS中的BOM/1.png" alt="Alt text"><br>把<code>Height</code>改为<code>Width</code>同样有效，分别是<code>innerWidth</code>和<code>outerWidth</code>。<h3 id="location"><a href="#location" class="headerlink" title="location"></a>location</h3>location对象用于获取窗口当前的URL信息，它有如下属性：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 当前网址为 http://user:passwd@www.example.com:4097/path/a.html?x=111#part1</span></div><div class="line"><span class="built_in">document</span>.location.href <span class="comment">// "http://user:passwd@www.example.com:4097/path/a.html?x=111#part1"</span></div><div class="line"><span class="built_in">document</span>.location.protocol <span class="comment">// "http:"</span></div><div class="line"><span class="built_in">document</span>.location.host <span class="comment">// "www.example.com:4097"</span></div><div class="line"><span class="built_in">document</span>.location.hostname <span class="comment">// "www.example.com"</span></div><div class="line"><span class="built_in">document</span>.location.port <span class="comment">// "4097"</span></div><div class="line"><span class="built_in">document</span>.location.pathname <span class="comment">// "/path/a.html"</span></div><div class="line"><span class="built_in">document</span>.location.search <span class="comment">// "?x=111"</span></div><div class="line"><span class="built_in">document</span>.location.hash <span class="comment">// "#part1"</span></div><div class="line"><span class="built_in">document</span>.location.user <span class="comment">// "user"</span></div><div class="line"><span class="built_in">document</span>.location.password <span class="comment">// "passed"</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h3><p><code>navigator</code>属性，指向一个包含浏览器信息的对象。<br><code>navigator.userAgent</code>属性返回浏览器的<code>User-Agent</code>字符串，标示浏览器的厂商和版本信息。</p>
 <h3 id="pageXOffset与pageYOffset"><a href="#pageXOffset与pageYOffset" class="headerlink" title="pageXOffset与pageYOffset"></a>pageXOffset与pageYOffset</h3><p><code>window.pageXOffset</code>属性返回页面的水平滚动距离，<code>window.pageYOffset</code>属性返回页面的垂直滚动距离，单位都为像素。</p>
-<h3 id="screenX与screenY"><a href="#screenX与screenY" class="headerlink" title="screenX与screenY"></a>screenX与screenY</h3><p><code>window.screenX</code>和<code>window.screenY</code>属性，返回浏览器窗口左上角相对于当前屏幕左上角（(0, 0)）的水平距离和垂直距离，单位为像素。<br><img src="2.png" alt="Alt text"></p>
+<h3 id="screenX与screenY"><a href="#screenX与screenY" class="headerlink" title="screenX与screenY"></a>screenX与screenY</h3><p><code>window.screenX</code>和<code>window.screenY</code>属性，返回浏览器窗口左上角相对于当前屏幕左上角（(0, 0)）的水平距离和垂直距离，单位为像素。<br><img src="/2017/06/11/JS中的BOM/2.png" alt="Alt text"></p>
 <h3 id="打开新窗口"><a href="#打开新窗口" class="headerlink" title="打开新窗口"></a>打开新窗口</h3><p><code>window.open(url,windowName,windowFeatures)</code></p>
 
       
@@ -462,7 +462,7 @@ innerHeight与outerHeight通过window.innerHeight和window.outerHeight可以得�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">57</span>
+              <span class="site-state-item-count">58</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -470,7 +470,7 @@ innerHeight与outerHeight通过window.innerHeight和window.outerHeight可以得�
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -527,7 +527,7 @@ innerHeight与outerHeight通过window.innerHeight和window.outerHeight可以得�
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

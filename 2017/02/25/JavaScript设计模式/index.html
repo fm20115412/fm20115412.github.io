@@ -92,13 +92,13 @@
 <meta property="og:site_name" content="BabyBear's Blog">
 <meta property="og:description" content="构造函数模式
 在JavaScript里，构造函数通常是认为用来实现实例的，JavaScript没有类的概念，但是有特殊的构造函数。通过new关键字来调用自定义的构造函数，在构造函数内部，this关键字引用的是新创建的对象。1234567891011&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;    function Person(name,age) &amp;#123;">
-<meta property="og:image" content="http://fm-babybear.com/1.png">
+<meta property="og:image" content="http://fm-babybear.com/2017/02/25/JavaScript设计模式/1.png">
 <meta property="og:updated_time" content="2017-02-28T02:52:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript设计模式">
 <meta name="twitter:description" content="构造函数模式
 在JavaScript里，构造函数通常是认为用来实现实例的，JavaScript没有类的概念，但是有特殊的构造函数。通过new关键字来调用自定义的构造函数，在构造函数内部，this关键字引用的是新创建的对象。1234567891011&amp;lt;script type=&quot;text/javascript&quot;&amp;gt;    function Person(name,age) &amp;#123;">
-<meta name="twitter:image" content="http://fm-babybear.com/1.png">
+<meta name="twitter:image" content="http://fm-babybear.com/2017/02/25/JavaScript设计模式/1.png">
 
 
 
@@ -347,7 +347,7 @@
 <p>单例就是保证一个类只有一个实例，实现的方法一般是先判断实例存在与否，如果存在则直接返回，如果不存在就创建了再返回，这就确保了一个类只有一个实例对象。在JavaScript中，单例作为一个命名空间提供者，从全局命名空间里提供一个唯一的访问点来访问该对象。</p>
 </blockquote>
 <p>应用场景：点击按钮弹出对话框，每次点击按钮，弹出的对话框都是同一个，只不过参数会更改。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">var</span> Person=(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> temp;</div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params">name,age</span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> &#123;</div><div class="line">                name:name,</div><div class="line">                age:age,</div><div class="line">                sayName:<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            createPerson:<span class="function"><span class="keyword">function</span> (<span class="params">name,age</span>) </span>&#123;</div><div class="line">                <span class="keyword">if</span>(!temp)&#123;</div><div class="line">                    temp=init(name,age);</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> temp;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;());</div><div class="line">    <span class="keyword">var</span> person1=Person.createPerson(<span class="string">"lucy"</span>,<span class="number">23</span>);</div><div class="line">    <span class="keyword">var</span> person2=Person.createPerson(<span class="string">"lily"</span>,<span class="number">24</span>);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p><img src="1.png" alt=""></p>
+<p><img src="/2017/02/25/JavaScript设计模式/1.png" alt=""></p>
 <h4 id="发布订阅模式"><a href="#发布订阅模式" class="headerlink" title="发布订阅模式"></a>发布订阅模式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">    <span class="keyword">var</span> EventCenter=(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> events=&#123;&#125;;</div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">on</span>(<span class="params">evt,handler</span>) </span>&#123;</div><div class="line">            events[evt]=events[evt]||[];</div><div class="line">            events[evt].push(&#123;</div><div class="line">                handler:handler</div><div class="line">            &#125;)</div><div class="line">        &#125;</div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">off</span>(<span class="params">evt</span>) </span>&#123;</div><div class="line">            <span class="keyword">delete</span> events[evt];</div><div class="line">        &#125;</div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">fire</span>(<span class="params">evt,args</span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span>(!events[evt])&#123;</div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;events[evt].length;i++)&#123;</div><div class="line">                events[evt][i].handler(args);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            on:on,</div><div class="line">            off:off,</div><div class="line">            fire:fire</div><div class="line">        &#125;</div><div class="line">    &#125;)();</div><div class="line">    EventCenter.on(<span class="string">'change'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'change...  now val is '</span> + val);</div><div class="line">    &#125;);</div><div class="line">    EventCenter.fire(<span class="string">'change'</span>, <span class="string">'饥人谷'</span>); <span class="comment">//change...  now val is 饥人谷</span></div><div class="line">    EventCenter.off(<span class="string">'change'</span>);</div></pre></td></tr></table></figure>
       
     </div>
@@ -461,7 +461,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">57</span>
+              <span class="site-state-item-count">58</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -469,7 +469,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -526,7 +526,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

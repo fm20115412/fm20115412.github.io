@@ -92,13 +92,13 @@
 <meta property="og:site_name" content="BabyBear's Blog">
 <meta property="og:description" content="为什么要使用模块化？前端开发中，起初只要在script标签中嵌入几十上百行代码就能实现一些基本的交互效果，后来js得到重视，应用也广泛起来了，jQuery，Ajax，Node.Js，MVC，MVVM等的助力也使得前端开发得到重视，也使得前端项目越来越复杂，然而，JavaScript却没有为组织代码提供任何明显帮助，甚至没有类的概念，更不用说模块（module）了，那么什么是模块呢？
 一个模块就是实">
-<meta property="og:image" content="http://fm-babybear.com/1.png">
+<meta property="og:image" content="http://fm-babybear.com/2017/06/17/模块化/1.png">
 <meta property="og:updated_time" content="2017-06-17T10:59:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模块化">
 <meta name="twitter:description" content="为什么要使用模块化？前端开发中，起初只要在script标签中嵌入几十上百行代码就能实现一些基本的交互效果，后来js得到重视，应用也广泛起来了，jQuery，Ajax，Node.Js，MVC，MVVM等的助力也使得前端开发得到重视，也使得前端项目越来越复杂，然而，JavaScript却没有为组织代码提供任何明显帮助，甚至没有类的概念，更不用说模块（module）了，那么什么是模块呢？
 一个模块就是实">
-<meta name="twitter:image" content="http://fm-babybear.com/1.png">
+<meta name="twitter:image" content="http://fm-babybear.com/2017/06/17/模块化/1.png">
 
 
 
@@ -345,7 +345,7 @@
 <li>提高代码可读性</li>
 <li>代码解耦，提高复用性</li>
 </ul>
-<h3 id="CMD、AMD、CommonJS-规范分别指什么？有哪些应用"><a href="#CMD、AMD、CommonJS-规范分别指什么？有哪些应用" class="headerlink" title="CMD、AMD、CommonJS 规范分别指什么？有哪些应用"></a>CMD、AMD、CommonJS 规范分别指什么？有哪些应用</h3><p><img src="1.png" alt="Alt text"></p>
+<h3 id="CMD、AMD、CommonJS-规范分别指什么？有哪些应用"><a href="#CMD、AMD、CommonJS-规范分别指什么？有哪些应用" class="headerlink" title="CMD、AMD、CommonJS 规范分别指什么？有哪些应用"></a>CMD、AMD、CommonJS 规范分别指什么？有哪些应用</h3><p><img src="/2017/06/17/模块化/1.png" alt="Alt text"></p>
 <h4 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h4><p><code>CommonJS</code>是服务器端模块的规范，<code>Node.JS</code>采用了这个规范。<code>Node.JS</code>首先采用了<code>js</code>模块化的概念。根据<code>CommonJS</code>规范，一个单独的文件就是一个模块。每一个模块都是一个单独的作用域，也就是说，在该模块内部定义的变量，无法被其他模块读取，除非定义为<code>global</code>对象的属性。</p>
 <p>输出模块变量的最好方法是使用<code>module.exports</code>对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//    文件名: foo.js</span></div><div class="line"></div><div class="line"><span class="comment">// 加载模块</span></div><div class="line"><span class="keyword">var</span> $ = <span class="built_in">require</span>(<span class="string">'./jquery'</span>);</div><div class="line"><span class="keyword">var</span> _ = <span class="built_in">require</span>(<span class="string">'./underscore'</span>);</div><div class="line"> </div><div class="line"><span class="comment">// 定义方法</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;&#125;;    <span class="comment">//    私有方法，因为它没在module.exports中 (见下面)</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125;;    <span class="comment">//    公共方法，因为它在module.exports中定义了</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params"></span>)</span>&#123;&#125;;    <span class="comment">//    公共方法，因为它在module.exports中定义了</span></div><div class="line"> </div><div class="line"><span class="comment">// 导出接口</span></div><div class="line"><span class="built_in">module</span>.exports = &#123;</div><div class="line">    b: b,</div><div class="line">    c: c</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <h4 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h4><p><code>AMD</code> 即<code>Asynchronous Module Definition</code>，中文名是“异步模块定义”的意思。它是一个在浏览器端模块化开发的规范，服务器端的规范是<code>CommonJS</code>，模块将被异步加载，模块加载不影响后面语句的运行。所有依赖某些模块的语句均放置在回调函数中。<code>AMD</code>是 <code>RequireJS</code> 在推广过程中对模块定义的规范化的产出。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 文件名: foo.js</span></div><div class="line">define([<span class="string">'jquery'</span>, <span class="string">'underscore'</span>], <span class="function"><span class="keyword">function</span> (<span class="params">$, _</span>) </span>&#123;</div><div class="line"><span class="comment">// 方法</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;&#125;; <span class="comment">// 私有方法，因为没有被返回(见下面)</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125;; <span class="comment">// 公共方法，因为被返回了</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params"></span>)</span>&#123;&#125;; <span class="comment">// 公共方法，因为被返回了</span></div><div class="line"></div><div class="line"><span class="comment">// 对外提供接口</span></div><div class="line"><span class="keyword">return</span> &#123;</div><div class="line">     b: b,</div><div class="line">     c: c</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
@@ -458,7 +458,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">57</span>
+              <span class="site-state-item-count">58</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -466,7 +466,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -523,7 +523,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

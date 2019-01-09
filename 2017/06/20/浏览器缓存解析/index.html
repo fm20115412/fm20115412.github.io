@@ -90,13 +90,13 @@
 <meta property="og:url" content="http://fm-babybear.com/2017/06/20/浏览器缓存解析/index.html">
 <meta property="og:site_name" content="BabyBear's Blog">
 <meta property="og:description" content="缓存是什么缓存是指代理服务器或客户端本地磁盘内保存的资源副本。每次访问网页，通常浏览器会从服务器下载所需的资源，例如 HTML 文档、图片、CSS、JavaScript，甚至包括字体文件等。这里面的许多文件（例如图片）都是很少变动的，如果每次都要从服务器重新下载，会不必要地增加网页载入时间，同时也会对服务器造成一定压力。利用缓存可以减少对源服务器的访问，因此也就节省了通信流量和通信时间。浏览器是否">
-<meta property="og:image" content="http://fm-babybear.com/1.png">
-<meta property="og:image" content="http://fm-babybear.com/2.png">
+<meta property="og:image" content="http://fm-babybear.com/2017/06/20/浏览器缓存解析/1.png">
+<meta property="og:image" content="http://fm-babybear.com/2017/06/20/浏览器缓存解析/2.png">
 <meta property="og:updated_time" content="2017-06-20T05:28:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器缓存解析">
 <meta name="twitter:description" content="缓存是什么缓存是指代理服务器或客户端本地磁盘内保存的资源副本。每次访问网页，通常浏览器会从服务器下载所需的资源，例如 HTML 文档、图片、CSS、JavaScript，甚至包括字体文件等。这里面的许多文件（例如图片）都是很少变动的，如果每次都要从服务器重新下载，会不必要地增加网页载入时间，同时也会对服务器造成一定压力。利用缓存可以减少对源服务器的访问，因此也就节省了通信流量和通信时间。浏览器是否">
-<meta name="twitter:image" content="http://fm-babybear.com/1.png">
+<meta name="twitter:image" content="http://fm-babybear.com/2017/06/20/浏览器缓存解析/1.png">
 
 
 
@@ -348,12 +348,12 @@
 </ul>
 <p><strong>优点</strong>：缓存控制功能更强大</p>
 <p><strong>缺点</strong>：假如浏览器再次请求资源a.jpg的时间间隔超过了max-age，这时候向服务器发送请求服务器应该会重新返回a.jpg的完整文件。但如果 a.jpg 在服务器上未做任何修改，发送a.jpg的完整文件就太浪费带宽了，其实只要发送一个「a.jpg未被更改」的短消息标示就好了。</p>
-<h3 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h3><p><img src="1.png" alt="Alt text"><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Expires: Wed ,<span class="number">04</span> Jul <span class="number">2012</span> <span class="number">09</span>:<span class="number">12</span>:<span class="number">36</span> GMT</div></pre></td></tr></table></figure></p>
+<h3 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h3><p><img src="/2017/06/20/浏览器缓存解析/1.png" alt="Alt text"><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Expires: Wed ,<span class="number">04</span> Jul <span class="number">2012</span> <span class="number">09</span>:<span class="number">12</span>:<span class="number">36</span> GMT</div></pre></td></tr></table></figure></p>
 <p><code>Expires</code>响应头从另一个角度——指明缓存的具体过期日期，来控制资源何时过期。在过期时间以内，若再次发起请求，通常浏览器都不会与服务器进行任何通信，而是直接使用本地副本。<br>当 <code>Expires</code> 和 <code>Cache-Control</code> 同时出现时，通常后者会覆盖前者的设定。由于 Expires 对用户的系统时间有所依赖，因此通常认为使用<code>Cache-Control</code>是更好的选择（基本上所有的浏览器都支持 <code>Cache-Control</code> 指令）。</p>
 <h3 id="ETag与Last-Modified"><a href="#ETag与Last-Modified" class="headerlink" title="ETag与Last-Modified"></a>ETag与Last-Modified</h3><p>服务器可在<code>HTTP</code>返回头中包含<code>Last-Modified</code>字段或者<code>ETag</code>字段。<code>Last-Modified</code> 表示被请求资源在服务器端的上次修改时间，而<code>ETag</code> 则是一个唯一文件标识符，每次文件修改后都会生成一个新的 <code>ETag</code>。服务器通过向浏览器发送这两个字段，来告知浏览器其获得的资源的版本。</p>
 <h4 id="ETag"><a href="#ETag" class="headerlink" title="ETag"></a>ETag</h4><ul>
 <li>服务器使用 ETag HTTP 标头传递验证令牌。</li>
-<li>验证令牌可实现高效的资源更新检查：资源未发生变化时不会传送任何数据。<br><img src="2.png" alt="Alt text"></li>
+<li>验证令牌可实现高效的资源更新检查：资源未发生变化时不会传送任何数据。<br><img src="/2017/06/20/浏览器缓存解析/2.png" alt="Alt text"></li>
 </ul>
 <p>比如：浏览器第一次请求a.jpg 时，服务器会发送完整的文件并附带额外信息，其中Etag 是 对a.jpg文件的编码，如果a.jpg在服务端未被修改，这个值就不会变<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Cache-Control: max-age=<span class="number">300</span>；</div><div class="line">ETag:W/<span class="string">"e-cbxLFQW5zapn79tQwb/g6Q"</span></div></pre></td></tr></table></figure></p>
 <p>浏览器把<code>a.jpg</code>和额外信息保存到本地。假如浏览器在300秒以内再次需要获取a.jpg时，浏览器直接从缓存读取<code>a.jpg(200, from xx cache)</code>。假如浏览器在300秒之后再次需要获取<code>a.jpg</code>时，浏览器发现该缓存的文件已经不新鲜了，于是就向服务器发送请求 重新获取<code>a.jpg</code>, 在发送请求的时候附带刚刚保存的<code>a.jpg</code>的<code>ETag ( If-None-Match：W/&quot;e-cbxLFQW5zapn79tQwb/g6Q&quot;)</code>。 服务器在接收到请求后拿浏览器请求的<code>Etag</code>和当前文件重新计算后端 <code>Etag</code>做个比较，如果二者相等表示文件在未修改则发送个短消息（响应头，不包含图片内容, 304），如果二者不等则发送新文件和新的<code>ETag</code>，浏览器获取新文件并更新该文件的 <code>Etag</code>。</p>
@@ -467,7 +467,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">57</span>
+              <span class="site-state-item-count">58</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -475,7 +475,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -532,7 +532,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2018</span>
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
